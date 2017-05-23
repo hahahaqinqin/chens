@@ -4,7 +4,7 @@
     height: 100%;
 }
 .swiper-container.home {
-    max-height: 450px;
+    height: 450px;
 }
 .swiper-slide {
     text-align: center;
