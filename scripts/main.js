@@ -1,1 +1,1 @@
-"use strict";console.log("'Allo 'Allo!");
+"use strict";var swiper=new Swiper(".swiper-container.home",{pagination:".swiper-pagination",paginationClickable:!0});
