@@ -9,7 +9,7 @@
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    /*background: #fff;*/
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -25,3 +25,28 @@
     align-items: center;
 }
 /* Swiper Init End */
+
+/* Fixing Start */
+.horizontal-menu .bar {
+    position: relative;
+}
+.horizontal-menu .bar-inner {
+    display: inline-block;
+    width: auto;
+}
+.horizontal-menu .bar-inner > ul > li > .classic > li:first-child {
+    margin-top: 25px;
+}
+.horizontal-menu .bar-inner > ul > li > .classic > li {
+    float: left;
+}
+.horizontal-menu .bar-inner > ul > li > .classic > li:last-child {
+    margin-bottom: 5px;
+}
+.page-container {
+    height: auto;
+}
+.header .brand {
+    width: 160px;
+}
+/* Fixing End */
