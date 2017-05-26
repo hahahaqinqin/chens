@@ -1,3 +1,11 @@
+body {
+    background-image: url("../images/bg.jpg");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
 /* Swiper Init Start */
 .swiper-container {
     width: 100%;
@@ -9,7 +17,7 @@
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    /*background: #fff;*/
+    background: #fff;
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -48,5 +56,9 @@
 }
 .header .brand {
     width: 160px;
+}
+.gallery-item {
+    width: auto;
+    height: auto;
 }
 /* Fixing End */
