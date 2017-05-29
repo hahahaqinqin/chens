@@ -35,6 +35,9 @@ body {
 /* Swiper Init End */
 
 /* Fixing Start */
+.dl-horizontal dt {
+    width: auto;
+}
 .horizontal-menu .bar {
     position: relative;
 }
@@ -44,9 +47,6 @@ body {
 }
 .horizontal-menu .bar-inner > ul > li > .classic > li:first-child {
     margin-top: 25px;
-}
-.horizontal-menu .bar-inner > ul > li > .classic > li {
-    float: left;
 }
 .horizontal-menu .bar-inner > ul > li > .classic > li:last-child {
     margin-bottom: 5px;
