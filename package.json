@@ -1,0 +1,32 @@
+{
+  "name": "chens",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chinese Restaurant, Mart, Chinese Food, Daily Support, Drinks, Meal, Dinner, Lunch, Products, Asian Food",
+  "main": "chens.js",
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "less-middleware": "~2.2.0",
+    "morgan": "~1.8.1",
+    "pug": "~2.0.0-beta11",
+    "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dante-Vonarmia/chens.git"
+  },
+  "author": "Dante Von Armia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dante-Vonarmia/chens/issues"
+  },
+  "homepage": "https://github.com/Dante-Vonarmia/chens#readme"
+}
