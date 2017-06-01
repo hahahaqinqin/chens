@@ -1,6 +1,7 @@
 #ignore packages installed by npm
 node_modules
-
+public/pages
+public/vendor
 #others
 .DS_STore
 *.bak

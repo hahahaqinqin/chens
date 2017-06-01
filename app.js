@@ -1,18 +1,24 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var lessMiddleware = require('less-middleware');
+// Libs
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const lessMiddleware = require('less-middleware');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+// Router
+const indexView = require('./routes/views/index');
+const usersView = require('./routes/views/users');
+const aboutView = require('./routes/views/about');
+const headerRequest = require('./routes/views/header');
 
-var app = express();
+const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'templates/views'));
+
+console.log('url: ' + __dirname);
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
@@ -21,15 +27,21 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// Less Compile
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+console.log(__dirname);
 
-app.use('/', index);
-app.use('/users', users);
+// Router Here
+app.use('/', indexView);
+app.use('/users', usersView);
+app.use('/about', aboutView);
+app.use('/', headerRequest);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
@@ -44,5 +56,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// disable header
+app.disable('x-powered-by');
 
 module.exports = app;
