@@ -1,11 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const sampleFunc     = require('../../lib/example.js');
+const router = express.Router();
 
 /* GET about page. */
 router.get('/', function(req, res, next) {
-	console.log(req.originalUrl);
-	// console.log(res);
-	res.render('about', { title: 'Express' });
+	res.render('about', {
+		title: 'Express',
+		result: sampleFunc.sampleFunc(999)
+	});
 });
 
 module.exports = router;
