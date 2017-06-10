@@ -1,8 +1,222 @@
 extends ../layouts/layout
 
-block css
+//- block css
 	//- link(rel="stylesheet", href="/css/main.css")
 
 block content
-	h1= title
-	p Welcome to #{title}
+	//- BEGIN JUMBOTRON
+	section.jumbotron.full-vh(data-pages='parallax')
+		.inner.full-height
+			//- BEGIN SLIDER
+			#hero.swiper-container
+				.swiper-wrapper
+					//- BEGIN SLIDE
+					.swiper-slide.fit
+						//- BEGIN IMAGE PARRALAX
+						.slider-wrapper
+							.image(data-swiper-parallax='30%')
+								img.image-responsive-height(draggable='false', src='assets/images/hero_g.jpg', alt='', title='')
+						//- END IMAGE PARRALAX
+						//- BEGIN CONTENT
+						.content-layer
+							.inner.full-height
+								.container-xs-height.full-height
+									.col-xs-height.col-middle.text-left
+										.container
+											.col-sm-6.col-sm-offset-1
+												h1.light.text-white
+													| The new websites 
+													br
+													| on its way!
+												h4.text-white Sign up for our spam free newsletter
+												form.m-t-25.m-b-20
+													.form-group.form-group-default.input-group.no-border.input-group-attached.col-md-12.col-sm-12.col-xs-12
+														label.control-label Email Address
+														input.form-control(type='email', placeholder='johnsmith@abc.com')
+														span.input-group-btn
+															button.btn.btn-black.btn-cons(type='button') Subscribe!
+												p.text-white.fs-12 Be first to find out when we Launch our product.
+						//- END CONTENT
+					//- END SLIDE
+					//- BEGIN SLIDE
+					.swiper-slide.fit
+						//- BEGIN IMAGE PARRALAX
+						.slider-wrapper
+							.image(data-swiper-parallax='30%')
+								img.image-responsive-height(draggable='false', src='assets/images/gallery_hero_1.jpg', alt='', title='')
+						//- END IMAGE PARRALAX
+						//- BEGIN CONTENT
+						.content-layer
+							.inner.full-height
+								.container-xs-height.full-height
+									.col-xs-height.col-middle.text-left
+										.container
+											.col-md-6.no-padding.col-xs-10.col-xs-offset-1
+												h1.light.text-white.sm-text-center(data-swiper-parallax='-15%')  Twenty & Counting... Unique Website Templates
+												h4.sm-text-center.text-white Save time, save money, look more professional and win more clients.
+												h5.block-title.text-white.sm-text-center Behind the scenes watch tour
+												p.fs-12.font-arial.hint-text.sm-text-center Available at themeforest, envato market place.
+						//- END CONTENT
+					//- END SLIDE
+				//- BEGIN ANIMATED MOUSE
+				.mouse-wrapper
+					.mouse
+						.mouse-scroll
+				//- Add Navigation
+				.swiper-navigation.swiper-dark-solid.swiper-button-prev
+				.swiper-navigation.swiper-dark-solid.swiper-button-next
+		//- END SLIDER
+	//- END JUMBOTRON
+	//- BEGIN PORTFOLIO SECTION
+	section.p-t-40.p-b-40
+		.container
+			.m-b-30
+				h1.text-center FEATURED PRODUCTS
+				.b-b.b-grey.m-t-30
+				.col-md-9.col-md-offset-3.col-sm-8.col-sm-offset-2.p-t-15.p-b-15
+					ul.no-style.no-margin
+						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
+							a.link.active.text-black.fs-13.block-title(href='#') all
+						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
+							a.link.active.text-black.fs-13.block-title(href='#') meat
+						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
+							a.link.active.text-black.fs-13.block-title(href='#') vegetable
+						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
+							a.link.active.text-black.fs-13.block-title(href='#') ingredients
+						li.m-r-20.m-l-20.inline.sm-block.text-center
+							a.link.active.text-black.fs-13.block-title(href='#') other
+		.gallery
+			.grid-sizer.col-sm-3.col-xs-6.no-padding
+			//- START GALLERY ITEM
+			.gallery-item.col-sm-6.col-xs-12.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin IGNITEAT
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
+				.ar-2-1
+					div(data-pages-bg-image='assets/images/gallery_1.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+			//- END GALLERY ITEM
+			//- START GALLERY ITEM
+			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin IGNITEAT
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
+				.ar-1-1
+					//- START PREVIEW
+					div(data-pages-bg-image='assets/images/gallery_2.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+					//- END PREVIEW
+			//- END GALLERY ITEM
+			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin IGNITEAT
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
+				.ar-1-1
+					//- START PREVIEW
+					div(data-pages-bg-image='assets/images/gallery_6.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+					//- END PREVIEW
+			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin IGNITEAT
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
+				.ar-1-1
+					//- START PREVIEW
+					div(data-pages-bg-image='assets/images/gallery_4.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+					//- END PREVIEW
+			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin IGNITEAT
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
+				.ar-1-1
+					//- START PREVIEW
+					div(data-pages-bg-image='assets/images/gallery_3.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+					//- END PREVIEW
+			.gallery-item.col-sm-6.col-xs-12.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin IGNITEAT
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
+				.ar-2-1
+					div(data-pages-bg-image='assets/images/gallery_5.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+			//- END GALLERY ITEM
+	//- END PORTFOLIO SECTION
+	//- BEGIN PORTFOLIO SECTION
+	section.p-t-40
+		.container
+			.m-b-30
+				h1.text-center Showcase.
+				.b-b.b-grey.m-t-30
+				.col-md-9.col-md-offset-3.col-sm-8.col-sm-offset-2.p-t-15.p-b-15
+					ul.no-style.no-margin
+						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
+							a.link.active.text-black.fs-13.block-title(href='#') Logos
+						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
+							a.link.active.text-black.fs-13.block-title(href='#') Advertising
+						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
+							a.link.active.text-black.fs-13.block-title(href='#') Art
+						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
+							a.link.active.text-black.fs-13.block-title(href='#') Law
+						li.m-r-20.m-l-20.inline.sm-block.text-center
+							a.link.active.text-black.fs-13.block-title(href='#') Constructions
+		.gallery
+			.grid-sizer.col-sm-3.col-xs-6.no-padding
+			//- START GALLERY ITEM
+			.gallery-item.col-sm-6.col-xs-12.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin IGNITEAT
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
+				.ar-2-1
+					div(data-pages-bg-image='assets/images/gallery_1.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+			//- END GALLERY ITEM
+			//- START GALLERY ITEM
+			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin IGNITEAT
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
+				.ar-1-1
+					//- START PREVIEW
+					div(data-pages-bg-image='assets/images/gallery_2.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+					//- END PREVIEW
+			//- END GALLERY ITEM
+			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin IGNITEAT
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
+				.ar-1-1
+					//- START PREVIEW
+					div(data-pages-bg-image='assets/images/gallery_6.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+					//- END PREVIEW
+			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin IGNITEAT
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
+				.ar-1-1
+					//- START PREVIEW
+					div(data-pages-bg-image='assets/images/gallery_4.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+					//- END PREVIEW
+			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin IGNITEAT
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
+				.ar-1-1
+					//- START PREVIEW
+					div(data-pages-bg-image='assets/images/gallery_3.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+					//- END PREVIEW
+			.gallery-item.col-sm-6.col-xs-12.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin IGNITEAT
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
+				.ar-2-1
+					div(data-pages-bg-image='assets/images/gallery_5.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+			//- END GALLERY ITEM
+	//- END PORTFOLIO SECTION
+

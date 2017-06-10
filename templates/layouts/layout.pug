@@ -1,8 +1,225 @@
 doctype html
 html
 	head
+		meta(http-equiv='content-type', content='text/html;charset=UTF-8')
+		meta(charset='utf-8')
 		title= title
-		block css
-		link(rel='stylesheet', href='/css/style.css')
-	body
-		block content
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+		link(rel='apple-touch-icon', href='pages/ico/60.png')
+		link(rel='apple-touch-icon', sizes='76x76', href='pages/ico/76.png')
+		link(rel='apple-touch-icon', sizes='120x120', href='pages/ico/120.png')
+		link(rel='apple-touch-icon', sizes='152x152', href='pages/ico/152.png')
+		link(rel='icon', type='image/x-icon', href='favicon.ico')
+		meta(name='apple-mobile-web-app-capable', content='yes')
+		meta(name='apple-touch-fullscreen', content='yes')
+		meta(name='apple-mobile-web-app-status-bar-style', content='default')
+		meta(name='description', content='')
+		meta(name='author', content='')
+		//- BEGIN PLUGINS
+		link(href='assets/plugins/pace/pace-theme-flash.css', rel='stylesheet', type='text/css')
+		link(href='assets/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet', type='text/css')
+		link(href='assets/plugins/font-awesome/css/font-awesome.css', rel='stylesheet', type='text/css')
+		link(href='assets/plugins/swiper/css/swiper.css', rel='stylesheet', type='text/css', media='screen')
+		//- END PLUGINS
+		//- BEGIN PAGES CSS
+		link.main-stylesheet(href='pages/css/pages.css', rel='stylesheet', type='text/css')
+		link.main-stylesheet(href='pages/css/pages-icons.css', rel='stylesheet', type='text/css')
+		//- END PAGES CSS
+	body.pace-dark
+		//- BEGIN HEADER
+		nav.header.bg-header.transparent-light(data-pages='header', data-pages-header='autoresize', data-pages-resize-class='light')
+			.container.relative
+				//- BEGIN LEFT CONTENT
+				.pull-left.z-index-10
+					//- BEGIN HEADER TOGGLE FOR MOBILE
+					.visible-sm-inline.visible-xs-inline.menu-toggler.pull-right(data-pages='header-toggle', data-pages-element='#header')
+						.one
+						.two
+						.three
+				//- BEGIN CENTER CONTENT
+				.pull-center
+					.pull-center-inner
+						.header-inner
+							//- BEGIN LOGO
+							img.alt(src='assets/images/logo_black.png', width='152', height='21', data-src-retina='assets/images/logo_black_2x.png', alt='')
+							img.logo(src='assets/images/logo_white.png', width='152', height='21', data-src-retina='assets/images/logo_white_2x.png', alt='')
+				.pull-right.relative.z-index-10.visible-sm-inline.visible-xs-inline
+					.header-inner
+						a.search-toggle(href='#', data-toggle='search')
+							i.fs-14.pg-search
+				//- END CENTER CONTENT
+				//- BEGIN MENU
+				#header.menu-content.clearfix(data-pages='menu-content', data-pages-direction='slideLeft')
+					//- BEGIN HEADER CLOSE TOGGLE FOR MOBILE
+					.pull-left
+						a.text-black.link.padding-10.visible-xs-inline.visible-sm-inline.pull-right.m-t-10.m-b-10.m-r-10(href='#', data-pages='header-toggle', data-pages-element='#header')
+							i.pg-close_line
+					.pull-left.sm-full-width
+						.header-inner
+							//- BEGIN MENU ITEMS
+							ul.menu
+								li
+									a.active(href='#', data-text='Home') Home
+								li.mega
+									a(href='javascript:;', data-text='Elements')
+										| Elements 
+										i.pg-arrow_minimize.m-l-5
+										//- span(data-text='Shortcodes') Shortcodes
+									span.arrow
+									nav.mega
+										.container
+											.row
+												.col-md-4.p-l-25.sm-p-l-0.hidden-sm.hidden-xs
+													h6.block-title.fs-12.no-margin Pages UI Bundle
+													h2.m-t-20
+														| A new page, 
+														br
+														| a new beginning...
+													p.small.font-arial.hint-text.no-margin Exclusively available at Envato Marketplace
+													a.btn.btn-black.font-montserrat.fs-11.all-caps.m-t-35(href='#') Buy now
+												.col-md-8
+													.row
+														.col-md-4
+															h6.sub-menu-heading UI Elements
+															ul.sub-menu
+																li
+																	a(href='http://pages.revox.io/frontend/1.0/doc/#color', target='_blank') Colors
+																li
+																	a(href='http://pages.revox.io/frontend/1.0/doc/#icons', target='_blank') Icons
+																li
+																	a(href='http://pages.revox.io/frontend/1.0/doc/#buttons', target='_blank') Buttons
+																li
+																	a(href='http://pages.revox.io/frontend/1.0/doc/#modals', target='_blank') Modals
+																li
+																	a(href='http://pages.revox.io/frontend/1.0/doc/#progress_bars', target='_blank') Progress & Activity
+																li
+																	a(href='http://pages.revox.io/frontend/1.0/doc/#accordians', target='_blank') Accordians
+																li
+																	a(href='http://pages.revox.io/frontend/1.0/doc/#tabs', target='_blank') Tabs
+														.col-md-4
+															h6.sub-menu-heading Forms
+															ul.sub-menu
+																li
+																	a(href='http://pages.revox.io/frontend/1.0/doc/#form_elements', target='_blank') Form Elements
+																li
+																	a(href='http://pages.revox.io/frontend/1.0/doc/#form_layouts', target='_blank') Form Layouts
+																li
+																	a(href='http://pages.revox.io/frontend/1.0/doc/#form_validation', target='_blank') Form Validation
+															h6.sub-menu-heading Other products
+															ul.sub-menu
+																li
+																	a(href='http://www.revox.io/webarch/', target='_blank') Webarch
+														.col-md-4
+															h6.sub-menu-heading Made with pages
+															ul.sub-menu
+																li
+																	a(href='http://pages.revox.io/dashboard/latest/html', target='_blank') Pages Admin
+																li
+																	a(href='http://pages.revox.io/dashboard/latest/html/email.html', target='_blank') Email
+																li
+																	a(href='http://pages.revox.io/frontend/latest', target='_blank') Pages Frontend
+																li
+																	a(href='http://pages.revox.io/dashboard/latest/html/calendar.html', target='_blank') Calendar
+																li
+																	a(href='http://pages.revox.io/dashboard/latest/html/social.html', target='_blank') Social
+																li
+																	a(href='http://pages.revox.io/dashboard/latest/html/builder.html', target='_blank') Builder
+								li
+									a(href='pricing.html', data-text='Pricing') Pricing
+							//- END MENU ITEMS
+					.pull-right.sm-full-width
+						.header-inner
+							//- BEGIN MENU ITEMS
+							ul.menu
+								li
+									a(href='portfolio.html', data-text='Portfolio') Portfolio 
+								li
+									a(href='contact.html', data-text='Contact Us') Contact Us
+							//- END MENU ITEMS
+							a.search-toggle.hidden-sm.hidden-xs.relative.z-index-1(href='#', data-toggle='search')
+								i.fs-14.pg-search
+							//- BEGIN COPYRIGHT FOR MOBILE
+							.font-arial.m-l-35.m-r-35.m-b-20.m-t-20.visible-sm.visible-xs
+								p.fs-11.no-margin.small-text.p-b-20
+									| Exclusive only at ,Themeforest. See Standard licenses & Extended licenses
+								p.fs-11.small-text.muted Copyright © 2014 REVOX
+							//- END COPYRIGHT FOR MOBILE
+				//- END MENU
+		//- END HEADER
+		.page-wrappers
+			block content
+		//- BEGIN FOOTER
+		section.p-b-30.p-t-40.bg-master-dark
+			.container
+				.row
+					.col-sm-6
+						img.logo(src='assets/images/logo_white.png', alt='')
+						.m-t-10
+							ul.no-style.fs-11.no-padding.font-arial
+								li.inline.no-padding
+									a.link.text-white.p-r-10.b-r.b-transparent-white(href='#') Home
+								li.inline.no-padding
+									a.link.text-white.p-l-10.p-r-10.b-r.b-transparent-white(href='#') Themeforest Profile
+								li.inline.no-padding
+									a.link.text-white.p-l-10.p-r-10.b-r.b-transparent-white(href='#') Support
+								li.inline.no-padding
+									a.link.text-white.p-l-10.p-r-10.xs-no-padding.xs-m-t-10(href='#') Made with Pages
+					.col-sm-6.text-right.font-arial.sm-text-left
+						p.fs-11.small-text.no-margin.text-white
+							span.hint-text Exclusive only at
+							|  Envato Marketplace,Themeforest 
+							span.hint-text See
+							|  Standard licenses & Extended licenses
+						p.fs-11.muted.text-white Copyright © 2014 REVOX. All Rights Reserved.
+		//- END FOOTER
+		//- START OVERLAY
+		.overlay.hide(data-pages='search')
+			//- BEGIN Overlay Content !
+			.overlay-content.full-height.has-results
+				//- END Overlay Header !
+				.container.relative.full-height
+					//- BEGIN Overlay Header !
+					.container-fluid
+						//- BEGIN Overlay Close !
+						a.close-icon-light.overlay-close.text-black.fs-16.top-right(href='#')
+							i.pg-close_line
+						//- END Overlay Close !
+					.container-fluid
+						.inline-block.bottom-right.m-b-30
+							.checkbox.right
+								input#checkboxn(type='checkbox', value='1', checked='checked')
+								label(for='checkboxn') Search within page
+					.container-xs-height.full-height
+						.col-xs-height.col-middle.text-center
+							//- BEGIN Overlay Controls !
+							input#overlay-search.no-border.overlay-search.bg-transparent.col-sm-6.col-sm-offset-4(placeholder='Search...', autocomplete='off', spellcheck='false')
+							br
+							.inline-block.bottom-left.m-l-10.m-b-30.hidden-xs
+								p.fs-14
+									i.fa.fa-search.m-r-10
+									|  Press enter to search
+							//- END Overlay Controls !
+			//- END Overlay Content !
+		//- END OVERLAY
+		//- BEGIN CORE FRAMEWORK
+		script(type='text/javascript', src='assets/plugins/pace/pace.min.js')
+		script(type='text/javascript', src='pages/js/pages.image.loader.js')
+		script(type='text/javascript', src='assets/plugins/jquery/jquery-1.11.1.min.js')
+		script(type='text/javascript', src='assets/plugins/bootstrap/js/bootstrap.min.js')
+		//- BEGIN SWIPER DEPENDENCIES
+		script(type='text/javascript', src='assets/plugins/swiper/js/swiper.jquery.min.js')
+		//- Waits for the images to be loaded before applying the Isotope plugin
+		script(src='assets/plugins/imagesloaded/imagesloaded.pkgd.min.js')
+		//- Isotope plugin arranges the card layout
+		script(type='text/javascript', src='assets/plugins/jquery-isotope/isotope.pkgd.min.js')
+		//- BEGIN RETINA IMAGE LOADER
+		script(type='text/javascript', src='assets/plugins/jquery-unveil/jquery.unveil.min.js')
+		//- END VENDOR JS
+		//- BEGIN PAGES FRONTEND LIB
+		script(type='text/javascript', src='pages/js/pages.frontend.js')
+		//- END PAGES LIB
+		//- BEGIN YOUR CUSTOM JS
+		script(type='text/javascript', src='assets/js/custom.js')
+		script(type='text/javascript', src='assets/js/gallery.js')
+
+
