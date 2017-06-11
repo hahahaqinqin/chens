@@ -27,7 +27,7 @@ html
 		//- END PAGES CSS
 	body.pace-dark
 		//- BEGIN HEADER
-		nav.header.bg-header.transparent-light(data-pages='header', data-pages-header='autoresize', data-pages-resize-class='light')
+		nav.header.bg-header.dark(data-pages='header', data-pages-header='autoresize', data-pages-resize-class='light')
 			.container.relative
 				//- BEGIN LEFT CONTENT
 				.pull-left.z-index-10
@@ -45,8 +45,8 @@ html
 							img.logo(src='assets/images/logo_white.png', width='152', height='21', data-src-retina='assets/images/logo_white_2x.png', alt='')
 				.pull-right.relative.z-index-10.visible-sm-inline.visible-xs-inline
 					.header-inner
-						a.search-toggle(href='#', data-toggle='search')
-							i.fs-14.pg-search
+						//- a.search-toggle(href='#', data-toggle='search')
+							//- i.fs-14.pg-search
 				//- END CENTER CONTENT
 				//- BEGIN MENU
 				#header.menu-content.clearfix(data-pages='menu-content', data-pages-direction='slideLeft')
@@ -59,90 +59,89 @@ html
 							//- BEGIN MENU ITEMS
 							ul.menu
 								li
-									a.active(href='#', data-text='Home') Home
+									a.active(href='/', data-text='Home') Home
 								li.mega
-									a(href='javascript:;', data-text='Elements')
-										| Elements 
-										i.pg-arrow_minimize.m-l-5
-										//- span(data-text='Shortcodes') Shortcodes
-									span.arrow
-									nav.mega
-										.container
-											.row
-												.col-md-4.p-l-25.sm-p-l-0.hidden-sm.hidden-xs
-													h6.block-title.fs-12.no-margin Pages UI Bundle
-													h2.m-t-20
-														| A new page, 
-														br
-														| a new beginning...
-													p.small.font-arial.hint-text.no-margin Exclusively available at Envato Marketplace
-													a.btn.btn-black.font-montserrat.fs-11.all-caps.m-t-35(href='#') Buy now
-												.col-md-8
-													.row
-														.col-md-4
-															h6.sub-menu-heading UI Elements
-															ul.sub-menu
-																li
-																	a(href='http://pages.revox.io/frontend/1.0/doc/#color', target='_blank') Colors
-																li
-																	a(href='http://pages.revox.io/frontend/1.0/doc/#icons', target='_blank') Icons
-																li
-																	a(href='http://pages.revox.io/frontend/1.0/doc/#buttons', target='_blank') Buttons
-																li
-																	a(href='http://pages.revox.io/frontend/1.0/doc/#modals', target='_blank') Modals
-																li
-																	a(href='http://pages.revox.io/frontend/1.0/doc/#progress_bars', target='_blank') Progress & Activity
-																li
-																	a(href='http://pages.revox.io/frontend/1.0/doc/#accordians', target='_blank') Accordians
-																li
-																	a(href='http://pages.revox.io/frontend/1.0/doc/#tabs', target='_blank') Tabs
-														.col-md-4
-															h6.sub-menu-heading Forms
-															ul.sub-menu
-																li
-																	a(href='http://pages.revox.io/frontend/1.0/doc/#form_elements', target='_blank') Form Elements
-																li
-																	a(href='http://pages.revox.io/frontend/1.0/doc/#form_layouts', target='_blank') Form Layouts
-																li
-																	a(href='http://pages.revox.io/frontend/1.0/doc/#form_validation', target='_blank') Form Validation
-															h6.sub-menu-heading Other products
-															ul.sub-menu
-																li
-																	a(href='http://www.revox.io/webarch/', target='_blank') Webarch
-														.col-md-4
-															h6.sub-menu-heading Made with pages
-															ul.sub-menu
-																li
-																	a(href='http://pages.revox.io/dashboard/latest/html', target='_blank') Pages Admin
-																li
-																	a(href='http://pages.revox.io/dashboard/latest/html/email.html', target='_blank') Email
-																li
-																	a(href='http://pages.revox.io/frontend/latest', target='_blank') Pages Frontend
-																li
-																	a(href='http://pages.revox.io/dashboard/latest/html/calendar.html', target='_blank') Calendar
-																li
-																	a(href='http://pages.revox.io/dashboard/latest/html/social.html', target='_blank') Social
-																li
-																	a(href='http://pages.revox.io/dashboard/latest/html/builder.html', target='_blank') Builder
+									a(href='/restaurant', data-text='Restaurant')
+										| Restaurant 
+									//- 	i.pg-arrow_minimize.m-l-5
+									//- span.arrow
+									//- nav.mega
+									//- 	.container
+									//- 		.row
+									//- 			.col-md-4.p-l-25.sm-p-l-0.hidden-sm.hidden-xs
+									//- 				h6.block-title.fs-12.no-margin Pages UI Bundle
+									//- 				h2.m-t-20
+									//- 					| A new page, 
+									//- 					br
+									//- 					| a new beginning...
+									//- 				p.small.font-arial.hint-text.no-margin Exclusively available at Envato Marketplace
+									//- 				a.btn.btn-black.font-montserrat.fs-11.all-caps.m-t-35(href='#') Buy now
+									//- 			.col-md-8
+									//- 				.row
+									//- 					.col-md-4
+									//- 						h6.sub-menu-heading UI Elements
+									//- 						ul.sub-menu
+									//- 							li
+									//- 								a(href='http://pages.revox.io/frontend/1.0/doc/#color', target='_blank') Colors
+									//- 							li
+									//- 								a(href='http://pages.revox.io/frontend/1.0/doc/#icons', target='_blank') Icons
+									//- 							li
+									//- 								a(href='http://pages.revox.io/frontend/1.0/doc/#buttons', target='_blank') Buttons
+									//- 							li
+									//- 								a(href='http://pages.revox.io/frontend/1.0/doc/#modals', target='_blank') Modals
+									//- 							li
+									//- 								a(href='http://pages.revox.io/frontend/1.0/doc/#progress_bars', target='_blank') Progress & Activity
+									//- 							li
+									//- 								a(href='http://pages.revox.io/frontend/1.0/doc/#accordians', target='_blank') Accordians
+									//- 							li
+									//- 								a(href='http://pages.revox.io/frontend/1.0/doc/#tabs', target='_blank') Tabs
+									//- 					.col-md-4
+									//- 						h6.sub-menu-heading Forms
+									//- 						ul.sub-menu
+									//- 							li
+									//- 								a(href='http://pages.revox.io/frontend/1.0/doc/#form_elements', target='_blank') Form Elements
+									//- 							li
+									//- 								a(href='http://pages.revox.io/frontend/1.0/doc/#form_layouts', target='_blank') Form Layouts
+									//- 							li
+									//- 								a(href='http://pages.revox.io/frontend/1.0/doc/#form_validation', target='_blank') Form Validation
+									//- 						h6.sub-menu-heading Other products
+									//- 						ul.sub-menu
+									//- 							li
+									//- 								a(href='http://www.revox.io/webarch/', target='_blank') Webarch
+									//- 					.col-md-4
+									//- 						h6.sub-menu-heading Made with pages
+									//- 						ul.sub-menu
+									//- 							li
+									//- 								a(href='http://pages.revox.io/dashboard/latest/html', target='_blank') Pages Admin
+									//- 							li
+									//- 								a(href='http://pages.revox.io/dashboard/latest/html/email.html', target='_blank') Email
+									//- 							li
+									//- 								a(href='http://pages.revox.io/frontend/latest', target='_blank') Pages Frontend
+									//- 							li
+									//- 								a(href='http://pages.revox.io/dashboard/latest/html/calendar.html', target='_blank') Calendar
+									//- 							li
+									//- 								a(href='http://pages.revox.io/dashboard/latest/html/social.html', target='_blank') Social
+									//- 							li
+									//- 								a(href='http://pages.revox.io/dashboard/latest/html/builder.html', target='_blank') Builder
 								li
-									a(href='pricing.html', data-text='Pricing') Pricing
+									a(href='/mart', data-text='mart') mart
 							//- END MENU ITEMS
 					.pull-right.sm-full-width
 						.header-inner
 							//- BEGIN MENU ITEMS
 							ul.menu
 								li
-									a(href='portfolio.html', data-text='Portfolio') Portfolio 
+									a(href='/contact', data-text='Contact Us') Contact Us
 								li
-									a(href='contact.html', data-text='Contact Us') Contact Us
+									a(herf='javascript:;', data-text='phone')
+										| +65 345 345 5555 
+										i.m-l-10.fa.fa-phone
 							//- END MENU ITEMS
-							a.search-toggle.hidden-sm.hidden-xs.relative.z-index-1(href='#', data-toggle='search')
-								i.fs-14.pg-search
 							//- BEGIN COPYRIGHT FOR MOBILE
 							.font-arial.m-l-35.m-r-35.m-b-20.m-t-20.visible-sm.visible-xs
 								p.fs-11.no-margin.small-text.p-b-20
-									| Exclusive only at ,Themeforest. See Standard licenses & Extended licenses
-								p.fs-11.small-text.muted Copyright © 2014 REVOX
+									| Exclusive only at ,Mr CHENS. See Standard licenses & Extended licenses
+								p.fs-11.small-text.muted Copyright © 2017 MR.CHENS
 							//- END COPYRIGHT FOR MOBILE
 				//- END MENU
 		//- END HEADER
@@ -157,20 +156,29 @@ html
 						.m-t-10
 							ul.no-style.fs-11.no-padding.font-arial
 								li.inline.no-padding
-									a.link.text-white.p-r-10.b-r.b-transparent-white(href='#') Home
+									a.link.text-white.p-r-10.b-r.b-transparent-white(href='/') Home
 								li.inline.no-padding
-									a.link.text-white.p-l-10.p-r-10.b-r.b-transparent-white(href='#') Themeforest Profile
+									a.link.text-white.p-l-10.p-r-10.b-r.b-transparent-white(href='Mart') Mart
 								li.inline.no-padding
-									a.link.text-white.p-l-10.p-r-10.b-r.b-transparent-white(href='#') Support
+									a.link.text-white.p-l-10.p-r-10.b-r.b-transparent-white(href='/restaurant') Restaurant
 								li.inline.no-padding
-									a.link.text-white.p-l-10.p-r-10.xs-no-padding.xs-m-t-10(href='#') Made with Pages
-					.col-sm-6.text-right.font-arial.sm-text-left
+									a.link.text-white.p-l-10.p-r-10.xs-no-padding.xs-m-t-10(href='/contact') Contact
 						p.fs-11.small-text.no-margin.text-white
 							span.hint-text Exclusive only at
-							|  Envato Marketplace,Themeforest 
+							|  Envato Marketplace,Mr CHENS 
 							span.hint-text See
 							|  Standard licenses & Extended licenses
-						p.fs-11.muted.text-white Copyright © 2014 REVOX. All Rights Reserved.
+						p.fs-11.muted.text-white Copyright © 2017 MR.CHENS. All Rights Reserved.
+					.col-sm-6.font-arial.sm-text-left.hidden-xs
+						.form-group.form-group-default.input-group.col-md-10.col-sm-10.bg-transparent.b-a.b-transparent-white
+							label.control-label Email Address
+							input.form-control.text-white(type='email', placeholder='Example@mailserver.com')
+							span.input-group-btn
+								button.btn.btn-primary.m-r-10.btn-cons(type='button') Subscribe!
+						p.fs-12.hint-text.p-t-10.text-white
+							| We value your privacy. None of the details supplied will be shared with external parties
+
+
 		//- END FOOTER
 		//- START OVERLAY
 		.overlay.hide(data-pages='search')
@@ -221,5 +229,6 @@ html
 		//- BEGIN YOUR CUSTOM JS
 		script(type='text/javascript', src='assets/js/custom.js')
 		script(type='text/javascript', src='assets/js/gallery.js')
+		block js
 
 

@@ -10,10 +10,11 @@ const mongoose       = require('mongoose');
 
 // Router
 const indexView      = require('./routes/views/index');
-const usersView      = require('./routes/views/users');
-const aboutView      = require('./routes/views/about');
+const restaurantView = require('./routes/views/restaurant');
+const martView       = require('./routes/views/mart');
+const contactView    = require('./routes/views/contact');
 
-const sampleFunc     = require('./lib/example.js');
+// const sampleFunc     = require('./lib/example.js');
 
 const app            = express();
 
@@ -34,8 +35,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Router Here
 app.use('/', indexView);
-app.use('/users', usersView);
-app.use('/about', aboutView);
+app.use('/restaurant', restaurantView);
+app.use('/mart', martView);
+app.use('/contact', contactView);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,8 +1,5 @@
 extends ../layouts/layout
 
-//- block css
-	//- link(rel="stylesheet", href="/css/main.css")
-
 block content
 	//- BEGIN JUMBOTRON
 	section.jumbotron.full-vh(data-pages='parallax')
@@ -67,33 +64,42 @@ block content
 				.swiper-navigation.swiper-dark-solid.swiper-button-next
 		//- END SLIDER
 	//- END JUMBOTRON
+
+	//- BEGIN INTRO CONTENT
+	section.p-b-20.p-t-70
+		.container.text-center
+			.row
+				.col-sm-8.col-sm-offset-2
+					h6.block-title.m-b-0 Elegant that shines
+					h1.m-t-5.light Unrefined Olive oil exhibits.
+	//- END INTRO CONTENT
+
 	//- BEGIN PORTFOLIO SECTION
-	section.p-t-40.p-b-40
+	section
 		.container
-			.m-b-30
-				h1.text-center FEATURED PRODUCTS
-				.b-b.b-grey.m-t-30
-				.col-md-9.col-md-offset-3.col-sm-8.col-sm-offset-2.p-t-15.p-b-15
-					ul.no-style.no-margin
-						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
-							a.link.active.text-black.fs-13.block-title(href='#') all
-						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
-							a.link.active.text-black.fs-13.block-title(href='#') meat
-						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
-							a.link.active.text-black.fs-13.block-title(href='#') vegetable
-						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
-							a.link.active.text-black.fs-13.block-title(href='#') ingredients
-						li.m-r-20.m-l-20.inline.sm-block.text-center
-							a.link.active.text-black.fs-13.block-title(href='#') other
+			//- h1.text-center FEATURED PRODUCTS
+			.b-b.b-grey.m-t-30
+			.col-md-9.col-md-offset-3.col-sm-8.col-sm-offset-2.p-t-15.p-b-15
+				ul.no-style.no-margin
+					li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
+						a.link.active.text-black.fs-13.block-title(href='#') all
+					li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
+						a.link.active.text-black.fs-13.block-title(href='#') meat
+					li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
+						a.link.active.text-black.fs-13.block-title(href='#') vegetable
+					li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
+						a.link.active.text-black.fs-13.block-title(href='#') ingredients
+					li.m-r-20.m-l-20.inline.xs-block.text-center
+						a.link.active.text-black.fs-13.block-title(href='#') other
 		.gallery
 			.grid-sizer.col-sm-3.col-xs-6.no-padding
 			//- START GALLERY ITEM
-			.gallery-item.col-sm-6.col-xs-12.no-padding.hover-zoom
+			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
 				.inner.bottom-left.bottom-right.padding-30
 					h5.block-title.text-white.no-margin IGNITEAT
 					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
 					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
-				.ar-2-1
+				.ar-1-1
 					div(data-pages-bg-image='assets/images/gallery_1.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
 			//- END GALLERY ITEM
 			//- START GALLERY ITEM
@@ -134,45 +140,13 @@ block content
 					//- START PREVIEW
 					div(data-pages-bg-image='assets/images/gallery_3.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
 					//- END PREVIEW
-			.gallery-item.col-sm-6.col-xs-12.no-padding.hover-zoom
+			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
 				.inner.bottom-left.bottom-right.padding-30
 					h5.block-title.text-white.no-margin IGNITEAT
 					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
 					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
-				.ar-2-1
+				.ar-1-1
 					div(data-pages-bg-image='assets/images/gallery_5.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
-			//- END GALLERY ITEM
-	//- END PORTFOLIO SECTION
-	//- BEGIN PORTFOLIO SECTION
-	section.p-t-40
-		.container
-			.m-b-30
-				h1.text-center Showcase.
-				.b-b.b-grey.m-t-30
-				.col-md-9.col-md-offset-3.col-sm-8.col-sm-offset-2.p-t-15.p-b-15
-					ul.no-style.no-margin
-						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
-							a.link.active.text-black.fs-13.block-title(href='#') Logos
-						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
-							a.link.active.text-black.fs-13.block-title(href='#') Advertising
-						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
-							a.link.active.text-black.fs-13.block-title(href='#') Art
-						li.m-r-20.m-l-20.inline.sm-block.text-center.sm-p-b-5.sm-m-b-5.b-grey.sm-b-b
-							a.link.active.text-black.fs-13.block-title(href='#') Law
-						li.m-r-20.m-l-20.inline.sm-block.text-center
-							a.link.active.text-black.fs-13.block-title(href='#') Constructions
-		.gallery
-			.grid-sizer.col-sm-3.col-xs-6.no-padding
-			//- START GALLERY ITEM
-			.gallery-item.col-sm-6.col-xs-12.no-padding.hover-zoom
-				.inner.bottom-left.bottom-right.padding-30
-					h5.block-title.text-white.no-margin IGNITEAT
-					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
-					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
-				.ar-2-1
-					div(data-pages-bg-image='assets/images/gallery_1.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
-			//- END GALLERY ITEM
-			//- START GALLERY ITEM
 			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
 				.inner.bottom-left.bottom-right.padding-30
 					h5.block-title.text-white.no-margin IGNITEAT
@@ -180,17 +154,7 @@ block content
 					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
 				.ar-1-1
 					//- START PREVIEW
-					div(data-pages-bg-image='assets/images/gallery_2.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
-					//- END PREVIEW
-			//- END GALLERY ITEM
-			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
-				.inner.bottom-left.bottom-right.padding-30
-					h5.block-title.text-white.no-margin IGNITEAT
-					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
-					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
-				.ar-1-1
-					//- START PREVIEW
-					div(data-pages-bg-image='assets/images/gallery_6.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+					div(data-pages-bg-image='assets/images/gallery_7.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
 					//- END PREVIEW
 			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
 				.inner.bottom-left.bottom-right.padding-30
@@ -198,25 +162,82 @@ block content
 					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
 					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
 				.ar-1-1
-					//- START PREVIEW
-					div(data-pages-bg-image='assets/images/gallery_4.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
-					//- END PREVIEW
-			.gallery-item.col-sm-3.col-xs-6.no-padding.hover-zoom
-				.inner.bottom-left.bottom-right.padding-30
-					h5.block-title.text-white.no-margin IGNITEAT
-					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
-					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
-				.ar-1-1
-					//- START PREVIEW
-					div(data-pages-bg-image='assets/images/gallery_3.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
-					//- END PREVIEW
-			.gallery-item.col-sm-6.col-xs-12.no-padding.hover-zoom
-				.inner.bottom-left.bottom-right.padding-30
-					h5.block-title.text-white.no-margin IGNITEAT
-					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
-					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0 Logo design, Web Design and Branding
-				.ar-2-1
-					div(data-pages-bg-image='assets/images/gallery_5.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+					div(data-pages-bg-image='assets/images/gallery_hero_2.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
 			//- END GALLERY ITEM
 	//- END PORTFOLIO SECTION
 
+	//- BEGIN INTRO CONTENT
+	section.p-b-20.p-t-70
+		.container.text-center
+			.row
+				.col-sm-8.col-sm-offset-2
+					h6.block-title.m-b-0 Elegant that shines
+					h1.m-t-5.light Unrefined Olive oil exhibits.
+	//- END INTRO CONTENT
+
+	//- BEGIN FILTER
+	section
+		.container
+			.b-b.b-grey.m-t-30
+			.col-md-9.col-md-offset-3.col-sm-8.col-sm-offset-2.p-t-15.p-b-15
+				ul.no-style.no-margin
+					li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
+						a.link.active.text-black.fs-13.block-title(href='#') all
+					li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
+						a.link.active.text-black.fs-13.block-title(href='#') meat
+					li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
+						a.link.active.text-black.fs-13.block-title(href='#') vegetable
+					li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
+						a.link.active.text-black.fs-13.block-title(href='#') ingredients
+					li.m-r-20.m-l-20.inline.xs-block.text-center
+						a.link.active.text-black.fs-13.block-title(href='#') other
+	//- END FILTER
+
+	section.p-b-30
+		.container
+			.row
+				//- START POST
+				.col-sm-4.post-card
+					.post-card-cover.bg-primary
+					.post-card-body
+						.m-t-30
+							h5.all-caps.font-montserrat.pull-left.no-margin Notifications
+							i.pg-arrow_right.pull-right.m-t-10
+							.clearfix
+						p.fs-16.m-t-20
+							| Awesome notepad app. It gives you a quick and simple notepad editing experience when you write notes.
+					.post-card-footer.m-t-30
+						p.hint-text.small.pull-left Added on 12 sep 2014
+						p.text-right.pull-right.small Added on 12 sep 2014
+						.clearfix
+				//- END POST
+				//- START POST
+				.col-sm-4.post-card
+					.post-card-cover.bg-warning
+					.post-card-body
+						.m-t-30
+							h5.all-caps.font-montserrat.pull-left.no-margin Notifications
+							i.pg-arrow_right.pull-right.m-t-10
+							.clearfix
+						p.fs-16.m-t-20
+							| Awesome notepad app. It gives you a quick and simple notepad editing experience when you write notes.
+					.post-card-footer.m-t-30
+						p.hint-text.small.pull-left Added on 12 sep 2014
+						p.text-right.pull-right.small Added on 12 sep 2014
+						.clearfix
+				//- END POST
+				//- START POST
+				.col-sm-4.post-card
+					.post-card-cover.bg-success
+					.post-card-body
+						.m-t-30
+							h5.all-caps.font-montserrat.pull-left.no-margin Notifications
+							i.pg-arrow_right.pull-right.m-t-10
+							.clearfix
+						p.fs-16.m-t-20
+							| Awesome notepad app. It gives you a quick and simple notepad editing experience when you write notes.
+					.post-card-footer.m-t-30
+						p.hint-text.small.pull-left Added on 12 sep 2014
+						p.text-right.pull-right.small Added on 12 sep 2014
+						.clearfix
+				//- END POST
