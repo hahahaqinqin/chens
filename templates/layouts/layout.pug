@@ -18,14 +18,11 @@ html
 		meta(name='description', content='')
 		meta(name='author', content='')
 		//- BEGIN PLUGINS
-		link(href='assets/plugins/pace/pace-theme-flash.css', rel='stylesheet', type='text/css')
-		link(href='assets/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet', type='text/css')
-		link(href='assets/plugins/font-awesome/css/font-awesome.css', rel='stylesheet', type='text/css')
-		link(href='assets/plugins/swiper/css/swiper.css', rel='stylesheet', type='text/css', media='screen')
+		link(rel="stylesheet", href="css/vendor.css")
+		block css
 		//- END PLUGINS
 		//- BEGIN PAGES CSS
-		link.main-stylesheet(href='pages/css/pages.css', rel='stylesheet', type='text/css')
-		link.main-stylesheet(href='pages/css/pages-icons.css', rel='stylesheet', type='text/css')
+		link(rel="stylesheet", href="css/style.css")
 		//- END PAGES CSS
 	body.pace-dark
 		+header
@@ -95,9 +92,6 @@ html
 		script(type='text/javascript', src='pages/js/pages.image.loader.js')
 		script(type='text/javascript', src='assets/plugins/jquery/jquery-1.11.1.min.js')
 		script(type='text/javascript', src='assets/plugins/bootstrap/js/bootstrap.min.js')
-		//- BEGIN SWIPER DEPENDENCIES
-		script(type='text/javascript', src='assets/plugins/velocity/velocity.min.js')
-		script(type='text/javascript', src='assets/plugins/velocity/velocity.ui.js')
 		//- Waits for the images to be loaded before applying the Isotope plugin
 		script(src='assets/plugins/imagesloaded/imagesloaded.pkgd.min.js')
 		//- Isotope plugin arranges the card layout
