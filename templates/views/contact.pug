@@ -1,58 +1,59 @@
 extends ../layouts/layout
 
 block content
-	//- START GOOGLE MAP
-	section.container-fluid.no-padding.no-overflow.sm-m-t-20
-		//- Map
-		#google-map.full-width.demo-map.gradient-overlay.no-overflow
-	//- END GOOGLE MAP
-	//- START CONTACT SECTION
-	section.container.container-fixed-lg.p-t-70.p-b-80.sm-p-t-30.sm-p-b-30
-		.row
-			.col-md-5
-				.row
-					.col-sm-6.col-md-12
-						h4
-							| Need service or support? 
-							br
-							| Type your needed request and  
-							br
-							| we’ll find you a solution.
-					.col-sm-6.col-md-12
-						br.visible-md.visible-xs
-						h5.block-title.hint-text.m-b-0 pages.co 
-						address.text-master.m-t-5
-							| Stranthvale Place, 90 North
-							br
-							|  Church street, Po Box 10374 APO
-							br
-							|  George town.
-							br
-							|  Cayman Islands
-			.col-md-7
-				br.visible-xs
-				br.visible-xs
-				h4.sm-m-t-20 Say hellow!
-				form(role='form')
+	.page-wrappers
+		//- START GOOGLE MAP
+		section.container-fluid.no-padding.no-overflow.sm-m-t-20
+			//- Map
+			#google-map.full-width.demo-map.gradient-overlay.no-overflow
+		//- END GOOGLE MAP
+		//- START CONTACT SECTION
+		section.container.container-fixed-lg.p-t-70.p-b-80.sm-p-t-30.sm-p-b-30
+			.row
+				.col-md-5
 					.row
-						.col-sm-6
-							.form-group.form-group-default
-								label.control-label First name
-								input.form-control(type='text')
-						.col-sm-6
-							.form-group.form-group-default
-								label.control-label Last name
-								input.form-control(type='text')
-					.form-group.form-group-default
-						label.control-label Message
-						textarea.form-control(style='height:100px', placeholder='Type the message you want inquire')
-					p.pull-left.small.hint-text.m-t-5.font-arial.sm-m-t-10 I hereby certify that the information above is true and accurate. 
-					button.btn.btn-white.font-montserrat.all-caps.fs-11.pull-right.sm-m-t-10 Send request
-					.clearfix
-	//- END CONTACT SECION
+						.col-sm-6.col-md-12
+							h4
+								| Need service or support? 
+								br
+								| Type your needed request and  
+								br
+								| we’ll find you a solution.
+						.col-sm-6.col-md-12
+							br.visible-md.visible-xs
+							h5.block-title.hint-text.m-b-0 pages.co 
+							address.text-master.m-t-5
+								| Stranthvale Place, 90 North
+								br
+								|  Church street, Po Box 10374 APO
+								br
+								|  George town.
+								br
+								|  Cayman Islands
+				.col-md-7
+					br.visible-xs
+					br.visible-xs
+					h4.sm-m-t-20 Say hellow!
+					form(role='form')
+						.row
+							.col-sm-6
+								.form-group.form-group-default
+									label.control-label First name
+									input.form-control(type='text')
+							.col-sm-6
+								.form-group.form-group-default
+									label.control-label Last name
+									input.form-control(type='text')
+						.form-group.form-group-default
+							label.control-label Message
+							textarea.form-control(style='height:100px', placeholder='Type the message you want inquire')
+						p.pull-left.small.hint-text.m-t-5.font-arial.sm-m-t-10 I hereby certify that the information above is true and accurate. 
+						button.btn.btn-white.font-montserrat.all-caps.fs-11.pull-right.sm-m-t-10 Send request
+						.clearfix
+		//- END CONTACT SECION
 
 
 
-block js
-	script(src='https://maps.googleapis.com/maps/api/js?v=3.exp')
-	script(type='text/javascript', src='assets/js/google_map.js')
+	block js
+		script(src='https://maps.googleapis.com/maps/api/js?v=3.exp')
+		script(type='text/javascript', src='assets/js/google_map.js')

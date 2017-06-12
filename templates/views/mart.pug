@@ -1,8 +1,8 @@
 extends ../layouts/layout
-
+include ../mixins/list-product-item
 block content
 	//- BEGIN JUMBOTRON
-	section.jumbotron.demo-custom-height-1.full-width(data-pages-bg-image='assets/images/Hero.jpg', data-pages='parallax', data-bg-overlay='black', data-overlay-opacity='0.4')
+	section.jumbotron.demo-custom-height-1.full-width.sm-m-t-20(data-pages-bg-image='assets/images/Hero.jpg', data-pages='parallax', data-bg-overlay='black', data-overlay-opacity='0.4', style='margin-top: 110px;')
 		.inner.full-height
 			.container-xs-height.full-height
 				.col-xs-height.col-middle.text-left
@@ -11,4 +11,117 @@ block content
 							h1.light.text-center.text-white.xs-p-t-30.sm-p-b-30
 								| Digital solutions led by clarity, simplicity & honesty
 	//- END JUMBOTRON
+
+	//- BEGIN CONTENT
+	section
+		.container.bg-white.m-t-30.m-b-30.p-t-30
+			.col-sm-3
+				.panel.panel-default
+					.panel-heading.separator
+						.panel-title.all-caps ALL CATEGORIES
+					.panel-body.padding-15
+						.list-group.p-b-15.b-b.b-grey
+							a.list-group-item(href='javascript:;')
+								span.badge 20
+								|  Show All
+							a.list-group-item(href='javascript:;')
+								span.badge 9
+								|  Meat
+							a.list-group-item(href='javascript:;')
+								span.badge 8
+								|  Vegetable
+							a.list-group-item(href='javascript:;')
+								span.badge 6
+								|  ingredients
+							a.list-group-item(href='javascript:;')
+								span.badge 2
+								|  Snacks
+						form(role='form')
+							h5.all-caps.font-montserrat.fs-12.m-b-20 Advance filters
+							.form-group.form-group-default
+								label Search
+								input.form-control(type='email', placeholder='Type a specific product name.')
+							h5.all-caps.font-montserrat.fs-12.m-b-20.m-t-25 Advance filters
+							.radio.radio-primary
+								input#sale(type='radio', checked='checked', value='1', name='filter')
+								label(for='sale') On sale
+								br
+								input#Stocked(type='radio', value='4', name='filter')
+								label(for='Stocked') Stocked
+								br
+								input#views(type='radio', value='2', name='filter')
+								label(for='views') Most Viewed
+								br
+								input#cost(type='radio', value='3', name='filter')
+								label(for='cost') Never Viewed
+							button.pull-left.btn.btn-primary.btn-cons.m-t-40 Apply
+			.col-sm-9
+				.panel.panel-default
+					.panel-heading.separator
+						.panel-title.all-caps ALL
+						.panel-controls
+							.btn-group.dropdown-success
+								span.pull-left.m-l-10 Sort by:
+								a.dropdown-toggle.text-master.no-padding.m-l-10(data-toggle='dropdown', href='#')
+									| default 
+									span.caret
+								ul.dropdown-menu
+									li
+										a(href='#') Date
+									li
+										a(href='#') Alphabet
+									li
+										a(href='#') Popular
+							//-
+								 <span class="pull-right m-l-5">
+																			<a href="#" class="m-l-5"><i class="fa fa-th-large"></i></a>
+																			<a href="#" class="m-l-5"><i class="fa fa-th-list"></i></a>
+																		</span>
+					.panel-body.padding-15
+						.row
+							//- each post in data
+							+list_Product_Item(post)
+						//- END CATEGORY
+	//- END CONTENT
+
+	//- BEGIN CONTENT
+	section.p-b-65.p-t-60.bg-master-darkest(data-pages-bg-image='assets/images/paralax_1.jpg', data-pages='parallax', data-bg-overlay='black', data-overlay-opacity='0.4')
+		.container
+			.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
+				.text-center
+					h5.block-title.text-white.no-margin Menu Clipping 
+					h1.text-white.col-sm-12.m-t-5.m-b-30 Celebrate Motion paralax scroll.
+				.row.m-t-30
+					.col-sm-4
+						.progress.progress-small.transparent-white.m-t-15
+							.progress-bar.progress-bar-white(data-pages-animate='progressbar', data-percentage='79%')
+						h3.no-margin.text-white
+							span(data-animation-duration='800', data-pages-animate='number', data-value='200') 0
+							| %
+						p.font-arial.hint-text.fs-12.text-white
+							| Smoother
+						p
+					.col-sm-4
+						.progress.progress-small.transparent-white.m-t-15
+							.progress-bar.progress-bar-white(data-pages-animate='progressbar', data-percentage='79%')
+						h3.no-margin.text-white
+							span(data-animation-duration='800', data-pages-animate='number', data-value='200') 0
+							| %
+						p.font-arial.hint-text.fs-12.text-white
+							| Lighter
+						p
+					.col-sm-4
+						.progress.progress-small.transparent-white.m-t-15
+							.progress-bar.progress-bar-white(data-pages-animate='progressbar', data-percentage='79%')
+						h3.no-margin.text-white
+							span(data-animation-duration='800', data-pages-animate='number', data-value='200') 0
+							| ma
+						p.font-arial.hint-text.fs-12.text-white
+							| Micro Awesomness
+						p
+	//- END CONTENT
+
+block js
+	script(type='text/javascript', src='assets/plugins/jquery-appear/jquery.appear.js')
+	script(type='text/javascript', src='assets/plugins/animateNumber/jquery.animateNumbers.js')
 

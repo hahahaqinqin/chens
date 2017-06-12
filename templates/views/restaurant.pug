@@ -2,7 +2,7 @@ extends ../layouts/layout
 
 block content
 	//- BEGIN JUMBOTRON
-	section.jumbotron.demo-custom-height-1.full-width(data-pages-bg-image='assets/images/Hero.jpg', data-pages='parallax', data-bg-overlay='black', data-overlay-opacity='0.4')
+	section.jumbotron.demo-custom-height-1.full-width.sm-m-t-20(data-pages-bg-image='assets/images/Hero.jpg', data-pages='parallax', data-bg-overlay='black', data-overlay-opacity='0.4', style='margin-top: 110px;')
 		.inner.full-height
 			.container-xs-height.full-height
 				.col-xs-height.col-middle.text-left
@@ -11,4 +11,126 @@ block content
 							h1.light.text-center.text-white.xs-p-t-30.sm-p-b-30
 								| Digital solutions led by clarity, simplicity & honesty
 	//- END JUMBOTRON
+	
+	//- BEGIN CONTENT
+	section
+		.bg-white.container
+			ul.list-inline.m-t-30.m-b-30.m-l-0
+				li
+					a.text-black.link.p-r-30(href='#') Latest
+				li
+					a.text-black.hint-text.link.p-r-15(href='#') Popular
+				li.b-l.b-grey
+					a.text-primary.hint-text.link.p-l-15.p-r-30(href='#') See All
+				li
+					a.text-black.hint-text.link.p-r-30(href='#') Breakfast
+				li
+					a.text-black.hint-text.link.p-r-30(href='#') Lunch
+				li
+					a.text-black.hint-text.link.p-r-30(href='#') Dinner
+				li
+					a.text-black.hint-text.link(href='#') Drinks
 
+	section
+		.bg-white.b-t.b-grey.p-b-30.p-t-40.container
+			.row
+				.col-md-offset-1
+					h2.all-caps.container.m-t-15.m-b-15 Breakfast
+					//- START POST
+					.col-sm-12.col-md-10
+						.clearfix.b-b.b-grey
+							dl.row.dl-horizontal
+								img.center-block.col-sm-12.col-md-4(src='assets/images/gallery_3.jpg', alt='')
+								dd.col-sm-12.col-md-8.no-margin
+									h5.all-caps.font-montserrat.pull-left.no-margin Meal's Title
+									.pull-right
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-facebook
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-wechat
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-twitter
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-rss
+									.clearfix
+									p.fs-16.m-t-20
+										| Give some detials about the meals you put here and show anything else you thought it worth.
+									.post-card-footer.m-t-30
+										p.hint-text.small.pull-left Added on 12 sep 2014
+					//- END POST
+			.row
+				.col-md-offset-1
+					h2.all-caps.container.m-t-15.m-b-15 Lunch
+					//- START POST
+					.col-sm-12.col-md-10
+						.clearfix.b-b.b-grey
+							dl.row.dl-horizontal
+								img.center-block.col-sm-12.col-md-4(src='assets/images/gallery_3.jpg', alt='')
+								dd.col-sm-12.col-md-8.no-margin
+									h5.all-caps.font-montserrat.pull-left.no-margin Meal's Title
+									.pull-right
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-facebook
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-wechat
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-twitter
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-rss
+									.clearfix
+									p.fs-16.m-t-20
+										| Give some detials about the meals you put here and show anything else you thought it worth.
+									.post-card-footer.m-t-30
+										p.hint-text.small.pull-left Added on 12 sep 2014
+					//- END POST
+			.row
+				.col-md-offset-1
+					h2.all-caps.container.m-t-15.m-b-15 Dinner
+					//- START POST
+					.col-sm-12.col-md-10
+						.clearfix.b-b.b-grey
+							dl.row.dl-horizontal
+								img.center-block.col-sm-12.col-md-4(src='assets/images/gallery_3.jpg', alt='')
+								dd.col-sm-12.col-md-8.no-margin
+									h5.all-caps.font-montserrat.pull-left.no-margin Meal's Title
+									.pull-right
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-facebook
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-wechat
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-twitter
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-rss
+									.clearfix
+									p.fs-16.m-t-20
+										| Give some detials about the meals you put here and show anything else you thought it worth.
+									.post-card-footer.m-t-30
+										p.hint-text.small.pull-left Added on 12 sep 2014
+					//- END POST
+			.row
+				.col-md-offset-1
+					h2.all-caps.container.m-t-15.m-b-15 Drinks
+					//- START POST
+					.col-sm-12.col-md-10
+						.clearfix.b-b.b-grey
+							dl.row.dl-horizontal
+								img.center-block.col-sm-12.col-md-4(src='assets/images/gallery_3.jpg', alt='')
+								dd.col-sm-12.col-md-8.no-margin
+									h5.all-caps.font-montserrat.pull-left.no-margin Meal's Title
+									.pull-right
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-facebook
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-wechat
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-twitter
+										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
+											i.fa.fa-rss
+									.clearfix
+									p.fs-16.m-t-20
+										| Give some detials about the meals you put here and show anything else you thought it worth.
+									.post-card-footer.m-t-30
+										p.hint-text.small.pull-left Added on 12 sep 2014
+					//- END POST
+	//- END CONTENT
