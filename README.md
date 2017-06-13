@@ -21,6 +21,8 @@ Build by Dante_Von_Arima with fashion tq.
     $DEBUG=chens npm start
 
 ## The END
+view the demo: 127.0.0.1:9000
+
 ### Using
     Express v4.0
     Pug(Jade)
