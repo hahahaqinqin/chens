@@ -1,5 +1,3 @@
-include ../mixins/share
-
 mixin list_Product_Item(post)
 	.col-sm-4.m-b-30
 		//- START ITEM
@@ -9,7 +7,19 @@ mixin list_Product_Item(post)
 					li
 						a(href='#')
 							span.label.font-montserrat.label-danger.fs-11 NEW
-				+share
+				ul.padding-10.list-unstyled.list-inline.bottom-right
+					li
+						a.text-white(herf='#')
+							i.fa.fa-facebook
+					li
+						a.text-white(herf='#')
+							i.fa.fa-wechat
+					li
+						a.text-white(herf='#')
+							i.fa.fa-twitter
+					li
+						a.text-white(herf='#')
+							i.fa.fa-rss
 				img.lazy(alt='Quote', src='assets/images/gallery_5.jpg')
 			.card-description
 				p Like if you agree
@@ -20,6 +30,6 @@ mixin list_Product_Item(post)
 				ul.reactions
 					li
 						i.fa.fa-eye.m-r-5
-						a.text-master-darkest.bold(href='#', data-animation-duration='800', data-pages-animate='number', data-value='post.price')
+						span.text-master-darkest.bold
 							| 0 
 		//- END ITEM
