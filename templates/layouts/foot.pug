@@ -1,0 +1,32 @@
+mixin footer
+	//- BEGIN FOOTER
+	section.p-b-30.p-t-40.bg-master-dark
+		.container
+			.row
+				.col-sm-6.col-xs-12
+					img.logo(src='assets/images/logo_white.png', alt='')
+					.m-t-10
+						ul.no-style.fs-11.no-padding.font-arial
+							li.inline.no-padding
+								a.link.text-white.p-r-10.b-r.b-transparent-white(href='/') Home
+							li.inline.no-padding
+								a.link.text-white.p-l-10.p-r-10.b-r.b-transparent-white(href='Mart') Mart
+							li.inline.no-padding
+								a.link.text-white.p-l-10.p-r-10.b-r.b-transparent-white(href='/restaurant') Restaurant
+							li.inline.no-padding
+								a.link.text-white.p-l-10.p-r-10.xs-no-padding.xs-m-t-10(href='/contact') Contact
+					p.fs-11.small-text.no-margin.text-white
+						span.hint-text Exclusive only at
+						|  Envato Marketplace,Mr CHENS 
+						span.hint-text See
+						|  Standard licenses & Extended licenses
+					p.fs-11.muted.text-white Copyright © 2017 MR.CHENS. All Rights Reserved.
+				.col-sm-6.font-arial.sm-text-left.hidden-xs
+					.form-group.form-group-default.input-group.col-md-10.col-sm-10.bg-transparent.b-a.b-transparent-white
+						label.control-label Email Address
+						input.form-control.text-white(type='email', placeholder='Example@mailserver.com')
+						span.input-group-btn
+							button.btn.btn-primary.m-r-10.btn-cons(type='button') Subscribe!
+					p.fs-12.hint-text.p-t-10.text-white
+						| We value your privacy. None of the details supplied will be shared with external parties
+	//- END FOOTER
