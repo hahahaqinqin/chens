@@ -5,18 +5,24 @@ This is just a website showing news of Mr. Chens's Restaurant and it's Mart. Of 
 
 Build by Dante_Von_Arima with fashion tq.
 
+## step 0
+    $mkdir your_folder && cd your_folder
+
 ## Step 1
-- Download/Using git to copy this repository to your local enviornment.
+    $git init
+    $git remote add origin git@github.com:Dante-Vonarmia/chens.git
 
 ## Step 2
-- Go to the Root
-## &&
+    $git fetch origin back
+    $git checkout back
     $npm install
 
 ## Step 3
     $DEBUG=chens npm start
 
 ## The END
+view the demo: 127.0.0.1:9000
+
 ### Using
     Express v4.0
     Pug(Jade)
