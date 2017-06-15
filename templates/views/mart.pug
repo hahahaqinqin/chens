@@ -17,7 +17,7 @@ block content
 	section
 		.container.bg-white.m-t-30.m-b-30.p-t-30
 			.col-sm-3
-				.panel.panel-default
+				.panel.panel-default(data-spy='affix', data-offset-top='480')
 					.panel-heading.separator
 						.panel-title.all-caps ALL CATEGORIES
 					.panel-body.padding-15
@@ -38,24 +38,27 @@ block content
 								span.badge 2
 								|  Snacks
 						form(role='form')
-							h5.all-caps.font-montserrat.fs-12.m-b-20 Advance filters
+							h5.all-caps.font-montserrat.fs-12.m-b-10 Advance filters
 							.form-group.form-group-default
 								label Search
 								input.form-control(type='email', placeholder='Type a specific product name.')
-							h5.all-caps.font-montserrat.fs-12.m-b-20.m-t-25 Advance filters
+							h5.all-caps.font-montserrat.fs-12.m-b-10.m-t-15 Advance filters
 							.radio.radio-primary
 								input#sale(type='radio', checked='checked', value='1', name='filter')
 								label(for='sale') On sale
 								br
-								input#Stocked(type='radio', value='4', name='filter')
+								input#end(type='radio', value='2', name='filter')
+								label(for='end') End Tomorrow
+								br
+								input#Stocked(type='radio', value='3', name='filter')
 								label(for='Stocked') Stocked
 								br
-								input#views(type='radio', value='2', name='filter')
+								input#views(type='radio', value='4', name='filter')
 								label(for='views') Most Viewed
 								br
-								input#cost(type='radio', value='3', name='filter')
+								input#cost(type='radio', value='5', name='filter')
 								label(for='cost') Never Viewed
-							button.pull-left.btn.btn-primary.btn-cons.m-t-40 Apply
+							button.pull-left.btn.btn-primary.btn-cons.m-t-10 Apply
 			.col-sm-9
 				.panel.panel-default
 					.panel-heading.separator

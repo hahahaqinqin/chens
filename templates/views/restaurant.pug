@@ -1,4 +1,5 @@
 extends ../layouts/layout
+include ../components/list-menu-item
 
 block content
 	//- BEGIN JUMBOTRON
@@ -34,109 +35,17 @@ block content
 			.row
 				.col-md-offset-1
 					h2.all-caps.container.m-t-15.m-b-15 Breakfast
-					//- START POST
-					.col-sm-12.col-md-10
-						.clearfix.b-b.b-grey
-							dl.row.dl-horizontal
-								img.center-block.col-sm-12.col-md-4(src='assets/images/gallery_3.jpg', alt='')
-								dd.col-sm-12.col-md-8.no-margin
-									h5.all-caps.font-montserrat.pull-left.no-margin Meal's Title
-									.pull-right
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-facebook
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-wechat
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-twitter
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-rss
-									.clearfix
-									h5.font-montserrat.text-master
-										i.fa.fa-dollar 99.00
-									p.fs-16.m-t-20
-										| Give some detials about the meals you put here and show anything else you thought it worth.
-									.post-card-footer.m-t-30
-										p.hint-text.small.pull-left Added on 12 sep 2014
-					//- END POST
+					+list_Menu_Item(post)
 			.row
 				.col-md-offset-1
 					h2.all-caps.container.m-t-15.m-b-15 Lunch
-					//- START POST
-					.col-sm-12.col-md-10
-						.clearfix.b-b.b-grey
-							dl.row.dl-horizontal
-								img.center-block.col-sm-12.col-md-4(src='assets/images/gallery_3.jpg', alt='')
-								dd.col-sm-12.col-md-8.no-margin
-									h5.all-caps.font-montserrat.pull-left.no-margin Meal's Title
-									.pull-right
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-facebook
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-wechat
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-twitter
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-rss
-									.clearfix
-									h5.font-montserrat.text-master
-										i.fa.fa-dollar 99.00
-									p.fs-16.m-t-20
-										| Give some detials about the meals you put here and show anything else you thought it worth.
-									.post-card-footer.m-t-30
-										p.hint-text.small.pull-left Added on 12 sep 2014
-					//- END POST
+					+list_Menu_Item(post)
 			.row
 				.col-md-offset-1
 					h2.all-caps.container.m-t-15.m-b-15 Dinner
-					//- START POST
-					.col-sm-12.col-md-10
-						.clearfix.b-b.b-grey
-							dl.row.dl-horizontal
-								img.center-block.col-sm-12.col-md-4(src='assets/images/gallery_3.jpg', alt='')
-								dd.col-sm-12.col-md-8.no-margin
-									h5.all-caps.font-montserrat.pull-left.no-margin Meal's Title
-									.pull-right
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-facebook
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-wechat
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-twitter
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-rss
-									.clearfix
-									h5.font-montserrat.text-master
-										i.fa.fa-dollar 99.00
-									p.fs-16.m-t-20
-										| Give some detials about the meals you put here and show anything else you thought it worth.
-									.post-card-footer.m-t-30
-										p.hint-text.small.pull-left Added on 12 sep 2014
-					//- END POST
+					+list_Menu_Item(post)
 			.row
 				.col-md-offset-1
 					h2.all-caps.container.m-t-15.m-b-15 Drinks
-					//- START POST
-					.col-sm-12.col-md-10
-						.clearfix.b-b.b-grey
-							dl.row.dl-horizontal
-								img.center-block.col-sm-12.col-md-4(src='assets/images/gallery_3.jpg', alt='')
-								dd.col-sm-12.col-md-8.no-margin
-									h5.all-caps.font-montserrat.pull-left.no-margin Meal's Title
-									.pull-right
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-facebook
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-wechat
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-twitter
-										a.p-l-5.text-master.bold.fs-14(herf='javascript:;')
-											i.fa.fa-rss
-									.clearfix
-									h5.font-montserrat.text-master
-										i.fa.fa-dollar 99.00
-									p.fs-16.m-t-20
-										| Give some detials about the meals you put here and show anything else you thought it worth.
-									.post-card-footer.m-t-30
-										p.hint-text.small.pull-left Added on 12 sep 2014
-					//- END POST
+					+list_Menu_Item(post)
 	//- END CONTENT
