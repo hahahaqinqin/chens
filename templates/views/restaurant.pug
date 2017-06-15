@@ -12,39 +12,38 @@ block content
 							h1.light.text-center.text-white.xs-p-t-30.sm-p-b-30
 								| Digital solutions led by clarity, simplicity & honesty
 	//- END JUMBOTRON
-	
 	//- BEGIN CONTENT
 	section
 		.bg-white.container
-			ul.list-inline.m-t-30.m-b-30.m-l-0
+			ul.list-inline.m-t-30.m-b-30.m-l-0#menu
 				li
-					a.text-black.link.p-r-30(href='#') Latest
+					a.text-black.link.p-r-30(href='javascript:;') Latest
 				li
-					a.text-primary.hint-text.link.p-r-15(href='#') Popular
+					a.text-primary.hint-text.link.p-r-15(href='javascript:;') Popular
 				li.b-l.b-grey
-					a.text-black.hint-text.link.p-l-15.p-r-30(href='#') Breakfast
+					a.text-black.hint-text.link.p-l-15.p-r-30(href='#breakfast') Breakfast
 				li
-					a.text-black.hint-text.link.p-r-30(href='#') Lunch
+					a.text-black.hint-text.link.p-r-30(href='#lunch') Lunch
 				li
-					a.text-black.hint-text.link.p-r-30(href='#') Dinner
+					a.text-black.hint-text.link.p-r-30(href='#dinner') Dinner
 				li
-					a.text-black.hint-text.link(href='#') Drinks
+					a.text-black.hint-text.link(href='#drinks') Drinks
 
-	section
+	section.relative(data-spy='scroll', data-target='#menu', data-offset='45')
 		.bg-white.b-t.b-grey.p-b-30.p-t-40.container
-			.row
+			.row#breakfast(data-offset='45')
 				.col-md-offset-1
 					h2.all-caps.container.m-t-15.m-b-15 Breakfast
 					+list_Menu_Item(post)
-			.row
+			.row#lunch(data-offset='45')
 				.col-md-offset-1
 					h2.all-caps.container.m-t-15.m-b-15 Lunch
 					+list_Menu_Item(post)
-			.row
+			.row#dinner(data-offset='45')
 				.col-md-offset-1
 					h2.all-caps.container.m-t-15.m-b-15 Dinner
 					+list_Menu_Item(post)
-			.row
+			.row#drinks(data-offset='45')
 				.col-md-offset-1
 					h2.all-caps.container.m-t-15.m-b-15 Drinks
 					+list_Menu_Item(post)
