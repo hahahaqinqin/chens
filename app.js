@@ -18,6 +18,10 @@ const contactView    = require('./routes/views/contact');
 
 const app            = express();
 
+// connect DB
+var db = mongoose.connect('mongodb://localhost/chens');
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'templates/views'));
 app.set('view engine', 'pug');
