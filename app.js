@@ -13,14 +13,14 @@ const indexView      = require('./routes/views/index');
 const restaurantView = require('./routes/views/restaurant');
 const martView       = require('./routes/views/mart');
 const contactView    = require('./routes/views/contact');
+const thanksView    = require('./routes/views/thanks');
 
 // const sampleFunc     = require('./lib/example.js');
 
 const app            = express();
 
 // connect DB
-var db = mongoose.connect('mongodb://localhost/chens');
-
+const db = mongoose.connect('momongodb://localhost:27017/chens');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'templates/views'));
@@ -42,6 +42,22 @@ app.use('/', indexView);
 app.use('/restaurant', restaurantView);
 app.use('/mart', martView);
 app.use('/contact', contactView);
+app.use('/thanks', thanksView);
+
+// post newsletter
+app.post('/process', function (req, res) {
+  console.log(req.query.form);
+  console.log(req.body.email);
+  if (req.xhr || req.accepts('json,html') === 'json') {
+    // if there were an error, we would send { error: 'error description' }
+    res.send({
+      success: true
+    });
+  } else {
+    // if there were an error, we would redirect to an error page
+    res.redirect(303, 'back');
+  }
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
