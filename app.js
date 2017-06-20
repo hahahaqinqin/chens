@@ -6,11 +6,53 @@ const logger         = require('morgan');
 const cookieParser   = require('cookie-parser');
 const bodyParser     = require('body-parser');
 const lessMiddleware = require('less-middleware');
-const session        = require('express-session');
-const MongoStore     = require('connect-mongo')(session);
-const mongoose       = require('mongoose');
-
+const Mart           = require('./models/mart');
 const app            = express();
+//temp
+const moment         = require('moment');
+const now            = moment().format();
+
+
+// initialize products
+Mart.find(function(err, products) {
+	if (products.length) return;
+	new Mart({
+		name: "Product1",
+		// slug: "product_1",
+		description: "Ingredients: a x 10, b x 20, c x 30; Spicy, Sweet, Salt, Bitter, ....",
+		price: 9999,
+		category: "Meat",
+		sku: "M-2",
+		discount: 3,
+		addDate: now,
+		EndDate: "2017-08-01",
+		tags: ["food", "meat", "fresh"]
+	}).save();
+	new Mart({
+		name: "Product2",
+		// slug: "product_2",
+		description: "Ingredients: a x 10, b x 20, c x 30; Spicy, Sweet, Salt, Bitter, ....",
+		price: 9999,
+		category: "Soup",
+		sku: "M-3",
+		discount: 3,
+		addDate: now,
+		EndDate: "2017-08-01",
+		tags: ["food", "meat", "fresh", "soup"]
+	}).save();
+	new Mart({
+		name: "Product3",
+		// slug: "product_3",
+		description: "Ingredients: a x 10, b x 20, c x 30; Spicy, Sweet, Salt, Bitter, ....",
+		price: 9999,
+		category: "Vegetable",
+		sku: "M-1",
+		discount: 3,
+		addDate: now,
+		EndDate: "2017-08-01",
+		tags: ["food", "meat", "fresh"]
+	}).save();
+});
 
 // connect DB
 // const db             = mongoose.connect('momongodb://localhost:27017/chens');
@@ -30,40 +72,6 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }));
 app.use(cookieParser());
-
-// session 中间件
-app.use(session({
-	name: config.session.key, // 设置 cookie 中保存 session id 的字段名称
-	secret: config.session.cookieSecret, // 通过设置 secret 来计算 hash 值并放在 cookie 中，使产生的 signedCookie 防篡改
-	resave: true, // 强制更新 session
-	saveUninitialized: false, // 设置为 false，强制创建一个 session，即使用户未登录
-	cookie: {
-		maxAge: config.session.maxAge // 过期时间，过期后 cookie 中的 session id 自动删除
-	}
-	// ,
-	// store: new MongoStore({// 将 session 存储到 mongodb
-	//   url: config.mongodb// mongodb 地址
-	// })
-}));
-
-// database configuration
-const options = {
-	server: {
-		socketOptions: {
-			keepAlive: 1
-		}
-	}
-};
-switch (app.get('env')) {
-	case 'development':
-		mongoose.connect(config.mongo.development.connectionString, options);
-		break;
-	case 'production':
-		mongoose.connect(config.mongo.production.connectionString, options);
-		break;
-	default:
-		throw new Error('Unknown execution environment: ' + app.get('env'));
-}
 
 // Less Compile
 app.use(lessMiddleware(path.join(__dirname, 'public')));

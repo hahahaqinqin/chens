@@ -8,7 +8,7 @@ module.exports = {
 	mongodb: {
 		development: {
 			connectionString: 'mongodb://localhost:27017/chens-test'
-		}
+		},
 		production: {
 			connectionString: 'mongodb://localhost:27017/chens'
 		}

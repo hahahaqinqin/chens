@@ -15,20 +15,6 @@ const thanksView     = require('./views/thanks');
 module.exports = function(app) {
 	// Index
 	app.use('/', indexView);
-	// post newsletter
-	app.post('/process', function(req, res) {
-		console.log(req.query.form);
-		console.log(req.body.email);
-		if (req.xhr || req.accepts('json,html') === 'json') {
-			// if there were an error, we would send { error: 'error description' }
-			res.send({
-				success: true
-			});
-		} else {
-			// if there were an error, we would redirect to an error page
-			res.redirect(303, 'back');
-		}
-	});
 	// Restaurant
 	app.use('/restaurant', restaurantView);
 

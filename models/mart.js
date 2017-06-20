@@ -3,8 +3,10 @@ var mongoose = require('mongoose');
 var martSchema = mongoose.Schema({
     name: String,
     description: String,
-    price: String,
-    discount: Number,
+    price: Number,
+    category: String,
+    sku: String,
+    discount: parseFloat(Number),
     addDate: Date,
     EndDate: Date,
     tags: [String]

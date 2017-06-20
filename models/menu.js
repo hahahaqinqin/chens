@@ -4,6 +4,7 @@ var menuSchema = mongoose.Schema({
     name: String,
     description: String,
     price: String,
+    category: String,
     discount: Number,
     addDate: Date,
     EndDate: Date,
