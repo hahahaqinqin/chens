@@ -7,10 +7,10 @@ module.exports = {
 	},
 	mongodb: {
 		development: {
-			connectionString: 'mongodb://localhost:27017/chens-test'
+			connectionString: 'mongodb://localhost:27017/chens'
 		},
 		production: {
-			connectionString: 'mongodb://localhost:27017/chens'
+			connectionString: 'mongodb://localhost:27017/chens-test'
 		}
 	}
 };

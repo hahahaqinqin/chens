@@ -7,52 +7,9 @@ const cookieParser   = require('cookie-parser');
 const bodyParser     = require('body-parser');
 const lessMiddleware = require('less-middleware');
 const Mart           = require('./models/mart');
+const Menu           = require('./models/menu');
+
 const app            = express();
-//temp
-const moment         = require('moment');
-const now            = moment().format();
-
-
-// initialize products
-Mart.find(function(err, products) {
-	if (products.length) return;
-	new Mart({
-		name: "Product1",
-		// slug: "product_1",
-		description: "Ingredients: a x 10, b x 20, c x 30; Spicy, Sweet, Salt, Bitter, ....",
-		price: 9999,
-		category: "Meat",
-		sku: "M-2",
-		discount: 3,
-		addDate: now,
-		EndDate: "2017-08-01",
-		tags: ["food", "meat", "fresh"]
-	}).save();
-	new Mart({
-		name: "Product2",
-		// slug: "product_2",
-		description: "Ingredients: a x 10, b x 20, c x 30; Spicy, Sweet, Salt, Bitter, ....",
-		price: 9999,
-		category: "Soup",
-		sku: "M-3",
-		discount: 3,
-		addDate: now,
-		EndDate: "2017-08-01",
-		tags: ["food", "meat", "fresh", "soup"]
-	}).save();
-	new Mart({
-		name: "Product3",
-		// slug: "product_3",
-		description: "Ingredients: a x 10, b x 20, c x 30; Spicy, Sweet, Salt, Bitter, ....",
-		price: 9999,
-		category: "Vegetable",
-		sku: "M-1",
-		discount: 3,
-		addDate: now,
-		EndDate: "2017-08-01",
-		tags: ["food", "meat", "fresh"]
-	}).save();
-});
 
 // connect DB
 // const db             = mongoose.connect('momongodb://localhost:27017/chens');

@@ -1,12 +1,17 @@
-mixin index_Product_Item(post)
-	//- START GALLERY ITEM
-	.gallery-item.col-sm-3.col-xs-12.no-padding.hover-zoom
-		.inner.bottom-left.bottom-right.padding-30
-			h5.block-title.text-white.no-margin IGNITEAT
-			h5.block-title.text-white.no-margin 
-				i.fa.fa-dollar 0.00
-			h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 03 Nov 2015
-			p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0.hidden-sm Logo design, Web Design and Branding
-		.ar-1-1
-			div(data-pages-bg-image='assets/images/gallery_3.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
-	//- END GALLERY ITEM
+mixin index_Product_Item
+	if marts.length
+		each item in marts
+			//- START GALLERY ITEM
+			.gallery-item.col-sm-3.col-xs-12.no-padding.hover-zoom
+				.inner.bottom-left.bottom-right.padding-30
+					h5.block-title.text-white.no-margin= marts.name
+					h5.block-title.text-white.no-margin 
+						i.fa.fa-dollar 
+						span= marts.price
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0= marts.addDate
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0.hidden-sm= marts.description
+				.ar-1-1
+					div(data-pages-bg-image='assets/images/gallery_3.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+			//- END GALLERY ITEM
+	else
+		p No content.

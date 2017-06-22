@@ -1,19 +1,20 @@
-mixin index_Menu_Item(post)
-	//- if products.length 
-	//- 	p No content.
-	//- else
-	//- 	each item in products
+mixin index_Menu_Item
+	if menus.length 
+		each item in menus
 			//- START POST
 			.col-xs-12.col-sm-4.post-card
 				img.lazy.image-responsive-height(draggable='false', src="assets/images/meal1.jpg", alt="")
 				.post-card-body
 					.m-t-30
-						h5.all-caps.font-montserrat.no-margin= products.name
+						h5.all-caps.font-montserrat.no-margin= menus.name
 						h4.font-montserrat.no-margin
-							i.fa.fa-dollar= products.price
+							i.fa.fa-dollar
+							span= menus.price
 						.clearfix
-					p.fs-16.m-t-20= products.description
+					p.fs-16.m-t-20= menus.description
 				.post-card-footer.m-t-30
-					p.hint-text.small.pull-left= products.addDate
+					p.hint-text.small.pull-left= menus.addDate
 					.clearfix
 			//- END POST
+	else
+		p No content.
