@@ -4,12 +4,12 @@ mixin index_Product_Item
 			//- START GALLERY ITEM
 			.gallery-item.col-sm-3.col-xs-12.no-padding.hover-zoom
 				.inner.bottom-left.bottom-right.padding-30
-					h5.block-title.text-white.no-margin= marts.name
+					h5.block-title.text-white.no-margin= item.name
 					h5.block-title.text-white.no-margin 
 						i.fa.fa-dollar 
-						span= marts.price
-					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0= marts.addDate
-					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0.hidden-sm= marts.description
+						span= item.price
+					h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0= item.addDate
+					p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0.hidden-sm= item.description
 				.ar-1-1
 					div(data-pages-bg-image='assets/images/gallery_3.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
 			//- END GALLERY ITEM

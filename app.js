@@ -6,8 +6,6 @@ const logger         = require('morgan');
 const cookieParser   = require('cookie-parser');
 const bodyParser     = require('body-parser');
 const lessMiddleware = require('less-middleware');
-const Mart           = require('./models/mart');
-const Menu           = require('./models/menu');
 
 const app            = express();
 

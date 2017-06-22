@@ -9,10 +9,10 @@ router.get('/', function(req, res, next) {
 	// 	title: 'Home'
 	// });
 
-	Mart.find({ available: true }, function(err, marts){
+	Mart.find(function(err, marts){
+		console.log(marts);
   		if (err) return console.error(err);
-  		console.log(marts);
-		var rs = {
+		var context = {
 			marts: marts.map(function (item) {
 				return {
 					name: item.name,
@@ -26,11 +26,58 @@ router.get('/', function(req, res, next) {
 					tags: item.tags
 				}
 			})
+			// marts: [
+			// 	{
+			// 		name        : "Product3",
+			// 		description : "Ingredients: a x 10, b x 20, c x 30; Spicy, Sweet, Salt, Bitter, ....",
+			// 		price       : 9999,
+			// 		category    : "Vegetable",
+			// 		sku         : "M-1",
+			// 		discount    : 3,
+			// 		addDate     : "2017-09-10",
+			// 		EndDate     : null,
+			// 		tags        : [
+			// 			"food",
+			// 			"meat",
+			// 			"fresh"
+			// 		]
+			// 	},
+			// 	{
+			// 		name        : "Product2",
+			// 		description : "Ingredients: a x 10, b x 20, c x 30; Spicy, Sweet, Salt, Bitter, ....",
+			// 		price       : 9999,
+			// 		category    : "Soup",
+			// 		sku         : "M-3",
+			// 		discount    : 3,
+			// 		addDate     : "2017-09-10",
+			// 		EndDate     : false,
+			// 		tags        : [
+			// 			"food",
+			// 			"meat",
+			// 			"fresh",
+			// 			"soup"
+			// 		]
+			// 	},
+			// 	{
+			// 		name        : "Product1",
+			// 		description : "Ingredients: a x 10, b x 20, c x 30; Spicy, Sweet, Salt, Bitter, ....",
+			// 		price       : 9999,
+			// 		category    : "Meat",
+			// 		sku         : "M-2",
+			// 		discount    : 3,
+			// 		addDate     : "2017-09-10",
+			// 		EndDate     : null,
+			// 		tags        : [
+			// 			"food",
+			// 			"meat",
+			// 			"fresh"
+			// 		]
+			// 	}
+			// ]
 		};
-		res.render('index', rs);
+		res.render('index', context);
 	});
-
-	// Menu.find({ available: true }, function(err, menus){
+	// Menu.find(function(err, menus){
  //  		if (err) return console.error(err);
 	// 	var rs = {
 	// 		menus: menus.map(function (item) {
