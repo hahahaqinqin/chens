@@ -14,8 +14,8 @@ mixin header
 				.pull-center-inner
 					.header-inner
 						//- BEGIN LOGO
-						img.alt(src='assets/images/logo_black.png', width='152', height='21', data-src-retina='assets/images/logo_black_2x.png', alt='')
-						img.logo(src='assets/images/logo_white.png', width='152', height='21', data-src-retina='assets/images/logo_white_2x.png', alt='')
+						img.alt(src='front/assets/images/logo_black.png', width='152', height='21', data-src-retina='front/assets/images/logo_black_2x.png', alt='')
+						img.logo(src='front/assets/images/logo_white.png', width='152', height='21', data-src-retina='front/assets/images/logo_white_2x.png', alt='')
 			.pull-right.relative.z-index-10.visible-sm-inline.visible-xs-inline
 				.header-inner
 					//- a.search-toggle(href='#', data-toggle='search')
@@ -37,7 +37,6 @@ mixin header
 
 							li.mega
 								a(class={active: curl === '/restaurant'} href='/restaurant', data-text='Restaurant') Restaurant
-									| Restaurant 
 								//- 	i.pg-arrow_minimize.m-l-5
 								//- span.arrow
 								//- nav.mega

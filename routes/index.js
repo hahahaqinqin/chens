@@ -5,7 +5,7 @@ const restaurantView = require('./views/restaurant');
 const martView       = require('./views/mart');
 const contactView    = require('./views/contact');
 // Back
-const adminView      = require('./views/admin');
+const adminView      = require('./views/admin/home');
 const loginView      = require('./views/login');
 const postMartView   = require('./views/post-mart');
 const postMenuView   = require('./views/post-menu');

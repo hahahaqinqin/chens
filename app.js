@@ -6,11 +6,45 @@ const logger         = require('morgan');
 const cookieParser   = require('cookie-parser');
 const bodyParser     = require('body-parser');
 const lessMiddleware = require('less-middleware');
+const session        = require('express-session');
+const mongoose       = require('mongoose');
+const config         = require('config-lite')(__dirname);
 
 const app            = express();
 
-// connect DB
-// const db             = mongoose.connect('momongodb://localhost:27017/chens');
+/**
+ * Middleware session
+ */
+app.use(session({
+	name: config.session.key,
+	secret: config.session.cookieSecret,
+	resave: true,
+	saveUninitialized: false,
+	cookie: {
+		maxAge: config.session.maxAge 
+	}
+}));
+
+/**
+ * Database Configuration
+ */ 
+const options = {
+	server: {
+		socketOptions: {
+			keepAlive: 1
+		}
+	}
+};
+switch (app.get('env')) {
+	case 'development':
+		mongoose.connect(config.mongodb.development.connectionString, options);
+		break;
+	case 'production':
+		mongoose.connect(config.mongodb.production.connectionString, options);
+		break;
+	default:
+		throw new Error('Unknown execution environment: ' + app.get('env'));
+}
 
 // Add routes
 require('./routes/index.js')(app);

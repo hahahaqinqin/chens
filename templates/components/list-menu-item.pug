@@ -2,9 +2,11 @@ mixin list_Menu_Item(post)
 
 	//- START POST
 	.col-sm-12.col-md-10
-		.clearfix.b-b.b-grey
+		.clearfix.b-b.b-dashed.b-grey
 			dl.row.dl-horizontal.m-b-30
-				img.center-block.col-sm-12.col-md-4(src='assets/images/gallery_3.jpg', alt='')
+				a.overlayer.top-left.p-l-30.p-t-15(href='javascript:;')
+					span.label.font-montserrat.label-success.fs-11.all-caps On Sale
+				img.center-block.col-sm-12.col-md-4(src='front/assets/images/gallery_3.jpg', alt='')
 				dd.col-sm-12.col-md-8.no-margin
 					h5.all-caps.font-montserrat.pull-left.no-margin Meal's Title
 					.pull-right
@@ -18,7 +20,11 @@ mixin list_Menu_Item(post)
 							i.fa.fa-rss
 					.clearfix
 					h5.font-montserrat.text-master
-						i.fa.fa-dollar 99.00
+						span.p-r-5
+							i.fa.fa-dollar 
+							| 0.00
+						span.block-title.hint-text.line-through $99.00
+
 					p.fs-16.m-t-20
 						| Give some detials about the meals you put here and show anything else you thought it worth.
 					.post-card-footer.m-t-30

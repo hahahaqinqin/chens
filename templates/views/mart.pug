@@ -17,25 +17,25 @@ block content
 	section
 		.container.bg-white.m-t-30.m-b-30.p-t-30
 			.col-sm-3
-				.panel.panel-default(data-spy='affix', data-offset-top='480')
+				.panel.panel-default
 					.panel-heading.separator
 						.panel-title.all-caps ALL CATEGORIES
 					.panel-body.padding-15
 						form(role='form')
 							.list-group.p-b-15.b-b.b-grey
-								a.list-group-item(href='javascript:;')
+								a.list-group-item(href='?all')
 									span.badge 20
 									|  Show All
-								a.list-group-item(href='javascript:;')
+								a.list-group-item(href='?meat')
 									span.badge 9
 									|  Meat
-								a.list-group-item(href='javascript:;')
+								a.list-group-item(href='?vegetable')
 									span.badge 8
 									|  Vegetable
-								a.list-group-item(href='javascript:;')
+								a.list-group-item(href='?ingredients')
 									span.badge 6
 									|  ingredients
-								a.list-group-item(href='javascript:;')
+								a.list-group-item(href='?snacks')
 									span.badge 2
 									|  Snacks
 							h5.all-caps.font-montserrat.fs-12.m-b-10 Advance filters
@@ -47,14 +47,11 @@ block content
 								input#sale(type='radio', checked='checked', value='1', name='filter')
 								label(for='sale') On sale
 								br
-								input#end(type='radio', value='2', name='filter')
-								label(for='end') End Tomorrow
-								br
+								//- input#end(type='radio', value='2', name='filter')
+								//- label(for='end') End by Tomorrow
+								//- br
 								input#Stocked(type='radio', value='3', name='filter')
 								label(for='Stocked') Stocked
-								br
-								input#views(type='radio', value='4', name='filter')
-								label(for='views') Most Viewed
 								br
 								input#cost(type='radio', value='5', name='filter')
 								label(for='cost') Never Viewed
@@ -76,6 +73,8 @@ block content
 										a(href='#') Alphabet
 									li
 										a(href='#') Popular
+									li
+										a(href='#') Price
 							//-
 								 <span class="pull-right m-l-5">
 																			<a href="#" class="m-l-5"><i class="fa fa-th-large"></i></a>
@@ -126,6 +125,6 @@ block content
 	//- END CONTENT
 
 block js
-	script(type='text/javascript', src='assets/plugins/jquery-appear/jquery.appear.js')
-	script(type='text/javascript', src='assets/plugins/animateNumber/jquery.animateNumbers.js')
+	script(type='text/javascript', src='front/assets/plugins/jquery-appear/jquery.appear.js')
+	script(type='text/javascript', src='front/assets/plugins/animateNumber/jquery.animateNumbers.js')
 

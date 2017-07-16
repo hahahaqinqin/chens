@@ -7,10 +7,14 @@ mixin list_Product_Item(post)
 					li
 						a(href='#')
 							span.label.font-montserrat.label-danger.fs-11 NEW
-				img.lazy(alt='Quote', src='assets/images/gallery_5.jpg')
+				img.lazy(alt='Quote', src='front/assets/images/gallery_5.jpg')
 			.card-description
 				p Like if you agree
-				p.m-b-0.semi-bold.text-master.font-montserrat.bold $0.00
+				p.m-b-0
+					span.semi-bold.text-master.font-montserrat.bold.p-r-5 
+						i.fa.fa-dollar 
+						| 0.00
+					span.block-title.hint-text.line-through $99.00
 				p.m-b-0.text-master.fs-12 Description here
 				ul.list-unstyled.list-inline.no-margin
 						li
