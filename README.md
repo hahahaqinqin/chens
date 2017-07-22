@@ -47,8 +47,12 @@ view the demo: 127.0.0.1:9000
 3. Enquiries(check, email-response)
 
 #### Database
+MongoDB
 
 #### Server
+Digital Ocean
+Nginx
+CentOS
 
 ## Using
     Express v4.0

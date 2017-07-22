@@ -29,22 +29,22 @@ block content
 				li
 					a.text-black.hint-text.link(href='#drinks') Drinks
 
-	section.relative(data-spy='scroll', data-target='#menu', data-offset='45')
+	section.relative
 		.bg-white.b-t.b-grey.p-b-30.p-t-40.container
-			.row#breakfast(data-offset='45')
-				.col-md-offset-1
+			.row#breakfast
+				.col-md-offset-1.p-t-60
 					h2.all-caps.container.m-t-15.m-b-15 Breakfast
 					+list_Menu_Item(post)
-			.row#lunch(data-offset='45')
-				.col-md-offset-1
+			.row#lunch
+				.col-md-offset-1.p-t-60
 					h2.all-caps.container.m-t-15.m-b-15 Lunch
 					+list_Menu_Item(post)
-			.row#dinner(data-offset='45')
-				.col-md-offset-1
+			.row#dinner
+				.col-md-offset-1.p-t-60
 					h2.all-caps.container.m-t-15.m-b-15 Dinner
 					+list_Menu_Item(post)
-			.row#drinks(data-offset='45')
-				.col-md-offset-1
+			.row#drinks
+				.col-md-offset-1.p-t-60
 					h2.all-caps.container.m-t-15.m-b-15 Drinks
 					+list_Menu_Item(post)
 	//- END CONTENT

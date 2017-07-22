@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
 var martSchema = mongoose.Schema({
+    sku: String,
     name: String,
     description: String,
     price: Number,
     category: String,
-    sku: String,
     discount: parseFloat(Number),
     addDate: Date,
     EndDate: Date,

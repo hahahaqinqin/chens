@@ -1,16 +1,286 @@
 extends ../../layouts/layout-admin
+block css
+	link(type='text/css', rel='stylesheet', href='/admin/assets/plugins/jquery-datatable/media/css/jquery.dataTables.css')
+	link(type='text/css', rel='stylesheet', href='/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css')
+	link(media='screen', type='text/css', rel='stylesheet', href='/admin/assets/plugins/datatables-responsive/css/datatables.responsive.css')
+	link(href='/admin/assets/plugins/nvd3/nv.d3.min.css', rel='stylesheet', type='text/css', media='screen')
+
+
 
 block content
 	//- START PAGE CONTENT
 	.content
 		//- START JUMBOTRON
-		.jumbotron(data-pages='parallax')
+		.jumbotron.bg-white(data-pages='parallax')
 			.container-fluid.container-fixed-lg.sm-p-l-20.sm-p-r-20
 				.inner
+					section.container.container-fixed-lg.p-t-65.p-b-60
+						.md-p-l-20.md-p-r-20.xs-no-padding
+							.row
+								.col-sm-3.xs-m-b-30
+									h2.font-montserrat.no-margin.text-uppercase.p-r-30.sm-no-padding
+										span(data-pages-animate='number', data-value='102345345', data-animation-duration='800') 102,345,345
+									h6.block-title.fs-13.m-t-5.text-uppercase.sm-no-padding Active Customers
+								.col-sm-9
+									.sm-p-l-20.xs-no-padding
+										p
+											| Our motivation "Perfection simplified" helps to craft meaningful experiences for the people around us, This mission inspires us to jump out of bed each day and guides every aspect of what we do.
+										p.m-t-30.fs-12.font-arial.hint-text
+											| Creative Direction, Code Perfection, Innovative Mindset
+							.progress.progress-tiny.m-t-15.m-b-5
+								.progress-bar(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', data-pages-animate='progressbar', data-percentage='79%', style='width: 79%;')
+									span.sr-only 60% Complete
+							p.pull-right.font-arial.hint-text.fs-11
+								| 67% 
+								span.hint-text Higher than Previous Month
 		//- END JUMBOTRON
 		//- START CONTAINER FLUID
-		.container-fluid.container-fixed-lg
+		.container-fluid.container-fixed-lg.m-t-20
 			//- BEGIN PlACE PAGE CONTENT HERE
+			h5.page-title Restaurant Report
+			.row
+				.col-md-4.col-lg-3.col-xlg-3
+					//- START WIDGET
+					.widget-8.panel.no-border.bg-success.no-margin.widget-loader-bar
+						.container-xs-height.full-height
+							.row-xs-height
+								.col-xs-height.col-top
+									.panel-heading
+										.panel-title.text-black.hint-text
+											span.font-montserrat.fs-11.all-caps
+												| Daily Checks 
+												i.fa.fa-chevron-right
+										.panel-controls
+											ul
+												li
+													a.portlet-refresh.text-black(data-toggle='refresh', href='#')
+														i.portlet-icon.portlet-icon-refresh
+							.row-xs-height
+								.col-xs-height.col-top.relative
+									.p-l-20
+										h3.no-margin.p-b-5.text-white 4,000
+										p.small.hint-text.m-t-5
+											span.label.font-montserrat.m-r-15 99
+											| Liked
+										
+					//- END WIDGET
+				.col-md-4.col-lg-3.col-xlg-3
+					//- START WIDGET
+					.widget-8.panel.no-border.bg-success-light.no-margin.widget-loader-bar
+						.container-xs-height.full-height
+							.row-xs-height
+								.col-xs-height.col-top
+									.panel-heading
+										.panel-title.text-black.hint-text
+											span.font-montserrat.fs-11.all-caps
+												| Weekly Checks 
+												i.fa.fa-chevron-right
+										.panel-controls
+											ul
+												li
+													a.portlet-refresh.text-black(data-toggle='refresh', href='#')
+														i.portlet-icon.portlet-icon-refresh
+							.row-xs-height
+								.col-xs-height.col-top.relative
+									.p-l-20
+										h3.no-margin.p-b-5.text-white 4,000
+										p.small.hint-text.m-t-5
+											span.label.font-montserrat.m-r-15 600
+											| Liked
+										
+					//- END WIDGET
+				.col-md-4.col-lg-3.col-xlg-3
+					//- START WIDGET
+					.widget-8.panel.no-border.bg-success-lighter.no-margin.widget-loader-bar
+						.container-xs-height.full-height
+							.row-xs-height
+								.col-xs-height.col-top
+									.panel-heading
+										.panel-title.text-black.hint-text
+											span.font-montserrat.fs-11.all-caps
+												| Monthly Checks 
+												i.fa.fa-chevron-right
+										.panel-controls
+											ul
+												li
+													a.portlet-refresh.text-black(data-toggle='refresh', href='#')
+														i.portlet-icon.portlet-icon-refresh
+							.row-xs-height
+								.col-xs-height.col-top.relative
+									.p-l-20
+										h3.no-margin.p-b-5.text-master 4,000
+										p.small.hint-text.m-t-5
+											span.label.font-montserrat.m-r-15 60000
+											| Liked
+										
+					//- END WIDGET
+				.col-md-4.col-lg-3.col-xlg-3
+					//- START WIDGET CHART
+					.widget-4.widget-8.panel.no-border.no-margin.widget-loader-bar
+						.container-sm-height.full-height
+							.row-sm-height
+								.col-sm-height.col-top
+									.panel-heading
+										.panel-title.text-black.hint-text
+											span.font-montserrat.fs-11.all-caps
+												| Trending 
+												i.fa.fa-chevron-right
+										.panel-controls
+											ul
+												li
+													a.portlet-refresh.text-black(href='#', data-toggle='refresh')
+														i.portlet-icon.portlet-icon-refresh
+							.row-sm-height
+								.col-sm-height.col-top
+									.p-l-20.p-r-20
+										h5.no-margin.p-b-5.pull-left.hint-text Total Viewed
+										p.pull-right.no-margin.bold.hint-text 2,563
+										.clearfix
+							.row-sm-height
+								.col-sm-height.col-bottom
+									.restaurantChart.widget-4-chart.line-chart(data-line-color='success', data-area-color='success-light', data-y-grid='false', data-points='false', data-stroke-width='2')
+										svg
+					//- END WIDGET
+			h5.page-title.m-t-30 Mart Report
+			.row
+				.col-md-4.col-lg-3.col-xlg-3
+					//- START WIDGET
+					.widget-8.panel.no-border.bg-primary.no-margin.widget-loader-bar
+						.container-xs-height.full-height
+							.row-xs-height
+								.col-xs-height.col-top
+									.panel-heading
+										.panel-title.text-black.hint-text
+											span.font-montserrat.fs-11.all-caps
+												| Daily Checks 
+												i.fa.fa-chevron-right
+										.panel-controls
+											ul
+												li
+													a.portlet-refresh(data-toggle='refresh', href='#')
+														i.portlet-icon.portlet-icon-refresh.text-white
+							.row-xs-height
+								.col-xs-height.col-top.relative
+									.p-l-20
+										h3.no-margin.p-b-5.text-white 4,000
+										p.small.hint-text.m-t-5
+											span.label.font-montserrat.m-r-15 600
+											| Liked
+										
+					//- END WIDGET
+				.col-md-4.col-lg-3.col-xlg-3
+					//- START WIDGET
+					.widget-8.panel.no-border.bg-primary-light.no-margin.widget-loader-bar
+						.container-xs-height.full-height
+							.row-xs-height
+								.col-xs-height.col-top
+									.panel-heading
+										.panel-title.text-black.hint-text
+											span.font-montserrat.fs-11.all-caps
+												| Weekly Checks 
+												i.fa.fa-chevron-right
+										.panel-controls
+											ul
+												li
+													a.portlet-refresh.text-black(data-toggle='refresh', href='#')
+														i.portlet-icon.portlet-icon-refresh
+							.row-xs-height
+								.col-xs-height.col-top.relative
+									.p-l-20
+										h3.no-margin.p-b-5.text-white 4,000
+										p.small.hint-text.m-t-5
+											span.label.font-montserrat.m-r-15 600
+											| Liked
+										
+					//- END WIDGET
+				.col-md-4.col-lg-3.col-xlg-3
+					//- START WIDGET
+					.widget-8.panel.no-border.bg-primary-lighter.no-margin.widget-loader-bar
+						.container-xs-height.full-height
+							.row-xs-height
+								.col-xs-height.col-top
+									.panel-heading
+										.panel-title.text-black.hint-text
+											span.font-montserrat.fs-11.all-caps
+												| Monthly Checks 
+												i.fa.fa-chevron-right
+										.panel-controls
+											ul
+												li
+													a.portlet-refresh.text-black(data-toggle='refresh', href='#')
+														i.portlet-icon.portlet-icon-refresh
+							.row-xs-height
+								.col-xs-height.col-top.relative
+									.p-l-20
+										h3.no-margin.p-b-5.text-master 4,000
+										p.small.hint-text.m-t-5
+											span.label.font-montserrat.m-r-15 600
+											| Liked
+										
+					//- END WIDGET
+				.col-md-4.col-lg-3.col-xlg-3
+					//- START WIDGET CHART
+					.widget-4.widget-8.panel.no-border.no-margin.widget-loader-bar
+						.container-sm-height.full-height
+							.row-sm-height
+								.col-sm-height.col-top
+									.panel-heading
+										.panel-title.text-black.hint-text
+											span.font-montserrat.fs-11.all-caps
+												| Trending 
+												i.fa.fa-chevron-right
+										.panel-controls
+											ul
+												li
+													a.portlet-refresh.text-black(href='#', data-toggle='refresh')
+														i.portlet-icon.portlet-icon-refresh
+							.row-sm-height
+								.col-sm-height.col-top
+									.p-l-20.p-r-20
+										h5.no-margin.p-b-5.pull-left.hint-text Total Viewed
+										p.pull-right.no-margin.bold.hint-text 2,563
+										.clearfix
+							.row-sm-height
+								.col-sm-height.col-bottom
+									.martChart.widget-4-chart.line-chart(data-line-color='primary', data-area-color='primary-light', data-y-grid='false', data-points='false', data-stroke-width='2')
+										svg
+					//- END WIDGET
+			h5.page-title.m-t-30 Subscribe Emails List
+			.panel
+				.panel-body
+					table.table.table-hover.table-striped(cellspacing='0', width='100%')
+						thead
+							tr
+								th Mail-Address
+								th Start date
+								th Source
+						tbody
+							tr
+								td 
+									a(href="mailto:target@mail.com" target="mail_tab")
+										| target@mail.com
+								td 2011/04/25
+								td IP/address or Device
+
+
 			//- END PLACE PAGE CONTENT HERE
 		//- END CONTAINER FLUID
 	//- END PAGE CONTENT
+
+block js
+	script(type='text/javascript', src='/admin/assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js')
+	script(type='text/javascript', src='/admin/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js')
+	script(type='text/javascript', src='/admin/assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js')
+	script(type='text/javascript', src='/admin/assets/plugins/datatables-responsive/js/datatables.responsive.js')
+	script(type='text/javascript', src='/admin/assets/plugins/datatables-responsive/js/lodash.min.js')
+	script(type='text/javascript', src='/admin/assets/plugins/nvd3/lib/d3.v3.js')
+	script(type='text/javascript', src='/admin/assets/plugins/nvd3/nv.d3.min.js')
+	script(type='text/javascript', src='/admin/assets/plugins/nvd3/src/utils.js')
+	script(type='text/javascript', src='/admin/assets/plugins/nvd3/src/tooltip.js')
+	script(type='text/javascript', src='/admin/assets/plugins/nvd3/src/interactiveLayer.js')
+	script(type='text/javascript', src='/admin/assets/plugins/nvd3/src/models/axis.js')
+	script(type='text/javascript', src='/admin/assets/plugins/nvd3/src/models/line.js')
+	script(type='text/javascript', src='/admin/assets/plugins/nvd3/src/models/lineWithFocusChart.js')
+
+
+

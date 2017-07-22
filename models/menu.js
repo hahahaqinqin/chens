@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
 
 var menuSchema = mongoose.Schema({
+   
     name: String,
     description: String,
-    price: String,
+    price: Number,
     category: String,
-    discount: Number,
+    discount: parseFloat(Number),
     addDate: Date,
     EndDate: Date,
     tags: [String]
