@@ -1,11 +1,10 @@
 extends ../../layouts/layout-admin
+
 block css
 	link(type='text/css', rel='stylesheet', href='/admin/assets/plugins/jquery-datatable/media/css/jquery.dataTables.css')
 	link(type='text/css', rel='stylesheet', href='/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css')
 	link(media='screen', type='text/css', rel='stylesheet', href='/admin/assets/plugins/datatables-responsive/css/datatables.responsive.css')
 	link(href='/admin/assets/plugins/nvd3/nv.d3.min.css', rel='stylesheet', type='text/css', media='screen')
-
-
 
 block content
 	//- START PAGE CONTENT
@@ -281,6 +280,6 @@ block js
 	script(type='text/javascript', src='/admin/assets/plugins/nvd3/src/models/axis.js')
 	script(type='text/javascript', src='/admin/assets/plugins/nvd3/src/models/line.js')
 	script(type='text/javascript', src='/admin/assets/plugins/nvd3/src/models/lineWithFocusChart.js')
-
+	script(type='text/javascript', src='/admin/assets/js/dashboard.js')
 
 

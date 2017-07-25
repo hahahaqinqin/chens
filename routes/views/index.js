@@ -8,16 +8,17 @@ router.get('/', function(req, res, next) {
 	// res.render('index', {
 	// 	title: 'Home'
 	// });
+	const context = '';
 	Mart.find({available: true}, function(err, marts){
   		if (err) return console.error(err);
-		var context = {
+		context = {
 			marts: marts.map(function (item) {
 				return {
+					sku: item.sku,
 					name: item.name,
 					description: item.description,
 					price: item.price,
 					category: item.category,
-					sku: item.sku,
 					discount: item.discount,
 					addDate: item.addDate,
 					EndDate: item.EndDate,
@@ -25,7 +26,10 @@ router.get('/', function(req, res, next) {
 				}
 			})
 		};
-		res.render('index', context);
+		res.render('index', {
+			title: 'Home',
+			context: context
+		});
 	});
 });
 

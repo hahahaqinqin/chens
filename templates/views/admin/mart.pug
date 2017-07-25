@@ -1,3 +1,89 @@
 extends ../../layouts/layout-admin
 
+block css
+	link(href='/admin/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css', rel='stylesheet', type='text/css')
+	link(href='/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css', rel='stylesheet', type='text/css')
+	link(href='/admin/assets/plugins/datatables-responsive/css/datatables.responsive.css', rel='stylesheet', type='text/css', media='screen')
+
+
+
 block content
+	//- START PAGE CONTENT
+	.content
+		//- START CONTAINER FLUID
+		.container-fluid.container-fixed-lg.bg-white
+			//- START PANEL
+			.panel.panel-transparent
+				.panel-heading
+					.panel-title
+						| Pages Default Tables Style
+					.pull-right
+						.col-xs-12
+							input.search-table.form-control.pull-right(type='text', placeholder='Search')
+					.clearfix
+				.panel-body
+					table#martList.table.table-hover.demo-table-search.table-responsive-block
+						thead
+							tr
+								th Name
+								th Public
+								th Description
+								th 
+									| Price
+									i.fa.fa-dollar.m-l-5
+								th Discount
+								th AddDate
+								th EndDate
+								th Tags
+						tbody
+							tr
+								td.v-align-middle.semi-bold
+									p First Tour
+								td.v-align-middle
+									p Public
+								td.v-align-middle
+									p
+										| it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..
+								td.v-align-middle
+									p 
+										| 333.33
+								td.v-align-middle
+									p 0~10
+								td.v-align-middle
+									p April 13,2014 10:13
+								td.v-align-middle
+									p April 13,2014 10:13
+								td.v-align-middle
+									a.btn.btn-tag(href='javascript:;') United States
+									a.btn.btn-tag(href='javascript:;') India
+									a.btn.btn-tag(href='javascript:;') China
+									a.btn.btn-tag(href='javascript:;') Africa
+			//- END PANEL
+
+
+
+block js
+	script(type='text/javascript', src='/admin/assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js')
+	script(type='text/javascript', src='/admin/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js')
+	script(type='text/javascript', src='/admin/assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js')
+	script(type='text/javascript', src='/admin/assets/plugins/datatables-responsive/js/datatables.responsive.js')
+	script(type='text/javascript', src='/admin/assets/plugins/datatables-responsive/js/lodash.min.js')
+	script.
+		var table = $('#martList');
+		var settings = {
+			"sDom": "<'table-responsive't><'row'<p i>>",
+			"sPaginationType": "bootstrap",
+			"destroy": true,
+			"scrollCollapse": true,
+			"oLanguage": {
+				"sLengthMenu": "_MENU_ ",
+				"sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
+			},
+			"iDisplayLength": 5
+		};
+		table.dataTable(settings);
+		// search box for table
+		$('.search-table').keyup(function() {
+			table.fnFilter($(this).val());
+		});
+

@@ -1,3 +1,97 @@
 extends ../../layouts/layout-admin
 
+block css
+	link(type='text/css', rel='stylesheet', href='/admin/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css')
+	link(type='text/css', rel='stylesheet', href='/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css')
+	link(media='screen', type='text/css', rel='stylesheet', href='/admin/assets/plugins/datatables-responsive/css/datatables.responsive.css')
+
+
+
+
+mixin tagArray(tag)
+	a.btn.btn-tag(href='javascript:;')= tag
+
+
+
+mixin tableList(item)
+	tr
+		td.v-align-middle.semi-bold= item.name
+		td 
+			p= item.name
+		td.v-align-middle
+			p= item.onPublic
+		td.v-align-middle
+			p= item.description
+		td.v-align-middle
+			p= item.price
+		td.v-align-middle
+			p= item.discount
+		td.v-align-middle
+			p= item.addDate
+		td.v-align-middle
+			p= item.endDate
+		td.v-align-middle
+			if item.tags.length
+				each tag in item.tags
+					+tagArray(tag)
 block content
+	//- START PAGE CONTENT
+	.content
+		//- START CONTAINER FLUID
+		.container-fluid.container-fixed-lg.bg-white
+			//- START PANEL
+			.panel.panel-transparent
+				.panel-heading
+					.panel-title
+						| Pages Default Tables Style
+					.pull-right
+						.col-xs-12
+							input.search-table.form-control.pull-right(type='text', placeholder='Search')
+					.clearfix
+				.panel-body
+					table#menuList.table.table-hover.demo-table-search.table-responsive-block
+						thead
+							tr
+								th Sku
+								th Name
+								th Public
+								th Description
+								th 
+									| Price
+									i.fa.fa-dollar.m-l-5
+								th Discount
+								th AddDate
+								th EndDate
+								th Tags
+						tbody
+							if context.length
+								each item in context
+									+tableList(item)
+			//- END PANEL
+
+	
+
+block js
+	script(type='text/javascript', src='/admin/assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js')
+	script(type='text/javascript', src='/admin/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js')
+	script(type='text/javascript', src='/admin/assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js')
+	script(type='text/javascript', src='/admin/assets/plugins/datatables-responsive/js/datatables.responsive.js')
+	script(type='text/javascript', src='/admin/assets/plugins/datatables-responsive/js/lodash.min.js')
+	script.
+		var table = $('#menuList');
+		var settings = {
+			"sDom": "<'table-responsive't><'row'<p i>>",
+			"sPaginationType": "bootstrap",
+			"destroy": true,
+			"scrollCollapse": true,
+			"oLanguage": {
+				"sLengthMenu": "_MENU_ ",
+				"sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
+			},
+			"iDisplayLength": 5
+		};
+		table.dataTable(settings);
+		// search box for table
+		$('.search-table').keyup(function() {
+			table.fnFilter($(this).val());
+		});

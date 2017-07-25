@@ -1,3 +1,75 @@
 extends ../../layouts/layout-admin
 
+block css
+	link(type='text/css', rel='stylesheet', href='/admin/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css')
+	link(type='text/css', rel='stylesheet', href='/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css')
+	link(media='screen', type='text/css', rel='stylesheet', href='/admin/assets/plugins/datatables-responsive/css/datatables.responsive.css')
+
 block content
+	//- START PAGE CONTENT
+	.content
+		//- START CONTAINER FLUID
+		.container-fluid.container-fixed-lg.bg-white
+			//- START PANEL
+			.panel.panel-transparent
+				.panel-heading
+					.panel-title
+						| Pages Default Tables Style
+					.pull-right
+						.col-xs-12
+							input.search-table.form-control.pull-right(type='text', placeholder='Search')
+					.clearfix
+				.panel-body
+					table#enquiriesList.table.table-hover.demo-table-search.table-responsive-block
+						thead
+							tr
+								th Sku
+								th First Name
+								th Last Name
+								th Email
+								th Date
+								th Message
+						tbody
+							tr
+								td.v-align-middle.semi-bold
+									| Sku
+								td.v-align-middle
+									p First Name
+								td.v-align-middle
+									p Last Name
+								td.v-align-middle
+									p
+										a(herf="mailto:target@mail.com") target@mail.com
+								td.v-align-middle
+									p April 13,2014 10:13
+								td.v-align-middle
+									p 
+										| context
+			//- END PANEL
+
+	
+
+block js
+	script(type='text/javascript', src='/admin/assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js')
+	script(type='text/javascript', src='/admin/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js')
+	script(type='text/javascript', src='/admin/assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js')
+	script(type='text/javascript', src='/admin/assets/plugins/datatables-responsive/js/datatables.responsive.js')
+	script(type='text/javascript', src='/admin/assets/plugins/datatables-responsive/js/lodash.min.js')
+	script.
+		var table = $('#enquiriesList');
+		var settings = {
+			"sDom": "<'table-responsive't><'row'<p i>>",
+			"sPaginationType": "bootstrap",
+			"destroy": true,
+			"scrollCollapse": true,
+			"oLanguage": {
+				"sLengthMenu": "_MENU_ ",
+				"sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
+			},
+			"iDisplayLength": 5
+		};
+		table.dataTable(settings);
+		// search box for table
+		$('.search-table').keyup(function() {
+			table.fnFilter($(this).val());
+		});

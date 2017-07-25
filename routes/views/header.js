@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 // request http header
-router.get('/headers', function (req, res) {
+router.get('/', function (req, res) {
 	res.set('Content-Type', 'text/plain');
 	var s = '';
 	for(var name in req.headers) 

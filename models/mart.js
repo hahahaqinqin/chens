@@ -3,12 +3,12 @@ var mongoose = require('mongoose');
 var martSchema = mongoose.Schema({
     sku: String,
     name: String,
+    onPublic: Boolean,
     description: String,
     price: Number,
-    category: String,
     discount: parseFloat(Number),
     addDate: Date,
-    EndDate: Date,
+    endDate: Date,
     tags: [String]
 });
 var Mart = mongoose.model('Mart', martSchema);

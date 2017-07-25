@@ -1,16 +1,17 @@
 // Libs
-const express        = require('express');
-const path           = require('path');
-const favicon        = require('serve-favicon');
-const logger         = require('morgan');
-const cookieParser   = require('cookie-parser');
-const bodyParser     = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const lessMiddleware = require('less-middleware');
-const session        = require('express-session');
-const mongoose       = require('mongoose');
-const config         = require('config-lite')(__dirname);
+const session = require('express-session');
+const mongoose = require('mongoose');
+const config = require('config-lite')(__dirname);
+const Mart = require('./models/mart.js');
 
-const app            = express();
+const app = express();
 
 /**
  * Middleware session
@@ -21,13 +22,13 @@ app.use(session({
 	resave: true,
 	saveUninitialized: false,
 	cookie: {
-		maxAge: config.session.maxAge 
+		maxAge: config.session.maxAge
 	}
 }));
 
 /**
  * Database Configuration
- */ 
+ */
 const options = {
 	server: {
 		socketOptions: {
@@ -38,14 +39,36 @@ const options = {
 switch (app.get('env')) {
 	case 'development':
 		mongoose.connect(config.mongodb.development.connectionString, options);
+		mongoose.connection.once('open', function() {
+			console.log("we're connected!");
+		});
 		break;
 	case 'production':
 		mongoose.connect(config.mongodb.production.connectionString, options);
+		mongoose.connection.once('open', function() {
+			console.log("we're connected!");
+		});
 		break;
 	default:
 		throw new Error('Unknown execution environment: ' + app.get('env'));
 }
 
+// Test Data
+Mart.find(function (err, marts) {
+	if(marts.length) return;
+	console.log("Test Data: \n");
+	new Mart({
+		sku: "aa-111",
+		name: "testtest",
+		onPublic: true,
+		description: "Hahahaha",
+		price: 9.99,
+		discount: 0.3,
+		addDate: "2017-07-25",
+		endDate: "2017-07-25",
+		tags: ["a","b","c"],
+	}).save();
+})
 // Add routes
 require('./routes/index.js')(app);
 
