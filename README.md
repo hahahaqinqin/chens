@@ -6,7 +6,8 @@ This is just a sample site for showing news of Mr. Chen's Restaurant and it's pr
 Build by Dante_Von_Arima with fashion tq.
 
 #### step 0
-    $mkdir your_folder && cd your_folder
+    $mkdir your_folder && cd your_folder  
+    #Start your mongodb
 
 #### Step 1
     $git init
@@ -50,9 +51,9 @@ view the demo: 127.0.0.1:9000
 MongoDB
 
 #### Server
-Digital Ocean
-Nginx
-CentOS
+Digital Ocean  
+Nginx  
+CentOS  
 
 ## Using
     Express v4.0
