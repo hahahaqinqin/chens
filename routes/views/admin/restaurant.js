@@ -1,30 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const Mart = require('../../../models/menu.js');
-const mongoose = require('mongoose');
-
+const Menu = require('../../../models/menu.js');
 
 /* GET contact page. */
 router.get('/', function(req, res, next) {
-	Mart.find(function(err, marts) {
-		if (err) 
-			return console.error(err);
-		console.log("marts: " + marts);
-	})
-	Mart.find({available: true}, function(err, marts) {
-		console.log(marts);
+	Menu.find({available: true}, function(err, menus) {
+		console.log(menus);
   		if (err) return console.error(err);
 		const context = {
-			marts: marts.map(function(mart) {
+			menus: menus.map(function(menu) {
 				return {
-					name: mart.name,
-					onPublic: mart.onPublic,
-					description: mart.description,
-					price: mart.price,
-					discount: mart.discount,
-					addDate: mart.addDate,
-					endDate: mart.endDate,
-					tags: mart.tags
+					name: menu.name,
+					onPublic: menu.onPublic,
+					description: menu.description,
+					price: menu.price,
+					discount: menu.discount,
+					addDate: menu.addDate,
+					endDate: menu.endDate,
+					tags: menu.tags
 				};
 			})
 		};
@@ -33,7 +26,6 @@ router.get('/', function(req, res, next) {
 			context: context
 		});
 	});
-
 });
 
 module.exports = router;

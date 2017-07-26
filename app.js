@@ -9,7 +9,7 @@ const lessMiddleware = require('less-middleware');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const config = require('config-lite')(__dirname);
-const Mart = require('./models/mart.js');
+const Menu = require('./models/menu.js');
 
 const app = express();
 
@@ -54,11 +54,10 @@ switch (app.get('env')) {
 }
 
 // Test Data
-Mart.find(function (err, marts) {
-	if(marts.length) return;
+Menu.find(function (err, menus) {
+	if(menus.length) return;
 	console.log("Test Data: \n");
-	new Mart({
-		sku: "aa-111",
+	new Menu({
 		name: "testtest",
 		onPublic: true,
 		description: "Hahahaha",
