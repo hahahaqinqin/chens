@@ -9,7 +9,8 @@ var martSchema = mongoose.Schema({
     discount: parseFloat(Number),
     addDate: Date,
     endDate: Date,
-    tags: [String]
+    tags: [String],
+    pv: Number
 });
 var Mart = mongoose.model('Mart', martSchema);
 module.exports = Mart;

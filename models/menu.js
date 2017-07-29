@@ -7,8 +7,9 @@ var menuSchema = mongoose.Schema({
     price: Number,
     discount: parseFloat(Number),
     addDate: Date,
-    EndDate: Date,
-    tags: [String]
+    endDate: Date,
+    tags: [String],
+    pv: Number
 });
 var Menu = mongoose.model('Menu', menuSchema);
 module.exports = Menu;

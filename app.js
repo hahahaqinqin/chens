@@ -10,6 +10,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const config = require('config-lite')(__dirname);
 const Menu = require('./models/menu.js');
+const Admin = require('./models/users.js');
 
 const app = express();
 
@@ -53,21 +54,16 @@ switch (app.get('env')) {
 		throw new Error('Unknown execution environment: ' + app.get('env'));
 }
 
-// Test Data
-Menu.find(function (err, menus) {
-	if(menus.length) return;
-	console.log("Test Data: \n");
-	new Menu({
-		name: "testtest",
-		onPublic: true,
-		description: "Hahahaha",
-		price: 9.99,
-		discount: 0.3,
-		addDate: "2017-07-25",
-		endDate: "2017-07-25",
-		tags: ["a","b","c"],
+// Admin Sample
+Admin.find(function (err, user) {
+	if(user.length) return;
+	new Admin({
+		name: "mrchens",
+		password: "admin123",
+		unique: true
 	}).save();
-})
+});
+
 // Add routes
 require('./routes/index.js')(app);
 

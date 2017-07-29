@@ -8,29 +8,25 @@ router.get('/', function(req, res, next) {
 	// res.render('index', {
 	// 	title: 'Home'
 	// });
-	const context = '';
-	Mart.find({available: true}, function(err, marts){
-  		if (err) return console.error(err);
-		context = {
-			marts: marts.map(function (item) {
-				return {
-					sku: item.sku,
-					name: item.name,
-					description: item.description,
-					price: item.price,
-					category: item.category,
-					discount: item.discount,
-					addDate: item.addDate,
-					EndDate: item.EndDate,
-					tags: item.tags
-				}
-			})
-		};
+	
+	Menu.find().then(function (menus) {
+		console.log(menus);
+		menus: menus.map(function(menu) {
+			return {
+				name: menu.name,
+				description: menu.description,
+				price: menu.price,
+				discount: menu.discount,
+				addDate: menu.addDate,
+				endDate: menu.endDate
+			};
+		})
 		res.render('index', {
 			title: 'Home',
-			context: context
+			curl: req.originalUrl,
+			context: menus
 		});
-	});
+	})
 });
 
 module.exports = router;

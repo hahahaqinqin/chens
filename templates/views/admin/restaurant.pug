@@ -16,7 +16,7 @@ mixin tagArray(tag)
 mixin tableList(item)
 	tr
 		td.v-align-middle.semi-bold= item.name
-		td 
+		td.v-align-middle
 			p= item.name
 		td.v-align-middle
 			p= item.onPublic
@@ -52,17 +52,17 @@ block content
 					table#menuList.table.table-hover.demo-table-search.table-responsive-block
 						thead
 							tr
-								th Sku
-								th Name
-								th Public
-								th Description
-								th 
+								th(style='width: auto!important;') Sku
+								th(style='width: auto!important;') Name
+								th(style='width: auto!important;') Public
+								th(style='width: auto!important;') Description
+								th(style='width: auto!important;') 
 									| Price
 									i.fa.fa-dollar.m-l-5
-								th Discount
-								th AddDate
-								th EndDate
-								th Tags
+								th(style='width: auto!important;') Discount
+								th(style='width: auto!important;') AddDate
+								th(style='width: auto!important;') EndDate
+								th(style='width: auto!important;') Tags
 						tbody
 							if context.length
 								each item in context

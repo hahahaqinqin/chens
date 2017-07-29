@@ -3,7 +3,7 @@ include ../components/index-menu-item
 include ../components/index-product-item
 
 block css
-	link(href='front/assets/plugins/swiper/css/swiper.css', rel='stylesheet', type='text/css', media='screen')
+	link(href='/front/assets/plugins/swiper/css/swiper.css', rel='stylesheet', type='text/css', media='screen')
 		
 block content
 	.page-wrappers
@@ -18,7 +18,7 @@ block content
 							//- BEGIN IMAGE PARRALAX
 							.slider-wrapper
 								.image(data-swiper-parallax='30%')
-									img.image-responsive-height(draggable='false', src='front/assets/images/hero_g.jpg', alt='', title='')
+									img.image-responsive-height(draggable='false', src='/front/assets/images/hero_g.jpg', alt='', title='')
 							//- END IMAGE PARRALAX
 							//- BEGIN CONTENT
 							.content-layer
@@ -99,7 +99,7 @@ block content
 								i.pg-more
 			.gallery
 				.grid-sizer.col-sm-3.col-xs-6.no-padding
-				+index_Product_Item
+				+index_Product_Item(item)
 		//- END PORTFOLIO SECTION
 
 		//- BEGIN INTRO CONTENT
@@ -129,7 +129,11 @@ block content
 		section.p-b-30
 			.container
 				.row
-					//- +index_Menu_Item
+					if context.length
+						each item in context
+							+index_Menu_Item(item)
+					else
+						p No content.
 block js
 	//- BEGIN SWIPER DEPENDENCIES
 	script(type='text/javascript', src='front/assets/plugins/velocity/velocity.min.js')

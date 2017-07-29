@@ -21,21 +21,21 @@ block content
 					.panel-heading.separator
 						.panel-title.all-caps ALL CATEGORIES
 					.panel-body.padding-15
-						form(role='form')
+						form(role='form' method='GET')
 							.list-group.p-b-15.b-b.b-grey
-								a.list-group-item(href='?all')
+								a.list-group-item(href='all')
 									span.badge 20
 									|  Show All
-								a.list-group-item(href='?meat')
+								a.list-group-item(href='meat')
 									span.badge 9
 									|  Meat
-								a.list-group-item(href='?vegetable')
+								a.list-group-item(href='vegetables')
 									span.badge 8
 									|  Vegetable
-								a.list-group-item(href='?ingredients')
+								a.list-group-item(href='ingredients')
 									span.badge 6
 									|  ingredients
-								a.list-group-item(href='?snacks')
+								a.list-group-item(href='snacks')
 									span.badge 2
 									|  Snacks
 							h5.all-caps.font-montserrat.fs-12.m-b-10 Advance filters
