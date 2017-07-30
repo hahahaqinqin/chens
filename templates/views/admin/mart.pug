@@ -5,7 +5,31 @@ block css
 	link(href='/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css', rel='stylesheet', type='text/css')
 	link(href='/admin/assets/plugins/datatables-responsive/css/datatables.responsive.css', rel='stylesheet', type='text/css', media='screen')
 
+mixin tagArray(tag)
+	a.btn.btn-tag(href='javascript:;')= tag
 
+mixin tableList(item)
+	tr
+		td.v-align-middle.semi-bold
+			p= item.sku
+		td.v-align-middle
+			p= item.name
+		td.v-align-middle
+			p= item.onPublic
+		td.v-align-middle
+			p= item.description
+		td.v-align-middle
+			p= item.price
+		td.v-align-middle
+			p= item.discount
+		td.v-align-middle
+			p= item.addDate
+		td.v-align-middle
+			p= item.endDate
+		td.v-align-middle
+			if item.tags.length
+				each tag in item.tags
+					+tagArray(tag)
 
 block content
 	//- START PAGE CONTENT
@@ -25,6 +49,7 @@ block content
 					table#martList.table.table-hover.demo-table-search.table-responsive-block
 						thead
 							tr
+								th Sku
 								th Name
 								th Public
 								th Description
@@ -36,28 +61,9 @@ block content
 								th EndDate
 								th Tags
 						tbody
-							tr
-								td.v-align-middle.semi-bold
-									p First Tour
-								td.v-align-middle
-									p Public
-								td.v-align-middle
-									p
-										| it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..
-								td.v-align-middle
-									p 
-										| 333.33
-								td.v-align-middle
-									p 0~10
-								td.v-align-middle
-									p April 13,2014 10:13
-								td.v-align-middle
-									p April 13,2014 10:13
-								td.v-align-middle
-									a.btn.btn-tag(href='javascript:;') United States
-									a.btn.btn-tag(href='javascript:;') India
-									a.btn.btn-tag(href='javascript:;') China
-									a.btn.btn-tag(href='javascript:;') Africa
+							if context.length
+								each item in context
+									+tableList(item)
 			//- END PANEL
 
 

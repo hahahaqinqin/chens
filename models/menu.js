@@ -1,15 +1,16 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var menuSchema = mongoose.Schema({
+const menuSchema = mongoose.Schema({
     name: String,
     onPublic: Boolean,
+    picURL: String,
     description: String,
-    price: Number,
+    price: parseFloat(Number),
     discount: parseFloat(Number),
     addDate: Date,
     endDate: Date,
     tags: [String],
     pv: Number
 });
-var Menu = mongoose.model('Menu', menuSchema);
+const Menu = mongoose.model('Menu', menuSchema);
 module.exports = Menu;

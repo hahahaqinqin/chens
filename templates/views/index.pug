@@ -1,6 +1,37 @@
 extends ../layouts/layout
-include ../components/index-menu-item
-include ../components/index-product-item
+
+//- START MART-ITEM
+mixin index_Product_Item(item)
+	.gallery-item.col-sm-3.col-xs-12.no-padding.hover-zoom
+		.inner.bottom-left.bottom-right.padding-30
+			h5.block-title.text-white.no-margin= item.name
+			h5.block-title.text-white.no-margin 
+				i.fa.fa-dollar 
+				span.p-r-5= item.price
+				span.block-title.hint-text.line-through $99.00
+			h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0= item.addDate
+			p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0.hidden-sm= item.description
+		.ar-1-1
+			div(data-pages-bg-image='front/assets/images/gallery_3.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+	//- END
+
+//- START MENU-LIST
+mixin index_Menu_Item(item)
+	.col-xs-12.col-sm-4.post-card
+		img.lazy.image-responsive-height(draggable='false', src="front/assets/images/meal1.jpg", alt="")
+		.post-card-body
+			.m-t-30
+				h5.all-caps.font-montserrat.no-margin= item.name
+				h4.font-montserrat.no-margin
+					i.fa.fa-dollar
+					span.p-r-5= item.price
+					span.block-title.hint-text.line-through $99.00
+				.clearfix
+			p.fs-16.m-t-20= item.description
+		.post-card-footer.m-t-30
+			p.hint-text.small.pull-left= item.addDate
+			.clearfix
+	//- END
 
 block css
 	link(href='/front/assets/plugins/swiper/css/swiper.css', rel='stylesheet', type='text/css', media='screen')
@@ -99,7 +130,11 @@ block content
 								i.pg-more
 			.gallery
 				.grid-sizer.col-sm-3.col-xs-6.no-padding
-				+index_Product_Item(item)
+				if contextMart.length
+					each item in contextMart
+						+index_Product_Item(item)
+				else
+					p No content.
 		//- END PORTFOLIO SECTION
 
 		//- BEGIN INTRO CONTENT
@@ -129,8 +164,8 @@ block content
 		section.p-b-30
 			.container
 				.row
-					if context.length
-						each item in context
+					if contextMenu.length
+						each item in contextMenu
 							+index_Menu_Item(item)
 					else
 						p No content.

@@ -1,16 +1,17 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var martSchema = mongoose.Schema({
+const martSchema = mongoose.Schema({
     sku: String,
     name: String,
     onPublic: Boolean,
+    picURL: String,
     description: String,
-    price: Number,
+    price: parseFloat(Number),
     discount: parseFloat(Number),
     addDate: Date,
     endDate: Date,
     tags: [String],
     pv: Number
 });
-var Mart = mongoose.model('Mart', martSchema);
+const Mart = mongoose.model('Mart', martSchema);
 module.exports = Mart;
