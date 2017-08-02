@@ -7,6 +7,7 @@ router.get('/', function(req, res, next) {
 	Mart.find().then(function (marts) {
 		marts: marts.map(function(mart) {
 			return {
+				sku: mart.sku,
 				name: mart.name,
 				onPublic: mart.onPublic,
 				description: mart.description,

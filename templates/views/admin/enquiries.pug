@@ -5,6 +5,19 @@ block css
 	link(type='text/css', rel='stylesheet', href='/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css')
 	link(media='screen', type='text/css', rel='stylesheet', href='/admin/assets/plugins/datatables-responsive/css/datatables.responsive.css')
 
+mixin tableList(item)
+	tr
+		td.v-align-middle.semi-bold
+			p= item.fname 
+		td.v-align-middle
+			p= item.lname 
+		td.v-align-middle
+			p= item.mail
+		td.v-align-middle
+			p= item.addDate
+		td.v-align-middle
+			p= item.content
+
 block content
 	//- START PAGE CONTENT
 	.content
@@ -23,28 +36,16 @@ block content
 					table#enquiriesList.table.table-hover.demo-table-search.table-responsive-block
 						thead
 							tr
-								th Sku
 								th First Name
 								th Last Name
 								th Email
 								th Date
 								th Message
 						tbody
-							tr
-								td.v-align-middle.semi-bold
-									| Sku
-								td.v-align-middle
-									p First Name
-								td.v-align-middle
-									p Last Name
-								td.v-align-middle
-									p
-										a(herf="mailto:target@mail.com") target@mail.com
-								td.v-align-middle
-									p April 13,2014 10:13
-								td.v-align-middle
-									p 
-										| context
+							if context.length
+								each item in context
+									+tableList(item)
+
 			//- END PANEL
 
 	

@@ -34,26 +34,26 @@ block content
 					br.visible-xs
 					br.visible-xs
 					h4.sm-m-t-20 Say hellow!
-					form(role='form')
+					form(role='form', method='post')
 						.row
 							.col-sm-6
 								.form-group.form-group-default(required)
 									label.control-label First name
-									input.form-control(type='text')
+									input.form-control(type='text', name='fname')
 							.col-sm-6
 								.form-group.form-group-default(required)
 									label.control-label Last name
-									input.form-control(type='text')
+									input.form-control(type='text', name='lname')
 						.row
 							.col-sm-12
 								.form-group.form-group-default
 									label.control-label Email
-									input.form-control(type='text', required)
+									input.form-control(type='text', name='mail', required)
 						.form-group.form-group-default
 							label.control-label Message
 							textarea.form-control(style='height:100px', placeholder='Type the message you want inquire')
 						p.pull-left.small.hint-text.m-t-5.font-arial.sm-m-t-10 I hereby certify that the information above is true and accurate. 
-						button.btn.btn-white.font-montserrat.all-caps.fs-11.pull-right.sm-m-t-10 Send request
+						button(type='submit').btn.btn-white.font-montserrat.all-caps.fs-11.pull-right.sm-m-t-10 Send request
 						.clearfix
 		//- END CONTACT SECION
 

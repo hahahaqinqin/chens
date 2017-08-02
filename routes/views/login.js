@@ -29,6 +29,8 @@ router.post('/', urlencodedParser, function(req, res) {
 		};
 		if (!user)
 			return res.redirect('/login');
+		if (user.password != password)
+			return res.redirect('/login');
 		req.session.user = user;
 		res.redirect('/admin');
 	})

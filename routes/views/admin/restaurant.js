@@ -4,7 +4,7 @@ const Menu = require('../../../models/menu.js');
 
 /* GET contact page. */
 router.get('/', function(req, res, next) {
-	Menu.find().then(function (menus) {
+	Menu.find().then(function (err, menus) {
 		menus: menus.map(function(menu) {
 			return {
 				name: menu.name,

@@ -7,6 +7,7 @@ router.get('/', function (req, res) {
 	const s = '';
 	for(const name in req.headers) 
 		s += name + ': ' + req.headers[name] + '\n';
+	console.log(s);
 	res.send(s);
 })
 

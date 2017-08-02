@@ -1,18 +1,17 @@
 // Libs
-const express = require('express');
-const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+const express        = require('express');
+const path           = require('path');
+const favicon        = require('serve-favicon');
+const logger         = require('morgan');
+const cookieParser   = require('cookie-parser');
 const lessMiddleware = require('less-middleware');
-const session = require('express-session');
-const mongoose = require('mongoose');
-const config = require('config-lite')(__dirname);
-const Menu = require('./models/menu.js');
-const Admin = require('./models/users.js');
+const session        = require('express-session');
+const mongoose       = require('mongoose');
+const config         = require('config-lite')(__dirname);
+const bodyParser     = require('body-parser');
+const Admin          = require('./models/users.js');
 
-const app = express();
+const app            = express();
 
 /**
  * Middleware session
@@ -72,13 +71,14 @@ app.set('views', path.join(__dirname, 'templates/views'));
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
 app.use(cookieParser());
+
 
 // Less Compile
 app.use(lessMiddleware(path.join(__dirname, 'public')));

@@ -18,7 +18,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', urlencodedParser, function(req, res) {
-	console.log(req.body.price);
 	const item = {
 		name        : req.body.name,
 		onPublic    : req.body.onPublic,
@@ -30,7 +29,6 @@ router.post('/', urlencodedParser, function(req, res) {
 		tags        : req.body.tags
 	}
 	const data = new Menu(item);
-	console.log("New: " + data);
 	data.save();
 	res.redirect('/admin/restaurant/post');
 })
