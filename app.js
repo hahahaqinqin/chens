@@ -7,6 +7,7 @@ const cookieParser   = require('cookie-parser');
 const lessMiddleware = require('less-middleware');
 const session        = require('express-session');
 const mongoose       = require('mongoose');
+const Promise        = require('bluebird');
 const config         = require('config-lite')(__dirname);
 const bodyParser     = require('body-parser');
 const Admin          = require('./models/users.js');
@@ -25,6 +26,8 @@ app.use(session({
 		maxAge: config.session.maxAge
 	}
 }));
+
+mongoose.Promise = global.Promise;
 
 /**
  * Database Configuration
@@ -54,14 +57,14 @@ switch (app.get('env')) {
 }
 
 // Admin Sample
-Admin.find(function (err, user) {
-	if(user.length) return;
-	new Admin({
-		name: "mrchens",
-		password: "admin123",
-		unique: true
-	}).save();
-});
+// Admin.find(function (err, user) {
+// 	if(user.length) return;
+// 	new Admin({
+// 		name: "mrchens",
+// 		password: "admin123",
+// 		unique: true
+// 	}).save();
+// });
 
 // Add routes
 require('./routes/index.js')(app);
