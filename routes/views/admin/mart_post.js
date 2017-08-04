@@ -1,6 +1,7 @@
 const express          = require('express');
 const router           = express.Router();
 const bodyParser       = require('body-parser');
+const Promise          = require('bluebird');
 const Mart             = require('../../../models/mart.js');
 
 // create application/json parser 
@@ -33,6 +34,33 @@ router.post('/', urlencodedParser, function(req, res) {
 	const data = new Mart(item);
 	data.save();
 	res.redirect('/admin/mart/post');
+});
+
+router.get('/edit/:id', function(req, res, nextd) {
+	Promise.all([Mart.find({_id: req.params.id})]).spread(function(marts) {
+		res.render('admin/mart_post', {
+			title: 'Mr Chen\'s Admin Page - Editing: ' + marts[0].name,
+			context: marts
+		});
+	});
+});
+
+router.post('/edit/:id', urlencodedParser, function (req, res) {
+	Promise.all([Mart.findById({_id: req.params.id})]).spread(function(doc) {
+		doc.sku         = req.body.sku,
+		doc.name        = req.body.name,
+		doc.onPublic    = req.body.onPublic,
+		doc.description = req.body.description,
+		doc.ts          = req.body.ts,
+		doc.price       = req.body.price,
+		doc.discount    = req.body.discount,
+		doc.addDate     = req.body.addDate,
+		doc.endDate     = req.body.endDate,
+		doc.tags        = req.body.tags
+		
+		doc.save();
+	});
+	res.redirect('/admin/mart');
 });
 
 module.exports = router;

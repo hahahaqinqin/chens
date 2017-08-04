@@ -14,7 +14,7 @@ mixin index_Product_Item(item)
 				else 
 					i.fa.fa-dollar.m-r-5
 					span.p-r-5= item.price
-			h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0= item.addDate
+			h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 #{moment(item.addDate).format('MM-DD-YYYY')}
 			p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0.hidden-sm= item.description
 		.ar-1-1
 			div(data-pages-bg-image='/front/assets/images/gallery_3.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
@@ -40,7 +40,7 @@ mixin index_Menu_Item(item)
 				.clearfix
 			p.fs-16.m-t-20= item.description
 		.post-card-footer.m-t-30
-			p.hint-text.small.pull-left= item.addDate
+			p.hint-text.small.pull-left #{moment(item.addDate).format('MM-DD-YYYY')}
 			.clearfix
 	//- END
 
@@ -97,9 +97,9 @@ block content
 										.col-xs-height.col-middle.text-left
 											.container
 												.col-md-6.no-padding.col-xs-10.col-xs-offset-1
-													h1.light.text-white.sm-text-center(data-swiper-parallax='-15%')  Twenty & Counting... Unique Website Templates
-													h4.sm-text-center.text-white Save time, save money, look more professional and win more clients.
-													h5.block-title.text-white.sm-text-center Behind the scenes watch tour
+													h1.light.text-white.sm-text-center(data-swiper-parallax='-15%')  Authentic Chinese Cooking & Oriental Market
+													h4.sm-text-center.text-white Si Chun Dishes, TaiWan Dishes, For Family, 
+													h5.block-title.text-white.sm-text-center To Go and For here!
 							//- END CONTENT
 						//- END SLIDE
 					//- BEGIN ANIMATED MOUSE
@@ -117,7 +117,7 @@ block content
 			.container.text-center
 				.row
 					.col-sm-8.col-sm-offset-2
-						h6.block-title.m-b-0 Elegant that shines
+						h6.block-title.m-b-0 Splendid and Popular
 						h1.m-t-5.light FEATURED MEAL
 		//- END INTRO CONTENT
 

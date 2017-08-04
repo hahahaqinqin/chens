@@ -11,7 +11,7 @@ const Promise        = require('bluebird');
 const config         = require('config-lite')(__dirname);
 const bodyParser     = require('body-parser');
 const cloudinary     = require('cloudinary');
-// const Admin       = require('./models/users.js');
+const Admin       = require('./models/users.js');
 
 const app            = express();
 
@@ -73,14 +73,14 @@ cloudinary.config({
 });
 
 // Admin Sample
-// Admin.find(function (err, user) {
-// 	if(user.length) return;
-// 	new Admin({
-// 		name: "mrchens",
-// 		password: "admin123",
-// 		unique: true
-// 	}).save();
-// });
+Admin.find(function (err, user) {
+	if(user.length) return;
+	new Admin({
+		name: "mrchens",
+		password: "admin123",
+		unique: true
+	}).save();
+});
 
 // Add routes
 require('./routes/index.js')(app);

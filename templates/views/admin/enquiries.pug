@@ -14,7 +14,7 @@ mixin tableList(item)
 		td.v-align-middle
 			p= item.mail
 		td.v-align-middle
-			p= item.addDate
+			p #{moment(item.addDate).format('MM-DD-YYYY')}
 		td.v-align-middle
 			p= item.content
 

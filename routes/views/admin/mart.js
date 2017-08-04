@@ -6,7 +6,7 @@ const Mart = require('../../../models/mart.js');
 /* GET contact page. */
 router.get('/', function(req, res, next) {
 	Promise.all([Mart.find()]).spread(function (marts) {
-		res.render('admin/restaurant', {
+		res.render('admin/mart', {
 			title: 'Mr Chen\'s Admin Page - Mart List',
 			context: marts
 		});

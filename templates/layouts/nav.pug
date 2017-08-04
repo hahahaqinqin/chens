@@ -33,8 +33,6 @@ mixin header
 						ul.menu
 							li
 								a(class={active: curl === '/'} href='/', data-text='Home') Home
-
-
 							li.mega
 								a(class={active: curl === '/restaurant'} href='/restaurant', data-text='Restaurant') Restaurant
 								//- 	i.pg-arrow_minimize.m-l-5
@@ -107,8 +105,12 @@ mixin header
 							li
 								a(class={active: curl === '/contact'} href='/contact', data-text='Contact Us') Contact Us
 							li
-								a(herf='javascript:;', data-text='phone') +65 345 345 5555 
-									i.m-l-10.fa.fa-phone
+								a(herf='javascript:;', data-text='phone') 
+									i.m-l-10.fa.fa-cutlery.m-r-10
+									| (334) 260-9558 
+								a(herf='javascript:;', data-text='phone') 
+									i.m-l-10.fa.fa-shopping-cart.m-r-10
+									| (334) 260-9950
 						//- END MENU ITEMS
 						//- BEGIN COPYRIGHT FOR MOBILE
 						.font-arial.m-l-35.m-r-35.m-b-20.m-t-20.visible-sm.visible-xs

@@ -8,7 +8,10 @@ block css
 mixin tableList(item)
 	tr
 		td.v-align-middle.semi-bold
-			p= item.sku
+			p
+				a(href='/admin/mart/post/edit/' + item.id)
+					i.fa.fa-edit.m-r-15
+					span= item.sku
 		td.v-align-middle
 			p= item.name
 		td.v-align-middle
@@ -24,7 +27,7 @@ mixin tableList(item)
 		td.v-align-middle
 			p #{moment(item.endDate).format('MM-DD-YYYY')}
 		td.v-align-middle
-			a.btn.btn-tag(href='javascript:;')= tag
+			a.btn.btn-tag(href='javascript:;')= item.tags
 
 block content
 	//- START PAGE CONTENT
