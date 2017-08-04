@@ -52,7 +52,6 @@ router.get('/', function(req, res, next) {
 			tags: 'w'
 		}).sort({pos: 1})
 	]).spread(function(mL, mMT, mA, mAp, mS, mV, mK, mC, mB, mS, mT, mP, mR, mN, mW) {
-		console.log(mL);
 		res.render('restaurant', {
 			title     : 'Mr Chen\'s Restaurant',
 			curl      : req.originalUrl,
