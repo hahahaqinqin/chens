@@ -1,28 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const Promise  = require('bluebird');
 const Mart = require('../../../models/mart.js');
 
 /* GET contact page. */
 router.get('/', function(req, res, next) {
-	Mart.find().then(function (marts) {
-		marts: marts.map(function(mart) {
-			return {
-				sku: mart.sku,
-				name: mart.name,
-				onPublic: mart.onPublic,
-				description: mart.description,
-				price: mart.price,
-				discount: mart.discount,
-				addDate: mart.addDate,
-				endDate: mart.endDate,
-				tags: mart.tags
-			};
-		})
-		res.render('admin/mart', {
+	Promise.all([Mart.find()]).spread(function (marts) {
+		res.render('admin/restaurant', {
 			title: 'Mr Chen\'s Admin Page - Mart List',
 			context: marts
 		});
-	})
+	});
 });
 
 module.exports = router;

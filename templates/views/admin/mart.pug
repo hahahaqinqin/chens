@@ -5,9 +5,6 @@ block css
 	link(href='/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css', rel='stylesheet', type='text/css')
 	link(href='/admin/assets/plugins/datatables-responsive/css/datatables.responsive.css', rel='stylesheet', type='text/css', media='screen')
 
-mixin tagArray(tag)
-	a.btn.btn-tag(href='javascript:;')= tag
-
 mixin tableList(item)
 	tr
 		td.v-align-middle.semi-bold
@@ -23,13 +20,11 @@ mixin tableList(item)
 		td.v-align-middle
 			p= item.discount
 		td.v-align-middle
-			p= item.addDate
+			p #{moment(item.addDate).format('MM-DD-YYYY')}
 		td.v-align-middle
-			p= item.endDate
+			p #{moment(item.endDate).format('MM-DD-YYYY')}
 		td.v-align-middle
-			if item.tags.length
-				each tag in item.tags
-					+tagArray(tag)
+			a.btn.btn-tag(href='javascript:;')= tag
 
 block content
 	//- START PAGE CONTENT

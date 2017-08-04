@@ -23,15 +23,14 @@ router.post('/', urlencodedParser, function(req, res) {
 		name        : req.body.name,
 		onPublic    : req.body.onPublic,
 		description : req.body.description,
+		ts          : req.body.ts,
 		price       : req.body.price,
 		discount    : req.body.discount,
 		addDate     : req.body.addDate,
 		endDate     : req.body.endDate,
 		tags        : req.body.tags
 	}
-	console.log("item: " + item);
 	const data = new Mart(item);
-	console.log("New: " + data);
 	data.save();
 	res.redirect('/admin/mart/post');
 });

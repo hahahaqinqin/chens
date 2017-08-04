@@ -1,5 +1,52 @@
 extends ../layouts/layout
-include ../components/list-menu-item
+mixin list_Menu_Item(item)
+	li.col-xs-6.block-title.m-b-15.p-r-15
+		.b-b.b-grey.b-dashed.p-b-5
+			span= item.name
+			span.m-l-10= item.tags
+			span= item.pos
+			if item.spicy
+				span.m-l-10
+				-for(var x = 0; x < item.spicy; x++)				
+					i.m-r-5.fa.fa-fire.text-danger
+			span.pull-right 
+				if item.discount > 0 && item.discount < 10
+					i.fa.fa-dollar.m-r-5
+					-var dPrice = parseFloat(item.price * item.discount / 10).toFixed(3).toString()
+					span.p-r-5=  dPrice.substr(0, dPrice.length-1)
+					span.block-title.hint-text.line-through= item.price
+
+mixin grid_Menu_Item(item)
+	//- START POST
+	.col-sm-12.col-md-10
+		.clearfix.b-b.b-dashed.b-grey
+			dl.row.dl-horizontal.m-b-30
+				a.overlayer.top-left.p-l-30.p-t-15(href='javascript:;')
+					span.label.font-montserrat.label-success.fs-11.all-caps On Sale
+				img.center-block.col-xs-12.col-md-4(src='front/assets/images/gallery_3.jpg', alt='')
+				dd.col-sm-12.col-md-8.no-margin
+					h5.all-caps.font-montserrat.pull-left.no-margin Meal's Title
+					.pull-right
+						a.m-l-10.text-master.bold.fs-14(herf='javascript:;')
+							i.fa.fa-facebook
+						a.m-l-10.text-master.bold.fs-14(herf='javascript:;')
+							i.fa.fa-wechat
+						a.m-l-10.text-master.bold.fs-14(herf='javascript:;')
+							i.fa.fa-twitter
+						a.m-l-10.text-master.bold.fs-14(herf='javascript:;')
+							i.fa.fa-rss
+					.clearfix
+					h5.font-montserrat.text-master
+						span.p-r-5
+							i.fa.fa-dollar 
+							| 0.00
+						span.block-title.hint-text.line-through $99.00
+
+					p.fs-16.m-t-20
+						| Give some detials about the meals you put here and show anything else you thought it worth.
+					.post-card-footer.m-t-30
+						p.hint-text.small.pull-left Added on 12 sep 2014
+	//- END POST
 
 block content
 	//- BEGIN JUMBOTRON
@@ -13,38 +60,225 @@ block content
 								| Digital solutions led by clarity, simplicity & honesty
 	//- END JUMBOTRON
 	//- BEGIN CONTENT
-	section
+	section.p-b-50.p-t-50
 		.bg-white.container
-			ul.list-inline.m-t-30.m-b-30.m-l-0#menu
-				li
-					a.text-black.link.p-r-30(href='javascript:;') Latest
-				li
-					a.text-primary.hint-text.link.p-r-15(href='javascript:;') Popular
-				li.b-l.b-grey
-					a.text-black.hint-text.link.p-l-15.p-r-30(href='#breakfast') Breakfast
-				li
-					a.text-black.hint-text.link.p-r-30(href='#lunch') Lunch
-				li
-					a.text-black.hint-text.link.p-r-30(href='#dinner') Dinner
-				li
-					a.text-black.hint-text.link(href='#drinks') Drinks
-
-	section.relative
-		.bg-white.b-t.b-grey.p-b-30.p-t-40.container
-			.row#breakfast
-				.col-md-offset-1.p-t-60
-					h2.all-caps.container.m-t-15.m-b-15 Breakfast
-					+list_Menu_Item(post)
-			.row#lunch
-				.col-md-offset-1.p-t-60
-					h2.all-caps.container.m-t-15.m-b-15 Lunch
-					+list_Menu_Item(post)
-			.row#dinner
-				.col-md-offset-1.p-t-60
-					h2.all-caps.container.m-t-15.m-b-15 Dinner
-					+list_Menu_Item(post)
-			.row#drinks
-				.col-md-offset-1.p-t-60
-					h2.all-caps.container.m-t-15.m-b-15 Drinks
-					+list_Menu_Item(post)
+			.col-xs-3
+				ul.nav.full-width.nav-tabs.nav-tabs-simple.nav-tabs-left.bg-white.b-r.b-grey
+					li.b-b.b-dashed.b-grey.active
+						a.list-group-item(data-toggle='tab', href='#l')
+							span.badge= contextL.length
+							//- span.badge.badge-danger New
+							//- if context.length
+							//- 	each item in context 
+							//- 		if item.discount > 0
+							//- 			span.badge.badge-success On Sale
+							| Lunch's Special
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#mt')
+							span.badge= contextMT.length
+							| Milk tea
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#a')
+							span.badge= contextA.length
+							| Cold Plate & Salad
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#ap')
+							span.badge= contextAp.length
+							| Appetizer
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#s')
+							span.badge= contextS.length
+							| Soup & Clay Pot
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#v')
+							span.badge= contextV.length
+							| Vegetable
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#k')
+							span.badge= contextK.length
+							| Kids Menu
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#c')
+							span.badge= contextC.length
+							| Chicken
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#b')
+							span.badge= contextB.length
+							| Beef
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#s')
+							span.badge= contextS.length
+							| Seafood
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#t')
+							span.badge= contextT.length
+							| Tofu
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#p')
+							span.badge= contextP.length
+							| Pork
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#r')
+							span.badge= contextR.length
+							| Rice
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#n')
+							span.badge= contextN.length
+							| Noodle
+					li.b-b.b-dashed.b-grey
+						a.list-group-item(data-toggle='tab', href='#w')
+							span.badge= contextW.length
+							| Wine
+			.col-xs-9
+				.tab-content.no-border.bg-white
+					#l.tab-pane.fade.in.active
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Lunch's Special
+							ul.list-inline.m-t-15.clearfix
+								if contextL	
+									if contextL.length
+										each item in contextL
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#mt.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Milk tea
+							ul.list-inline.m-t-15.clearfix
+								if contextMT	
+									if contextMT.length
+										each item in contextMT
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#a.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Cold Plate & Salad
+							ul.list-inline.m-t-15.clearfix
+								if contextA	
+									if contextA.length
+										each item in contextA
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#ap.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Appetizer
+							ul.list-inline.m-t-15.clearfix
+								if contextAp	
+									if contextAp.length
+										each item in contextAp
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#s.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Soup & Clay Pot
+							ul.list-inline.m-t-15.clearfix
+								if contextS	
+									if contextS.length
+										each item in contextS
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#v.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Vegetable
+							ul.list-inline.m-t-15.clearfix
+								if contextV	
+									if contextV.length
+										each item in contextV
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#k.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Kids Menu
+							ul.list-inline.m-t-15.clearfix
+								if contextK	
+									if contextK.length
+										each item in contextK
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#c.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Chicken
+							ul.list-inline.m-t-15.clearfix
+								if contextC	
+									if contextC.length
+										each item in contextC
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#b.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Beef
+							ul.list-inline.m-t-15.clearfix
+								if contextB	
+									if contextB.length
+										each item in contextB
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#s.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Seafood
+							ul.list-inline.m-t-15.clearfix
+								if contextS	
+									if contextS.length
+										each item in contextS
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#t.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Tofu
+							ul.list-inline.m-t-15.clearfix
+								if contextT	
+									if contextT.length
+										each item in contextT
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#p.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Pork
+							ul.list-inline.m-t-15.clearfix
+								if contextP	
+									if contextP.length
+										each item in contextP
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#r.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Rice
+							ul.list-inline.m-t-15.clearfix
+								if contextR	
+									if contextR.length
+										each item in contextR
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#n.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Noodle
+							ul.list-inline.m-t-15.clearfix
+								if contextN	
+									if contextN.length
+										each item in contextN
+											+list_Menu_Item(item)
+									else
+										p No content.
+					#w.tab-pane.fade
+						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
+							h5.font-montserrat.text-uppercase.fs-14.hint-text Wine
+							ul.list-inline.m-t-15.clearfix
+								if contextW	
+									if contextW.length
+										each item in contextW
+											+list_Menu_Item(item)
+									else
+										p No content.
 	//- END CONTENT

@@ -6,9 +6,10 @@ mixin index_Product_Item(item)
 		.inner.bottom-left.bottom-right.padding-30
 			h5.block-title.text-white.no-margin= item.name
 			h5.block-title.text-white.no-margin 
-				if item.discount != 0
+				if item.discount > 0 && item.discount < 10
 					i.fa.fa-dollar.m-r-5
-					span.p-r-5= item.discount
+					-var dPrice = parseFloat(item.price * item.discount / 10).toFixed(3).toString()
+					span.p-r-5=  dPrice.substr(0, dPrice.length-1)
 					span.block-title.hint-text.line-through= item.price
 				else 
 					i.fa.fa-dollar.m-r-5
@@ -27,9 +28,10 @@ mixin index_Menu_Item(item)
 			.m-t-30
 				h5.all-caps.font-montserrat.no-margin= item.name
 				h4.font-montserrat.no-margin
-					if item.discount != 0
+					if item.discount > 0 && item.discount < 10
 						i.fa.fa-dollar.m-r-5
-						span.p-r-5= item.discount
+						-var dPrice = parseFloat(item.price * item.discount / 10).toFixed(3).toString()
+						span.p-r-5=  dPrice.substr(0, dPrice.length-1)
 						span.block-title.hint-text.line-through= item.price
 					else 
 						i.fa.fa-dollar.m-r-5
@@ -127,13 +129,7 @@ block content
 				.col-md-12.p-t-15.p-b-15.text-center
 					ul.no-style.no-margin
 						li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
-							a.link.active.text-black.fs-13.block-title(href='javascript:;') all
-						li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
-							a.link.active.text-black.fs-13.block-title(href='javascript:;') meat
-						li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
-							a.link.active.text-black.fs-13.block-title(href='javascript:;') vegetable
-						li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
-							a.link.active.text-black.fs-13.block-title(href='javascript:;') ingredients
+							a.link.active.text-black.fs-13.block-title(href='javascript:;') Today's Arrival
 						li.m-r-20.m-l-20.inline.xs-block.text-center
 							a.link.active.text-black.fs-13.block-title(href='/mart') more 
 								i.pg-more
@@ -152,7 +148,7 @@ block content
 				.row
 					.col-sm-8.col-sm-offset-2
 						h6.block-title.m-b-0 Elegant that shines
-						h1.m-t-5.light SPECIAL MEAL
+						h1.m-t-5.light FEATURED MEAL
 		//- END INTRO CONTENT
 
 		//- BEGIN FILTER
@@ -162,11 +158,9 @@ block content
 				.col-md-12.p-t-15.p-b-15.text-center
 					ul.no-style.no-margin
 						li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
-							a.link.active.text-black.fs-13.block-title(href='javascript:;') latest
-						li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
-							a.link.active.text-black.fs-13.block-title(href='javascript:;') popular
+							a.link.active.text-black.fs-13.block-title(href='javascript:;') Today's Special
 						li.m-r-20.m-l-20.inline.xs-block.text-center
-							a.link.active.text-black.fs-13.block-title(href='/restaurant') more 
+							a.link.text-black.fs-13.block-title(href='/restaurant') more 
 								i.pg-more
 		//- END FILTER
 

@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 const martSchema = mongoose.Schema({
     sku: String,
     name: String,
     onPublic: Boolean,
+    ts: Boolean,
     picURL: String,
     description: String,
     price: parseFloat(Number),

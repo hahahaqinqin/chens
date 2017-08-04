@@ -10,9 +10,19 @@ const mongoose       = require('mongoose');
 const Promise        = require('bluebird');
 const config         = require('config-lite')(__dirname);
 const bodyParser     = require('body-parser');
-const Admin          = require('./models/users.js');
+const cloudinary     = require('cloudinary');
+// const Admin       = require('./models/users.js');
 
 const app            = express();
+
+// using Objects Formatting Plugins
+app.locals._         = require('underscore');
+app.locals._.str     = require('underscore.string');
+app.locals.moment    = require('moment');
+
+// Simulate config options from your production environment by
+// customising the .env file in your project's root folder.
+require('dotenv').load();
 
 /**
  * Middleware session
@@ -55,6 +65,12 @@ switch (app.get('env')) {
 	default:
 		throw new Error('Unknown execution environment: ' + app.get('env'));
 }
+
+cloudinary.config({ 
+  cloud_name: config.cloudinary.cloud_name, 
+  api_key: config.cloudinary.api_key, 
+  api_secret: config.cloudinary.api_secret 
+});
 
 // Admin Sample
 // Admin.find(function (err, user) {

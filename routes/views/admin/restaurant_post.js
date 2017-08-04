@@ -22,10 +22,13 @@ router.post('/', urlencodedParser, function(req, res) {
 		name        : req.body.name,
 		onPublic    : req.body.onPublic,
 		description : req.body.description,
+		ts          : req.body.ts,
+		spicy       : req.body.spicy,
 		price       : req.body.price,
 		discount    : req.body.discount,
 		addDate     : req.body.addDate,
 		endDate     : req.body.endDate,
+		pos         : parseInt(req.body.pos),
 		tags        : req.body.tags
 	}
 	const data = new Menu(item);

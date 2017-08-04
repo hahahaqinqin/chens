@@ -1,5 +1,43 @@
 extends ../layouts/layout
-include ../components/list-product-item
+mixin list_Product_Item(post)
+	.col-sm-4.m-b-30.clearfix
+		//- START ITEM
+		.card.share.full-width(data-social='item')
+			.card-content
+				ul.buttons
+					li
+						a(href='#')
+							span.label.font-montserrat.label-danger.fs-11 NEW
+				img.lazy(alt='Quote', src='/front/assets/images/gallery_5.jpg')
+			.card-description
+				p Like if you agree
+				p.m-b-0
+					span.semi-bold.text-master.font-montserrat.bold.p-r-5 
+						i.fa.fa-dollar 
+						| 0.00
+					span.block-title.hint-text.line-through $99.00
+				p.m-b-0.text-master.fs-12 Description here
+				ul.list-unstyled.list-inline.no-margin
+						li
+							a.text-master(herf='#')
+								i.fa.fa-facebook
+						li
+							a.text-master(herf='#')
+								i.fa.fa-wechat
+						li
+							a.text-master(herf='#')
+								i.fa.fa-twitter
+						li
+							a.text-master(herf='#')
+								i.fa.fa-rss
+			.card-footer.bg-master-lightest.clearfix
+				.time few seconds ago
+				ul.reactions
+					li
+						i.fa.fa-heart.m-r-5
+						span.text-master-darkest.bold
+							| 0 
+		//- END ITEM
 
 block content
 	//- BEGIN JUMBOTRON
@@ -15,76 +53,78 @@ block content
 
 	//- BEGIN CONTENT
 	section
+		//- .container.bg-white.m-t-30.m-b-30.p-t-30
+		//- 	.col-sm-3
+		//- 		.panel.panel-default
+		//- 			.panel-heading.separator
+		//- 				.panel-title.all-caps ALL CATEGORIES
+		//- 			.panel-body.padding-15
+		//- 				form(role='form' method='GET')
+		//- 					.list-group.p-b-15.b-b.b-grey
+		//- 						a.list-group-item(href='all')
+		//- 							span.badge 20
+		//- 							|  Show All
+		//- 						a.list-group-item(href='meat')
+		//- 							span.badge 9
+		//- 							|  Meat
+		//- 						a.list-group-item(href='vegetables')
+		//- 							span.badge 8
+		//- 							|  Vegetable
+		//- 						a.list-group-item(href='ingredients')
+		//- 							span.badge 6
+		//- 							|  ingredients
+		//- 						a.list-group-item(href='snacks')
+		//- 							span.badge 2
+		//- 							|  Snacks
+		//- 					h5.all-caps.font-montserrat.fs-12.m-b-10 Advance filters
+		//- 					.form-group.form-group-default
+		//- 						label Search
+		//- 						input.form-control(type='email', placeholder='Type a specific product name.')
+		//- 					h5.all-caps.font-montserrat.fs-12.m-b-10.m-t-15 Advance filters
+		//- 					.radio.radio-primary
+		//- 						input#sale(type='radio', checked='checked', value='1', name='filter')
+		//- 						label(for='sale') On sale
+		//- 						br
+		//- 						//- input#end(type='radio', value='2', name='filter')
+		//- 						//- label(for='end') End by Tomorrow
+		//- 						//- br
+		//- 						input#Stocked(type='radio', value='3', name='filter')
+		//- 						label(for='Stocked') Stocked
+		//- 						br
+		//- 						input#cost(type='radio', value='5', name='filter')
+		//- 						label(for='cost') Never Viewed
+		//- 					button.pull-left.btn.btn-primary.btn-cons.m-t-10 Apply
+		//- 	.col-sm-9
+		//- 		.panel.panel-default
+		//- 			.panel-heading.separator
+		//- 				.panel-title.all-caps ALL
+		//- 				.panel-controls
+		//- 					.btn-group.dropdown-success
+		//- 						span.pull-left.m-l-10 Sort by:
+		//- 						a.dropdown-toggle.text-master.no-padding.m-l-10(data-toggle='dropdown', href='#')
+		//- 							| default 
+		//- 							span.caret
+		//- 						ul.dropdown-menu
+		//- 							li
+		//- 								a(href='#') Date
+		//- 							li
+		//- 								a(href='#') Alphabet
+		//- 							li
+		//- 								a(href='#') Popular
+		//- 							li
+		//- 								a(href='#') Price
+		//- 					//-
+		//- 						 <span class="pull-right m-l-5">
+		//- 																	<a href="#" class="m-l-5"><i class="fa fa-th-large"></i></a>
+		//- 																	<a href="#" class="m-l-5"><i class="fa fa-th-list"></i></a>
+		//- 																</span>
+		//- 			.panel-body.padding-15
+		//- 				.row
+		//- 					//- each post in data
+		//- 					+list_Product_Item(post)
+		//- 				//- END CATEGORY
 		.container.bg-white.m-t-30.m-b-30.p-t-30
-			.col-sm-3
-				.panel.panel-default
-					.panel-heading.separator
-						.panel-title.all-caps ALL CATEGORIES
-					.panel-body.padding-15
-						form(role='form' method='GET')
-							.list-group.p-b-15.b-b.b-grey
-								a.list-group-item(href='all')
-									span.badge 20
-									|  Show All
-								a.list-group-item(href='meat')
-									span.badge 9
-									|  Meat
-								a.list-group-item(href='vegetables')
-									span.badge 8
-									|  Vegetable
-								a.list-group-item(href='ingredients')
-									span.badge 6
-									|  ingredients
-								a.list-group-item(href='snacks')
-									span.badge 2
-									|  Snacks
-							h5.all-caps.font-montserrat.fs-12.m-b-10 Advance filters
-							.form-group.form-group-default
-								label Search
-								input.form-control(type='email', placeholder='Type a specific product name.')
-							h5.all-caps.font-montserrat.fs-12.m-b-10.m-t-15 Advance filters
-							.radio.radio-primary
-								input#sale(type='radio', checked='checked', value='1', name='filter')
-								label(for='sale') On sale
-								br
-								//- input#end(type='radio', value='2', name='filter')
-								//- label(for='end') End by Tomorrow
-								//- br
-								input#Stocked(type='radio', value='3', name='filter')
-								label(for='Stocked') Stocked
-								br
-								input#cost(type='radio', value='5', name='filter')
-								label(for='cost') Never Viewed
-							button.pull-left.btn.btn-primary.btn-cons.m-t-10 Apply
-			.col-sm-9
-				.panel.panel-default
-					.panel-heading.separator
-						.panel-title.all-caps ALL
-						.panel-controls
-							.btn-group.dropdown-success
-								span.pull-left.m-l-10 Sort by:
-								a.dropdown-toggle.text-master.no-padding.m-l-10(data-toggle='dropdown', href='#')
-									| default 
-									span.caret
-								ul.dropdown-menu
-									li
-										a(href='#') Date
-									li
-										a(href='#') Alphabet
-									li
-										a(href='#') Popular
-									li
-										a(href='#') Price
-							//-
-								 <span class="pull-right m-l-5">
-																			<a href="#" class="m-l-5"><i class="fa fa-th-large"></i></a>
-																			<a href="#" class="m-l-5"><i class="fa fa-th-list"></i></a>
-																		</span>
-					.panel-body.padding-15
-						.row
-							//- each post in data
-							+list_Product_Item(post)
-						//- END CATEGORY
+			h1 Merchandise is on the way...
 	//- END CONTENT
 
 	//- BEGIN CONTENT

@@ -31,7 +31,11 @@ block content
 								.form-group
 									label.col-sm-2.control-label Public
 									.col-sm-10
-										input#fstatus.switchery(type='checkbox', checked='')
+										input#fstatus.switchery(type='checkbox', checked='', name="onPublic")
+								.form-group
+									label.col-sm-2.control-label Today's Arrival
+									.col-sm-10
+										input#fts.switchery(type='checkbox', name="ts")
 								.form-group
 									label.col-sm-2.control-label(for='fdescription') Description
 									.col-sm-10
@@ -73,18 +77,20 @@ block js
 	script(src='/admin/assets/plugins/jquery-autonumeric/autoNumeric.js', type='text/javascript')
 	script(src='/admin/assets/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.all.min.js')
 	script(src='/admin/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js', type='text/javascript')
-	script(src='/admin/assets/plugins/bootstrap-tag/bootstrap-tagsinput.js', type='text/javascript')
+	//- script(src='/admin/assets/plugins/bootstrap-tag/bootstrap-tagsinput.js', type='text/javascript')
 	//- script(src='/admin/assets/js/scripts.js', type='text/javascript')
 	script.
 		// Number Process
 		$('.autonumeric').autoNumeric('init');
 		// Textarea
-		$('.wysiwyg5').wysihtml5();
+		//- $('.wysiwyg5').wysihtml5();
 		// Datapicker
-		$('#faddDate').datepicker();
-		$('#fendDate').datepicker();
-		// Tags
-		$('#ftags').tagsinput('item');
+		$('#faddDate').datepicker({
+			format: "mm/dd/yyyy",
+		});
+		$('#fendDate').datepicker({
+			format: "mm/dd/yyyy",
+		});
 		// Public
 		var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
 		// Success color: #10CFBD

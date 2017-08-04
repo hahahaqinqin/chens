@@ -7,8 +7,7 @@ const Mart     = require('../../models/mart.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
-	Promise.all([Mart.find(), Menu.find()]).spread(function (marts, menus) {
+	Promise.all([Mart.find({ts: true}).limit(8), Menu.find({ts: true}).limit(6)]).spread(function (marts, menus) {
 		res.render('index', {
 			title: 'Home',
 			curl: req.originalUrl,

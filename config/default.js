@@ -12,5 +12,10 @@ module.exports = {
 		production: {
 			connectionString: 'mongodb://localhost:27017/chens-test'
 		}
+	},
+	cloudinary: {
+		cloud_name: 'dva89',
+		api_key: '457997277862184',
+		api_secret: 'r5RUvWwSXq_dAv-JpQq_GQYDcE0'
 	}
 };
