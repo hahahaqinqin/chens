@@ -118,36 +118,6 @@ block content
 				.row
 					.col-sm-8.col-sm-offset-2
 						h6.block-title.m-b-0 Elegant that shines
-						h1.m-t-5.light FEATURED PRODUCTS
-		//- END INTRO CONTENT
-
-		//- BEGIN PORTFOLIO SECTION
-		section
-			.container
-				//- h1.text-center FEATURED PRODUCTS
-				.b-b.b-grey.m-t-30
-				.col-md-12.p-t-15.p-b-15.text-center
-					ul.no-style.no-margin
-						li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
-							a.link.active.text-black.fs-13.block-title(href='javascript:;') Today's Arrival
-						li.m-r-20.m-l-20.inline.xs-block.text-center
-							a.link.active.text-black.fs-13.block-title(href='/mart') more 
-								i.pg-more
-			.gallery
-				.grid-sizer.col-sm-3.col-xs-6.no-padding
-				if contextMart.length
-					each item in contextMart
-						+index_Product_Item(item)
-				else
-					p No content.
-		//- END PORTFOLIO SECTION
-
-		//- BEGIN INTRO CONTENT
-		section.p-b-20.p-t-70
-			.container.text-center
-				.row
-					.col-sm-8.col-sm-offset-2
-						h6.block-title.m-b-0 Elegant that shines
 						h1.m-t-5.light FEATURED MEAL
 		//- END INTRO CONTENT
 
@@ -172,6 +142,36 @@ block content
 							+index_Menu_Item(item)
 					else
 						p No content.
+
+		//- BEGIN INTRO CONTENT
+		section.p-b-20.p-t-70
+			.container.text-center
+				.row
+					.col-sm-8.col-sm-offset-2
+						h6.block-title.m-b-0 Elegant that shines
+						h1.m-t-5.light FEATURED PRODUCTS
+		//- END INTRO CONTENT
+
+		//- BEGIN PORTFOLIO SECTION
+		section
+			.container
+				//- h1.text-center FEATURED PRODUCTS
+				.b-b.b-grey.m-t-30
+				.col-md-12.p-t-15.p-b-15.text-center
+					ul.no-style.no-margin
+						li.m-r-20.m-l-20.inline.xs-block.text-center.xs-p-b-5.xs-m-b-5.b-grey.xs-b-b
+							a.link.active.text-black.fs-13.block-title(href='javascript:;') Today's Arrival
+						li.m-r-20.m-l-20.inline.xs-block.text-center
+							a.link.active.text-black.fs-13.block-title(href='/mart') more 
+								i.pg-more
+			.gallery.p-b-70
+				.grid-sizer.col-sm-3.col-xs-6.no-padding
+				if contextMart.length
+					each item in contextMart
+						+index_Product_Item(item)
+				else
+					p Coming soon...
+		//- END PORTFOLIO SECTION
 block js
 	//- BEGIN SWIPER DEPENDENCIES
 	script(type='text/javascript', src='/front/assets/plugins/velocity/velocity.min.js')
