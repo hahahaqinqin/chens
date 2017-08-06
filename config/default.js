@@ -17,5 +17,9 @@ module.exports = {
 		cloud_name: 'dva89',
 		api_key: '457997277862184',
 		api_secret: 'r5RUvWwSXq_dAv-JpQq_GQYDcE0'
+	},
+	gmail: {
+		user: 'Dante_Von_Armia',
+		password: 'Kzonft19891022'
 	}
 };

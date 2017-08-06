@@ -11,7 +11,8 @@ const Promise        = require('bluebird');
 const config         = require('config-lite')(__dirname);
 const bodyParser     = require('body-parser');
 const cloudinary     = require('cloudinary');
-const Admin       = require('./models/users.js');
+// const nodemailer     = require('nodemailer');
+const Admin          = require('./models/users.js');
 
 const app            = express();
 
@@ -49,16 +50,17 @@ const options = {
 		}
 	}
 };
+
 switch (app.get('env')) {
 	case 'development':
 		mongoose.connect(config.mongodb.development.connectionString, options);
-		mongoose.connection.once('open', function() {
+		mongoose.connection.once('openUrl', function() {
 			console.log("we're connected!");
 		});
 		break;
 	case 'production':
 		mongoose.connect(config.mongodb.production.connectionString, options);
-		mongoose.connection.once('open', function() {
+		mongoose.connection.once('openUrl', function() {
 			console.log("we're connected!");
 		});
 		break;
@@ -66,6 +68,7 @@ switch (app.get('env')) {
 		throw new Error('Unknown execution environment: ' + app.get('env'));
 }
 
+// Cloudinary CDN
 cloudinary.config({ 
   cloud_name: config.cloudinary.cloud_name, 
   api_key: config.cloudinary.api_key, 
@@ -81,6 +84,16 @@ cloudinary.config({
 //		unique: true
 //	}).save();
 //});
+
+// // nodemailer
+// const mailTransport = nodemailer.createTransport('SMTP', {
+// 	service: 'Gmail',
+// 	secureConnection: true,
+// 	auth: {
+// 		user: config.gmail.user,
+// 		pass: config.gmail.password
+// 	}
+// });
 
 // Add routes
 require('./routes/index.js')(app);

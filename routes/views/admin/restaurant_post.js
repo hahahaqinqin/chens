@@ -41,7 +41,7 @@ router.get('/edit/:id', function(req, res, nextd) {
 	Promise.all([Menu.find({_id: req.params.id})]).spread(function(menus) {
 		res.render('admin/restaurant_post', {
 			title: 'Mr Chen\'s Admin Page - Editing: ' + menus[0].name,
-			context: menus[0]
+			context: menus
 		});
 	});
 });
