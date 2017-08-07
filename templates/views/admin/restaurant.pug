@@ -34,7 +34,9 @@ mixin tableList(item)
 			else
 				p -
 		td.v-align-middle
+
 			a.btn.btn-tag(href='javascript:;')= item.tags
+			a.btn.btn-tag(href='javascript:;')= item.pos
 			//- if item.tags.length
 			//- 	each tag in item.tags
 			//- 		+tagArray(tag)
@@ -91,7 +93,7 @@ block js
 				"sLengthMenu": "_MENU_ ",
 				"sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
 			},
-			"iDisplayLength": 5
+			"iDisplayLength": 10
 		};
 		table.dataTable(settings);
 		// search box for table

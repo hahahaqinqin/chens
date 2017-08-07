@@ -39,6 +39,7 @@ router.post('/', urlencodedParser, function(req, res) {
 
 router.get('/edit/:id', function(req, res, nextd) {
 	Promise.all([Menu.find({_id: req.params.id})]).spread(function(menus) {
+		console.log(menus);
 		res.render('admin/restaurant_post', {
 			title: 'Mr Chen\'s Admin Page - Editing: ' + menus[0].name,
 			context: menus
@@ -48,18 +49,22 @@ router.get('/edit/:id', function(req, res, nextd) {
 
 router.post('/edit/:id', urlencodedParser, function (req, res) {
 	Promise.all([Menu.findById({_id: req.params.id})]).spread(function(doc) {
+		console.log(req.body.pos);
 		doc.name        = req.body.name;
+		doc.pos         = parseInt(req.body.pos);
+		doc.tags        = req.body.tags;
 		doc.onPublic    = req.body.onPublic;
-		doc.description = req.body.description;
 		doc.ts          = req.body.ts;
-		doc.spicy       = req.body.spicy;
 		doc.price       = req.body.price;
 		doc.discount    = req.body.discount;
+		doc.description = req.body.description;
+		doc.spicy       = req.body.spicy;
 		doc.addDate     = req.body.addDate;
-		doc.endDate     = req.body.endDate;
-		doc.pos         = req.body.pos;
-		doc.tags        = req.body.tags;
-		
+		if(req.body.endDate == null)
+			doc.endDate = "";
+		else
+			doc.endDate = req.body.endDate;
+		console.log(doc);
 		doc.save();
 	});
 	res.redirect('/admin/restaurant');
