@@ -55,10 +55,7 @@ router.post('/edit/:id', urlencodedParser, function (req, res) {
 		doc.price       = req.body.price;
 		doc.discount    = req.body.discount;
 		doc.addDate     = req.body.addDate;
-		if(req.body.endDate !== "" || req.body.endDate !== undefined)
-			doc.endDate     = req.body.endDate;
-		else
-			doc.endDate = "";
+		doc.endDate     = req.body.endDate;
 		doc.tags        = req.body.tags;
 		doc.save();
 	});

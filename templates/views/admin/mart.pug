@@ -23,9 +23,15 @@ mixin tableList(item)
 		td.v-align-middle
 			p= item.discount
 		td.v-align-middle
-			p #{moment(item.addDate).format('MM-DD-YYYY')}
+			if item.addDate
+				p #{moment(item.addDate).format('MM-DD-YYYY')}
+			else
+				p -
 		td.v-align-middle
-			p #{moment(item.endDate).format('MM-DD-YYYY')}
+			if item.endDate
+				p #{moment(item.endDate).format('MM-DD-YYYY')}
+			else
+				p -
 		td.v-align-middle
 			a.btn.btn-tag(href='javascript:;')= item.tags
 
