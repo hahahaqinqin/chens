@@ -5,6 +5,11 @@ mixin list_Menu_Item(item)
 			span= item.tags
 			span.m-r-10= item.pos
 			span= item.name
+			-var nT = new Date().getDate(); // Now time
+			-var gT = item.endDate.getDate();// Goal Time
+			-var distant = nT - gT;
+			if distant <= 5
+				span.badge.badge-danger.m-l-15 New
 			if item.spicy
 				span.m-l-10
 				-for(var x = 0; x < item.spicy; x++)				
@@ -151,6 +156,8 @@ block content
 					#mt.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Milk tea
+							p.hint-text.fs-12
+								| Iced Or Hot Flavored Milk Tea(Add Tapioca, Lychee Jelly, Pudding Or Grass Jelly will$0.50 Each More)
 							ul.list-inline.m-t-15.clearfix
 								if contextMT	
 									if contextMT.length
