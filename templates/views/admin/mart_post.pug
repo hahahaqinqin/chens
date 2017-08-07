@@ -31,6 +31,10 @@ block content
 											.col-sm-10
 												input#fname.form-control(type='text', placeholder='Full name', name='name', value=context[0].name, required)
 										.form-group
+											label.col-sm-2.control-label(for='fprice') Price
+											.col-sm-10
+												input#fprice.autonumeric.form-control(type='text', placeholder='$0.00', name='price', value=context[0].price, data-a-dec='.', data-a-sep=',', data-a-sign='', required)
+										.form-group
 											label.col-sm-2.control-label Public
 											.col-sm-10
 												input#fstatus.switchery(type='checkbox', checked=context[0].onPublic, name="onPublic")
@@ -42,10 +46,6 @@ block content
 											label.col-sm-2.control-label(for='fdescription') Description
 											.col-sm-10
 												textarea.wysiwyg5.wysiwyg.form-control(placeholder='Enter text ...', name='description')= context[0].description
-										.form-group
-											label.col-sm-2.control-label(for='fprice') Price
-											.col-sm-10
-												input#fprice.autonumeric.form-control(type='text', placeholder='$0.00', name='price', value=context[0].price, data-a-dec='.', data-a-sep=',', data-a-sign='', required)
 										.form-group
 											label.col-sm-2.control-label(for='fdiscount') Discount
 											.col-sm-10
