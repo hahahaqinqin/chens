@@ -47,17 +47,19 @@ router.get('/edit/:id', function(req, res, nextd) {
 
 router.post('/edit/:id', urlencodedParser, function (req, res) {
 	Promise.all([Mart.findById({_id: req.params.id})]).spread(function(doc) {
-		doc.sku         = req.body.sku,
-		doc.name        = req.body.name,
-		doc.onPublic    = req.body.onPublic,
-		doc.description = req.body.description,
-		doc.ts          = req.body.ts,
-		doc.price       = req.body.price,
-		doc.discount    = req.body.discount,
-		doc.addDate     = req.body.addDate,
-		doc.endDate     = req.body.endDate,
-		doc.tags        = req.body.tags
-		
+		doc.sku         = req.body.sku;
+		doc.name        = req.body.name;
+		doc.onPublic    = req.body.onPublic;
+		doc.description = req.body.description;
+		doc.ts          = req.body.ts;
+		doc.price       = req.body.price;
+		doc.discount    = req.body.discount;
+		doc.addDate     = req.body.addDate;
+		if(req.body.endDate !== "" || req.body.endDate !== undefined)
+			doc.endDate     = req.body.endDate;
+		else
+			doc.endDate = "";
+		doc.tags        = req.body.tags;
 		doc.save();
 	});
 	res.redirect('/admin/mart');
