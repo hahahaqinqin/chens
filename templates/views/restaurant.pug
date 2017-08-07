@@ -2,9 +2,9 @@ extends ../layouts/layout
 mixin list_Menu_Item(item)
 	li.col-xs-12.block-title.m-b-15.p-r-15
 		.b-b.b-grey.b-dashed.p-b-5
-			span= item.name
-			span.m-l-10= item.tags
+			span.m-r-10= item.tags
 			span= item.pos
+			span= item.name
 			if item.spicy
 				span.m-l-10
 				-for(var x = 0; x < item.spicy; x++)				
