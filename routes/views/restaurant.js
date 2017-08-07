@@ -7,49 +7,64 @@ const Menu    = require('../../models/menu.js');
 router.get('/', function(req, res, next) {
 	Promise.all([
 		Menu.find({
-			tags: 'l'
+			tags: 'l',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 'mt'
+			tags: 'mt',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 'a'
+			tags: 'a',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 'ap'
+			tags: 'ap',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 's'
+			tags: 's',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 'v'
+			tags: 'v',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 'k'
+			tags: 'k',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 'c'
+			tags: 'c',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 'b'
+			tags: 'b',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 's'
+			tags: 's',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 't'
+			tags: 't',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 'p'
+			tags: 'p',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 'r'
+			tags: 'r',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 'n'
+			tags: 'n',
+			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 'w'
+			tags: 'w',
+			onPublic: true
 		}).sort({pos: 1})
 	]).spread(function(mL, mMT, mA, mAp, mS, mV, mK, mC, mB, mS, mT, mP, mR, mN, mW) {
 		res.render('restaurant', {
