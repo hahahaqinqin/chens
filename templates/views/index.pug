@@ -17,13 +17,13 @@ mixin index_Product_Item(item)
 			h6.block-title.fs-11.hint-text.text-white.m-t-5.m-b-0 #{moment(item.addDate).format('MM-DD-YYYY')}
 			p.font-arial.fs-11.text-white.muted.m-t-5.m-b-0.hidden-sm= item.description
 		.ar-1-1
-			div(data-pages-bg-image='/front/assets/images/gallery_3.jpg', data-bg-overlay='black', data-overlay-opacity='0.4')
+			div(data-pages-bg-image='http://via.placeholder.com/500?text=Pic_Example', data-bg-overlay='black', data-overlay-opacity='0.4')
 	//- END
 
 //- START MENU-LIST
 mixin index_Menu_Item(item)
 	.col-xs-12.col-sm-4.post-card
-		img.lazy.image-responsive-height(draggable='false', src="/front/assets/images/meal1.jpg", alt="")
+		img.lazy.image-responsive-height(draggable='false', src="http://via.placeholder.com/300?text=Pic_Example", alt="")
 		.post-card-body
 			.m-t-30
 				h5.all-caps.font-montserrat.no-margin= item.name
