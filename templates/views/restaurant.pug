@@ -16,6 +16,7 @@ mixin list_Menu_Item(item)
 					span.p-r-5=  dPrice.substr(0, dPrice.length-1)
 					span.block-title.hint-text.line-through= item.price
 				else
+					i.fa.fa-dollar.m-r-5
 					span.p-r-5= item.price
 
 mixin grid_Menu_Item(item)
