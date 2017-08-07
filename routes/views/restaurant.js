@@ -3,7 +3,7 @@ const router  = express.Router();
 const Promise = require('bluebird');
 const Menu    = require('../../models/menu.js');
 
-/* GET home page. */
+/* GET restaurant page. */
 router.get('/', function(req, res, next) {
 	Promise.all([
 		Menu.find({

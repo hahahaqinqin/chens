@@ -19,10 +19,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/',urlencodedParser, function(req, res) {
 	const item = {
-		fname: req.body.fname,
-		lname: req.body.lname,
 		mail: req.body.mail,
-		addDate: '2017-08-01',
+		addDate: new Date().now,
 	}
 	const data = new Enq(item);
 

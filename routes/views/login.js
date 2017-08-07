@@ -10,7 +10,7 @@ const jsonParser = bodyParser.json()
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
  
 
-/* GET home page. */
+/* GET login page. */
 router.get('/', function(req, res, next) {
 	res.render('login', {
 		title: 'Mr Chen\'s - Access Gate',
