@@ -43,7 +43,7 @@ router.get('/', function(req, res, next) {
 			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
-			tags: 's',
+			tags: 'sf',
 			onPublic: true
 		}).sort({pos: 1})
 		, Menu.find({
