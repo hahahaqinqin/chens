@@ -97,17 +97,18 @@ mixin header
 								//- 								a(href='http://pages.revox.io/dashboard/latest/html/builder.html', target='_blank') Builder
 							li
 								a(class={active: curl === '/mart'} href='/mart', data-text='Mart') Mart
+							li
+								a(class={active: curl === '/contact'} href='/contact', data-text='Contact Us') Contact Us
 						//- END MENU ITEMS
 				.pull-right.sm-full-width
 					.header-inner
 						//- BEGIN MENU ITEMS
 						ul.menu
 							li
-								a(class={active: curl === '/contact'} href='/contact', data-text='Contact Us') Contact Us
-							li
 								a(herf='javascript:;', data-text='phone') 
 									i.m-l-10.fa.fa-cutlery.m-r-10
 									| (334) 260-9558 
+							li
 								a(herf='javascript:;', data-text='phone') 
 									i.m-l-10.fa.fa-shopping-cart.m-r-10
 									| (334) 260-9950

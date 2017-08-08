@@ -1,7 +1,7 @@
 extends ../layouts/layout
 mixin list_Menu_Item(item)
 	li.col-xs-12.block-title.m-b-15.p-r-15
-		.b-b.b-grey.b-dashed.p-b-5
+		.b-b.b-grey.b-dashed.p-b-10
 			span= item.tags
 			span.m-r-10= item.pos
 			span= item.name
@@ -77,11 +77,6 @@ block content
 					li.b-b.b-dashed.b-grey.active
 						a.list-group-item(data-toggle='tab', href='#l')
 							span.badge= contextL.length
-							//- span.badge.badge-danger New
-							//- if context.length
-							//- 	each item in context 
-							//- 		if item.discount > 0
-							//- 			span.badge.badge-success On Sale
 							| Lunch's Special
 					li.b-b.b-dashed.b-grey
 						a.list-group-item(data-toggle='tab', href='#mt')
@@ -154,7 +149,7 @@ block content
 										each item in contextL
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#mt.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Milk tea
@@ -166,7 +161,7 @@ block content
 										each item in contextMT
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#a.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Cold Plate & Salad
@@ -176,7 +171,7 @@ block content
 										each item in contextA
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#ap.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Appetizer
@@ -186,7 +181,7 @@ block content
 										each item in contextAp
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#s.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Soup & Clay Pot
@@ -196,7 +191,7 @@ block content
 										each item in contextS
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#v.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Vegetable
@@ -206,7 +201,7 @@ block content
 										each item in contextV
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#k.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Kids Menu
@@ -216,7 +211,7 @@ block content
 										each item in contextK
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#c.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Chicken
@@ -226,7 +221,7 @@ block content
 										each item in contextC
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#b.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Beef
@@ -236,7 +231,7 @@ block content
 										each item in contextB
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#s.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Seafood
@@ -246,7 +241,7 @@ block content
 										each item in contextS
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#t.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Tofu
@@ -256,7 +251,7 @@ block content
 										each item in contextT
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#p.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Pork
@@ -266,7 +261,7 @@ block content
 										each item in contextP
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#r.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Rice
@@ -276,7 +271,7 @@ block content
 										each item in contextR
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#n.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Noodle
@@ -286,7 +281,7 @@ block content
 										each item in contextN
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 					#w.tab-pane.fade
 						.row.p-l-20.p-r-20.p-b-20.p-t-5.xs-no-padding
 							h5.font-montserrat.text-uppercase.fs-14.hint-text Wine
@@ -296,5 +291,5 @@ block content
 										each item in contextW
 											+list_Menu_Item(item)
 									else
-										p No content.
+										p Coming soon...
 	//- END CONTENT
