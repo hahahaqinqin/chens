@@ -54,15 +54,9 @@ const options = {
 switch (app.get('env')) {
 	case 'development':
 		mongoose.connect(config.mongodb.development.connectionString, options);
-		mongoose.connection.once('openUrl', function() {
-			console.log("we're connected!");
-		});
 		break;
 	case 'production':
 		mongoose.connect(config.mongodb.production.connectionString, options);
-		mongoose.connection.once('openUrl', function() {
-			console.log("we're connected!");
-		});
 		break;
 	default:
 		throw new Error('Unknown execution environment: ' + app.get('env'));
