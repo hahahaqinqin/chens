@@ -44,11 +44,14 @@ mongoose.Promise = global.Promise;
  * Database Configuration
  */
 const options = {
+	useMongoClient: true,
 	server: {
 		socketOptions: {
-			keepAlive: 1
+			socketTimeoutMS: 0,
+			keepAlive: true
 		}
-	}
+	},
+	reconnectTries: 30
 };
 
 switch (app.get('env')) {
