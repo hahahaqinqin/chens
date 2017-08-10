@@ -45,12 +45,8 @@ mongoose.Promise = global.Promise;
  */
 const options = {
 	useMongoClient: true,
-	server: {
-		socketOptions: {
-			socketTimeoutMS: 0,
-			keepAlive: true
-		}
-	},
+	socketTimeoutMS: 0,
+	keepAlive: true,
 	reconnectTries: 30
 };
 
