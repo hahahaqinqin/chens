@@ -1,11 +1,11 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var enquirySchema  = mongoose.Schema({
-	fname: String,
-	lname: String,
-	mail: String,
-	addDate: Date,
-	content: String
+const enquirySchema  = mongoose.Schema({
+	fname   : String,
+	lname   : String,
+	mail    : String,
+	addDate : Date,
+	content : String
 },{collection: 'enquiries'});
-var Enquiries =mongoose.model('Enquiries', enquirySchema);
+const Enquiries =mongoose.model('Enquiries', enquirySchema);
 module.exports = Enquiries;

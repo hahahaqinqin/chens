@@ -1,3 +1,4 @@
+
 // Libs
 const express        = require('express');
 const path           = require('path');
@@ -8,10 +9,10 @@ const lessMiddleware = require('less-middleware');
 const session        = require('express-session');
 const mongoose       = require('mongoose');
 const Promise        = require('bluebird');
-const config         = require('config-lite')(__dirname);
+const _config        = require('config-lite')(__dirname);
 const bodyParser     = require('body-parser');
-const cloudinary     = require('cloudinary');
-// const nodemailer     = require('nodemailer');
+// const nodemailer  = require('nodemailer');
+const cloudinary     = require('cloudinary').v2;
 const Admin          = require('./models/users.js');
 
 const app            = express();
@@ -26,23 +27,44 @@ app.locals.moment    = require('moment');
 require('dotenv').load();
 
 /**
+ * Cloudinary CDN ???env doesn't work
+ */
+
+// cloudinary.config({
+// 	cloud_name: _config.cloudinary.cloud_name,
+// 	api_key: _config.cloudinary.api_key,
+// 	api_secret: _config.cloudinary.api_secret
+// });
+
+if (typeof(process.env.CLOUDINARY_URL) == 'undefined') {
+	console.warn('!! cloudinary config is undefined !!');
+	console.warn('export CLOUDINARY_URL or set dotenv file')
+} else {
+	console.log(process.env.CLOUDINARY_URL);
+	console.log('cloudinary config:');
+	console.log(cloudinary.config())
+}
+
+/**
  * Middleware session
  */
+
 app.use(session({
-	name: config.session.key,
-	secret: config.session.cookieSecret,
+	name: _config.session.key,
+	secret: _config.session.cookieSecret,
 	resave: true,
 	saveUninitialized: false,
 	cookie: {
-		maxAge: config.session.maxAge
+		maxAge: _config.session.maxAge
 	}
 }));
 
-mongoose.Promise = global.Promise;
 
 /**
  * Database Configuration
  */
+
+mongoose.Promise = global.Promise;
 const options = {
 	useMongoClient: true,
 	socketTimeoutMS: 0,
@@ -52,31 +74,24 @@ const options = {
 
 switch (app.get('env')) {
 	case 'development':
-		mongoose.connect(config.mongodb.development.connectionString, options);
+		mongoose.connect(_config.mongodb.development.connectionString, options);
 		break;
 	case 'production':
-		mongoose.connect(config.mongodb.production.connectionString, options);
+		mongoose.connect(_config.mongodb.production.connectionString, options);
 		break;
 	default:
 		throw new Error('Unknown execution environment: ' + app.get('env'));
 }
 
-// Cloudinary CDN
-cloudinary.config({ 
-  cloud_name: config.cloudinary.cloud_name, 
-  api_key: config.cloudinary.api_key, 
-  api_secret: config.cloudinary.api_secret 
-});
-
 // Admin Sample
-//Admin.find(function (err, user) {
-//	if(user.length) return;
-//	new Admin({
-//		name: "mrchens",
-//		password: "admin123",
-//		unique: true
-//	}).save();
-//});
+Admin.find(function (err, user) {
+	if(user.length) return;
+	new Admin({
+		name: "mrchens",
+		password: "admin123",
+		unique: true
+	}).save();
+});
 
 // // nodemailer
 // const mailTransport = nodemailer.createTransport('SMTP', {

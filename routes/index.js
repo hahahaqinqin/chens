@@ -16,6 +16,7 @@ const loginView               = require('./views/login');
 const logoutView              = require('./views/logout');
 // Other
 const thanksView              = require('./views/thanks');
+const uploadView              = require('./views/upload');
 const middleware              = require('../middlewares/authorized');
 
 module.exports = function(app) {
@@ -34,6 +35,9 @@ module.exports = function(app) {
 
 	// Thanks
 	app.use('/thanks', thanksView);
+
+	// Upload-Test
+	app.use('/upload', uploadView);
 
 	// Create admin routes; these can be defined anywhere
 	app.use('/admin', middleware.checkLogin, adminHomeView);
