@@ -18,7 +18,8 @@ mixin tableList(item)
 		td.v-align-middle
 			p= item.onPublic
 		td.v-align-middle
-			p= item.description
+			if item.picURL
+				img(src=item.picURL.url)
 		td.v-align-middle
 			p= item.price
 		td.v-align-middle
@@ -34,9 +35,8 @@ mixin tableList(item)
 			else
 				p -
 		td.v-align-middle
-
 			a.btn.btn-tag(href='javascript:;')= item.tags
-			a.btn.btn-tag(href='javascript:;')= item.pos
+			span= item.pos
 			//- if item.tags.length
 			//- 	each tag in item.tags
 			//- 		+tagArray(tag)
@@ -60,7 +60,7 @@ block content
 							tr
 								th Name
 								th Public
-								th Description
+								th Picture
 								th 
 									| Price
 									i.fa.fa-dollar.m-l-5

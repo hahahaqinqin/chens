@@ -21,7 +21,7 @@ block content
 						.col-sm-10
 							if context
 								if context.length
-									form#form-work.form-horizontal(role='form', autocomplete='off', method='post')
+									form#form-work.form-horizontal(role='form', enctype='multipart/form-data', autocomplete='off', method='post')
 										.form-group
 											label.col-sm-2.control-label(for='fname') Name
 											.col-sm-10
@@ -34,6 +34,13 @@ block content
 											label.col-sm-2.control-label(for='fpos') Position
 											.col-sm-10
 												input#fpos.form-control(type='text', placeholder='1~99' value=context[0].pos, name='pos')
+										.form-group
+											label.col-sm-2.control-label(for='photo_image') Image:
+											.col-sm-10
+												if context[0].picURL.url
+													img(src=context[0].picURL.url)
+												input#photo_image.form_controls(name='picURL', type='file')
+												input#photo_image_cache(name='image_cache', type='hidden')
 										.form-group
 											label.col-sm-2.control-label Public
 											.col-sm-10
@@ -76,7 +83,7 @@ block content
 											.col-sm-offset-2.col-sm-10
 												button.btn.btn-success(type='submit') Submit
 							else
-								form#form-work.form-horizontal(role='form', autocomplete='off', method='post')
+								form#form-work.form-horizontal(role='form', enctype='multipart/form-data', autocomplete='off', method='post')
 									.form-group
 										label.col-sm-2.control-label(for='fname') Name
 										.col-sm-10
@@ -89,6 +96,11 @@ block content
 										label.col-sm-2.control-label(for='ftags') Tags
 										.col-sm-10
 											input#ftags.form-control(type='text', value='', name='tags', placeholder='Tags')
+									.form-group
+										label.col-sm-2.control-label(for='photo_image') Image:
+										.col-sm-10
+											input#photo_image.form_controls(name='picURL', type='file')
+											input#photo_image_cache(name='image_cache', type='hidden')
 									.form-group
 										label.col-sm-2.control-label Public
 										.col-sm-10

@@ -1,4 +1,3 @@
-
 // Libs
 const express        = require('express');
 const path           = require('path');
@@ -11,10 +10,9 @@ const mongoose       = require('mongoose');
 const Promise        = require('bluebird');
 const _config        = require('config-lite')(__dirname);
 const bodyParser     = require('body-parser');
-// const nodemailer  = require('nodemailer');
-const cloudinary     = require('cloudinary').v2;
+// const nodemailer     = require('nodemailer');
+const cloudinary     = require('cloudinary');
 const Admin          = require('./models/users.js');
-
 const app            = express();
 
 // using Objects Formatting Plugins
@@ -27,22 +25,60 @@ app.locals.moment    = require('moment');
 require('dotenv').load();
 
 /**
- * Cloudinary CDN ???env doesn't work
+ * Cloudinary CDN ???
+ * env doesn't work
+ * Temporary solution down here
  */
-
 // cloudinary.config({
 // 	cloud_name: _config.cloudinary.cloud_name,
 // 	api_key: _config.cloudinary.api_key,
 // 	api_secret: _config.cloudinary.api_secret
 // });
 
+
+// Wire request 'pre' actions
+wirePreRequest(app);
+
+// Wire request 'post' actions
+wirePostRequest(app);
+
+function wirePreRequest(app){
+  app.use(function (req, res, next) {
+    console.log(req.method +" "+ req.url);
+    res.locals.req = req;
+    res.locals.res = res;
+
+    if (typeof(process.env.CLOUDINARY_URL)=='undefined'){
+      throw new Error('Missing CLOUDINARY_URL environment variable')
+    }else{
+      // Expose cloudinary package to view
+      res.locals.cloudinary = cloudinary;
+      next()
+    }
+  })
+}
+
+function wirePostRequest(app){
+  app.use(function(err, req, res, next){
+    if (err.message && (~err.message.indexOf('not found') || (~err.message.indexOf('Cast to ObjectId failed')))) {
+      return next()
+    }
+    console.log('error (500) '+err.message);
+    console.log(err.stack);
+    if (~err.message.indexOf('CLOUDINARY_URL')){
+      res.status(500).render('errors/dotenv', { error: err})
+    }else{
+      res.status(500).render('errors/500', { error: err})
+    }
+  })
+}
+
 if (typeof(process.env.CLOUDINARY_URL) == 'undefined') {
 	console.warn('!! cloudinary config is undefined !!');
 	console.warn('export CLOUDINARY_URL or set dotenv file')
 } else {
-	console.log(process.env.CLOUDINARY_URL);
-	console.log('cloudinary config:');
-	console.log(cloudinary.config())
+	console.log('Cloudinary Config: ');
+	console.log(cloudinary.config());
 }
 
 /**
@@ -58,7 +94,6 @@ app.use(session({
 		maxAge: _config.session.maxAge
 	}
 }));
-
 
 /**
  * Database Configuration
@@ -146,6 +181,4 @@ app.use(function(err, req, res, next) {
 // disable header
 app.disable('x-powered-by');
 
-// JSON(middleware)
-// app.use(require('body-parser')());
 module.exports = app;

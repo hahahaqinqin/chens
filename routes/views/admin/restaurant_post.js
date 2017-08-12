@@ -2,6 +2,7 @@ const express          = require('express');
 const router           = express.Router();
 const bodyParser       = require('body-parser');
 const Promise          = require('bluebird');
+const cloudinary       = require('cloudinary');
 const Menu             = require('../../../models/menu.js');
 
 // create application/json parser 
@@ -19,6 +20,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', urlencodedParser, function(req, res) {
+	if (req.files.picURL.ws.bytesWritten == 0) {
+		// console.log(req.files.picURL.ws.bytesWritten);
+		return;
+	}
 	const item = {
 		name        : req.body.name,
 		onPublic    : req.body.onPublic,
@@ -33,8 +38,29 @@ router.post('/', urlencodedParser, function(req, res) {
 		tags        : req.body.tags
 	}
 	const data = new Menu(item);
-	data.save();
-	res.redirect('/admin/restaurant/post');
+
+	if (req.files.picURL) {
+		// Get temp file path 
+		const imageFile = req.files.picURL.path;
+		// Upload file to Cloudinary
+		cloudinary.uploader.upload(imageFile, {
+				tags: 'menus'
+			})
+			.then(function(picURL) {
+				// console.log('** file uploaded to Cloudinary service');
+				// console.dir(picURL);
+				data.picURL = picURL;
+				// Save photo with picURL metadata
+				data.save();
+				res.redirect('/admin/restaurant/post');
+			})
+			.finally(function(data) {
+				// console.log('** photo saved')
+			})
+	} else {
+		data.save();
+		res.redirect('/admin/restaurant/post');
+	}
 })
 
 router.get('/edit/:id', function(req, res, nextd) {
@@ -48,6 +74,7 @@ router.get('/edit/:id', function(req, res, nextd) {
 
 router.post('/edit/:id', urlencodedParser, function (req, res) {
 	Promise.all([Menu.findById({_id: req.params.id})]).spread(function(doc) {
+		console.log(doc.picURL);
 		doc.name        = req.body.name;
 		doc.onPublic    = req.body.onPublic;
 		doc.description = req.body.description;
@@ -59,7 +86,27 @@ router.post('/edit/:id', urlencodedParser, function (req, res) {
 		doc.addDate     = req.body.addDate;
 		doc.endDate     = req.body.endDate,
 		doc.pos         = parseInt(req.body.pos);
-		doc.save();
+
+		if (req.files.picURL) {
+			// Get temp file path 
+			const imageFile = req.files.picURL.path;
+			// Upload file to Cloudinary
+			cloudinary.uploader.upload(imageFile, {
+					tags: 'menus'
+				})
+				.then(function(picURL) {
+					console.log('** file uploaded to Cloudinary service');
+					console.dir(picURL);
+					doc.picURL = picURL;
+					// Save photo with picURL metadata
+					doc.save();
+				})
+				.finally(function(data) {
+					console.log('** photo saved')
+				})
+		} else {
+			doc.save();
+		}
 	});
 	res.redirect('/admin/restaurant');
 });

@@ -18,6 +18,9 @@ const logoutView              = require('./views/logout');
 const thanksView              = require('./views/thanks');
 const uploadView              = require('./views/upload');
 const middleware              = require('../middlewares/authorized');
+const multipart               = require('connect-multiparty');
+const multipartMiddleware     = multipart();
+
 
 module.exports = function(app) {
 	// Index
@@ -44,11 +47,11 @@ module.exports = function(app) {
 
 	// Restaurant Management
 	app.use('/admin/restaurant', middleware.checkLogin, adminRestaurantView);
-	app.use('/admin/restaurant/post', middleware.checkLogin, adminRestaurantPostView);
+	app.use('/admin/restaurant/post', middleware.checkLogin, multipartMiddleware, adminRestaurantPostView);
 
 	// Mart Management
 	app.use('/admin/mart', middleware.checkLogin, adminMartView);
-	app.use('/admin/mart/post', middleware.checkLogin, adminMartPostView);
+	app.use('/admin/mart/post', middleware.checkLogin, multipartMiddleware, adminMartPostView);
 
 	// Enquiries Management
 	app.use('/admin/enquiries', middleware.checkLogin, adminEnquiriesView);
