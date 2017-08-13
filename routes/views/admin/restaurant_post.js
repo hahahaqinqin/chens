@@ -74,7 +74,6 @@ router.get('/edit/:id', function(req, res, nextd) {
 
 router.post('/edit/:id', urlencodedParser, function (req, res) {
 	Promise.all([Menu.findById({_id: req.params.id})]).spread(function(doc) {
-		console.log(doc.picURL);
 		doc.name        = req.body.name;
 		doc.onPublic    = req.body.onPublic;
 		doc.description = req.body.description;
