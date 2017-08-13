@@ -1,4 +1,5 @@
 // Libs
+require('dotenv').config();
 const express        = require('express');
 const path           = require('path');
 const favicon        = require('serve-favicon');
@@ -11,7 +12,7 @@ const Promise        = require('bluebird');
 const _config        = require('config-lite')(__dirname);
 const bodyParser     = require('body-parser');
 // const nodemailer     = require('nodemailer');
-const cloudinary     = require('cloudinary').v2;
+const cloudinary     = require('cloudinary');
 const Admin          = require('./models/users.js');
 const app            = express();
 
@@ -22,18 +23,18 @@ app.locals.moment    = require('moment');
 
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
-require('dotenv').load();
 
 /**
  * Cloudinary CDN ???
  * env doesn't work
  * Temporary solution down here
  */
-cloudinary.config({
-	cloud_name: _config.cloudinary.cloud_name,
-	api_key: _config.cloudinary.api_key,
-	api_secret: _config.cloudinary.api_secret
-});
+
+// cloudinary.config({
+// 	cloud_name: _config.cloudinary.cloud_name,
+// 	api_key: _config.cloudinary.api_key,
+// 	api_secret: _config.cloudinary.api_secret
+// });
 
 // Wire request 'pre' actions
 wirePreRequest(app);
