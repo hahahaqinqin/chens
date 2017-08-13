@@ -34,8 +34,6 @@ require('dotenv').load();
 // 	api_key: _config.cloudinary.api_key,
 // 	api_secret: _config.cloudinary.api_secret
 // });
-
-
 // Wire request 'pre' actions
 wirePreRequest(app);
 

@@ -10,7 +10,6 @@ const jsonParser       = bodyParser.json();
  
 // create application/x-www-form-urlencoded parser 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
-
 /* GET contact page. */
 router.get('/', function(req, res, next) {
 	res.render('admin/restaurant_post', {

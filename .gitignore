@@ -5,3 +5,4 @@ public/vendor/
 #others
 .DS_STore
 *.bak
+.env
