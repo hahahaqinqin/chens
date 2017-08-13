@@ -11,7 +11,7 @@ const Promise        = require('bluebird');
 const _config        = require('config-lite')(__dirname);
 const bodyParser     = require('body-parser');
 // const nodemailer     = require('nodemailer');
-const cloudinary     = require('cloudinary');
+const cloudinary     = require('cloudinary').v2;
 const Admin          = require('./models/users.js');
 const app            = express();
 

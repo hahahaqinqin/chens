@@ -2,7 +2,7 @@ const express          = require('express');
 const router           = express.Router();
 const bodyParser       = require('body-parser');
 const Promise          = require('bluebird');
-const cloudinary       = require('cloudinary');
+const cloudinary       = require('cloudinary').v2;
 const Menu             = require('../../../models/menu.js');
 
 // create application/json parser 
