@@ -29,11 +29,12 @@ require('dotenv').load();
  * env doesn't work
  * Temporary solution down here
  */
-// cloudinary.config({
-// 	cloud_name: _config.cloudinary.cloud_name,
-// 	api_key: _config.cloudinary.api_key,
-// 	api_secret: _config.cloudinary.api_secret
-// });
+cloudinary.config({
+	cloud_name: _config.cloudinary.cloud_name,
+	api_key: _config.cloudinary.api_key,
+	api_secret: _config.cloudinary.api_secret
+});
+
 // Wire request 'pre' actions
 wirePreRequest(app);
 
