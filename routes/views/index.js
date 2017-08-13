@@ -21,6 +21,11 @@ router.get('/', function(req, res, next) {
 	}).limit(8), Menu.find({
 		ts: true
 	}).limit(6)]).spread(function(marts, menus) {
+		req.flash = {
+			type: 'success',
+			intro: 'Page Init',
+			Message: 'Welcome Traitor!'
+		};
 		res.render('index', {
 			title       : 'Home',
 			curl        : req.originalUrl,
