@@ -1,5 +1,6 @@
 include ../layouts/nav
 include ../layouts/foot
+include ../mixins/flash-messages
 
 doctype html
 html
@@ -27,6 +28,7 @@ html
 		//- END PAGES CSS
 	body.pace-dark
 		+header
+		+flash-messages(messages)
 		block content
 		+footer
 		//- START OVERLAY

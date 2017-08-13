@@ -18,6 +18,7 @@
     "dotenv": "^4.0.0",
     "express": "~4.15.2",
     "express-session": "^1.15.3",
+    "hooks": "^0.3.2",
     "jquery-file-upload-middleware": "^0.1.8",
     "less-middleware": "~2.2.0",
     "moment": "^2.18.1",

@@ -11,9 +11,11 @@ const mongoose       = require('mongoose');
 const Promise        = require('bluebird');
 const _config        = require('config-lite')(__dirname);
 const bodyParser     = require('body-parser');
-// const nodemailer     = require('nodemailer');
+// const nodemailer  = require('nodemailer');
 const cloudinary     = require('cloudinary');
+const flash          = require('connect-flash');
 const Admin          = require('./models/users.js');
+const middleware     = require('./middlewares/flashMessages.js');
 const app            = express();
 
 // using Objects Formatting Plugins
@@ -44,7 +46,7 @@ wirePostRequest(app);
 
 function wirePreRequest(app){
   app.use(function (req, res, next) {
-    console.log(req.method +" "+ req.url);
+    // console.log(req.method +" "+ req.url);
     res.locals.req = req;
     res.locals.res = res;
 
@@ -77,8 +79,8 @@ if (typeof(process.env.CLOUDINARY_URL) == 'undefined') {
 	console.warn('!! cloudinary config is undefined !!');
 	console.warn('export CLOUDINARY_URL or set dotenv file')
 } else {
-	console.log('Cloudinary Config: ');
-	console.log(cloudinary.config());
+	// console.log('Cloudinary Config: ');
+	// console.log(cloudinary.config());
 }
 
 /**
@@ -94,6 +96,7 @@ app.use(session({
 		maxAge: _config.session.maxAge
 	}
 }));
+app.use(flash());
 
 /**
  * Database Configuration
@@ -152,8 +155,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
-app.use(cookieParser());
-
+app.use(cookieParser(_config.session.cookieSecret));
 
 // Less Compile
 app.use(lessMiddleware(path.join(__dirname, 'public')));
